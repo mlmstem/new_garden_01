@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LowPolyFarmLite/Scenes/Main Scene.unity
+    guid: 02b22eabe90848144a0d8977d339b3ee
   m_configObjects: {}
