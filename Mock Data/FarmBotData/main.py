@@ -37,10 +37,9 @@ class Status:
 class Plant:
     def __init__(self, plant_id, plant_type):
         self.id = plant_id
-        self.timestamp = datetime.now()
         self.plant_type = plant_type
         self.start_date = datetime(2023, 1, 1) + timedelta(
-            days=random.randint(0, (self.timestamp - datetime(2023, 1, 1)).days))
+            days=random.randint(0, (datetime.now() - datetime(2023, 1, 1)).days))
         self.position = ((self.id - 1) % 4 + 1, (self.id - 1) // 4 + 1, 1)
         self.moisture = random.uniform(40, 80)
         self.temperature = random.uniform(15, 30)
@@ -55,8 +54,7 @@ class Plant:
 # Refined decay function
 def refined_decay_plant(plant, periods=1):
     for _ in range(periods):
-        plant.timestamp += timedelta(hours=6)
-        if 18 <= plant.timestamp.hour < 24 or 0 <= plant.timestamp.hour < 6:
+        if 18 <= datetime.now().hour < 24 or 0 <= datetime.now().hour < 6:
             plant.temperature -= random.uniform(0.1, 0.5)
         else:
             plant.temperature += random.uniform(0.1, 0.5)
@@ -73,7 +71,6 @@ def read_csv_to_plants(file_path):
         reader = csv.DictReader(csvfile)
         for row in reader:
             plant = Plant(int(row["Id"]), row["Plant Type"])
-            plant.timestamp = datetime.fromisoformat(row["Timestamp"])
             plant.start_date = datetime.strptime(row["Start Date"], '%Y/%m/%d')
             x, y, z = eval(row["Position"])
             plant.position = (x, y, z)
@@ -88,14 +85,13 @@ def read_csv_to_plants(file_path):
 # Write plants to a CSV
 def write_plants_to_csv(plants_list, file_path):
     with open(file_path, 'w', newline='') as csvfile:
-        fieldnames = ["Id", "Timestamp", "Plant Type", "Start Date", "Age", "Position", "Status", "Moisture (%)",
-                      "Temperature (°C)", "Atmospheric Pressure (Pa)"]
+        fieldnames = ["Id", "Plant Type", "Start Date", "Age", "Position", "Status", "Moisture (%)", "Temperature (°C)",
+                      "Atmospheric Pressure (Pa)"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for plant in plants_list:
             writer.writerow({
                 "Id": plant.id,
-                "Timestamp": plant.timestamp,
                 "Plant Type": plant.plant_type,
                 "Start Date": plant.start_date.strftime('%Y-%m-%d'),
                 "Age": plant.age,
