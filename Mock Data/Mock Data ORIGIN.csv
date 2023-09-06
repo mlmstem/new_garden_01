@@ -1,5 +1,5 @@
 Id,Plant Type,Start Date,Age,Position,Status,Moisture (%),Temperature (°C),Atmospheric Pressure (Pa)
-1,Eggplant,2023/6/13,85,"(1, 1, 1)",Healthy,75.49308793,15.23776919,98904.14422
+1,Eggplant,2023/6/13,85,"(1, 1, 1)",Healthy,75.49308793,25.23776919,98904.14422
 2,Tomato,2023/8/10,27,"(2, 1, 1)",Healthy,79.91063576,26.18705056,99213.77331
 3,Cucumber,2023/2/25,193,"(3, 1, 1)",Healthy,77.76150804,24.34506421,95344.86399
 4,Tomato,2023/1/28,221,"(4, 1, 1)",Healthy,78.36593028,29.13175972,97573.4762
