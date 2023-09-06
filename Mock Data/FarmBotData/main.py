@@ -14,23 +14,30 @@ class Status:
             "moisture": (40, 80),
             "pressure": (95000, 105000)
         }
-        in_danger_range = {
-            "temperature": [(5, 15), (30, 35)],
-            "moisture": [(20, 40), (80, 90)],
-            "pressure": [(90000, 95000), (105000, 110000)]
+
+        dead_range = {
+            "temperature": [(0, 5), (35, 40)],
+            "moisture": [(0, 20), (90, 100)],
+            "pressure": [(85000, 90000), (110000, 115000)]
         }
+
+        # Check Healthy range
         if (healthy_range["temperature"][0] <= temp <= healthy_range["temperature"][1] and
                 healthy_range["moisture"][0] <= moist <= healthy_range["moisture"][1] and
                 healthy_range["pressure"][0] <= press <= healthy_range["pressure"][1]):
             return "Healthy"
-        for t_range in in_danger_range["temperature"]:
-            for m_range in in_danger_range["moisture"]:
-                for p_range in in_danger_range["pressure"]:
+
+        # Check Dead range
+        for t_range in dead_range["temperature"]:
+            for m_range in dead_range["moisture"]:
+                for p_range in dead_range["pressure"]:
                     if (t_range[0] <= temp <= t_range[1] and
                             m_range[0] <= moist <= m_range[1] and
                             p_range[0] <= press <= p_range[1]):
-                        return "In Danger"
-        return "Dead"
+                        return "Dead"
+
+        # If not within Healthy or Dead ranges, then it's In Danger
+        return "In Danger"
 
 
 # Plant class definition
@@ -71,7 +78,7 @@ def read_csv_without_timestamp_to_plants(file_path):
         reader = csv.DictReader(csvfile)
         for row in reader:
             plant = Plant(int(row["Id"]), row["Plant Type"])
-            plant.start_date = datetime.strptime(row["Start Date"], '%Y/%m/%d')
+            plant.start_date = datetime.strptime(row["Start Date"], '%Y-%m-%d')
             x, y, z = eval(row["Position"])
             plant.position = (x, y, z)
             plant.status = row["Status"]
