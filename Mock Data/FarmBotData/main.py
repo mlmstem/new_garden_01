@@ -58,15 +58,24 @@ class Plant:
         return (datetime.now() - self.start_date).days
 
 
-# Refined decay function
-def refined_decay_plant(plant, periods=1):
+# Adjusted decay function with a larger decay rate closer to the normal condition
+def adjusted_refined_decay_plant(plant, periods=1):
     for _ in range(periods):
+        # Adjusting temperature based on current temperature and time
         if 18 <= datetime.now().hour < 24 or 0 <= datetime.now().hour < 6:
-            plant.temperature -= random.uniform(0.1, 0.5)
+            temp_change = random.uniform(0.05, 0.3) if plant.temperature > 22 else random.uniform(-0.05, -0.3)
+            plant.temperature -= temp_change
         else:
-            plant.temperature += random.uniform(0.1, 0.5)
-        plant.moisture -= random.uniform(0.5, 2)
-        plant.atmospheric_pressure += random.uniform(-250, 250)
+            temp_change = random.uniform(0.05, 0.3) if plant.temperature < 22 else random.uniform(-0.05, -0.3)
+            plant.temperature += temp_change
+
+        # Adjusting moisture based on current moisture level
+        moisture_change = random.uniform(0.2, 1) if plant.moisture > 60 else random.uniform(-0.2, -1)
+        plant.moisture -= moisture_change
+
+        # Adjusting atmospheric pressure
+        plant.atmospheric_pressure += random.uniform(-150, 150)
+
         plant.status = Status.determine(plant.temperature, plant.moisture, plant.atmospheric_pressure)
     return plant
 
