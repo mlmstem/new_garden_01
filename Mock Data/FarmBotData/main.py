@@ -64,8 +64,8 @@ def refined_decay_plant(plant, periods=1):
     return plant
 
 
-# Read plants from a CSV
-def read_csv_to_plants(file_path):
+# Read plants from a CSV without Timestamp
+def read_csv_without_timestamp_to_plants(file_path):
     plants_from_file = []
     with open(file_path, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
