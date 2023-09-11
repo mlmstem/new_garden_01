@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Account = mongoose.model('accounts');
+
 module.exports = app =>{
     app.get('/account', async(req, res) => {
     // use req.query to get what user inputing into the browser
