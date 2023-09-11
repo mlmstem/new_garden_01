@@ -333,6 +333,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/FirstPlayerView.cs"
+"Assets/Login.cs"
 "Assets/LowPolyFarmLite/Models/growing_plant.cs"
 "Assets/PlayerController.cs"
 -langversion:9.0
