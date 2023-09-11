@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
 
     float cameraPitch = 0.0f;
 
+    public Transform target;
+
+
+
 
 
     void Start()
@@ -40,7 +44,8 @@ public class PlayerController : MonoBehaviour
     void Update()
 
     {
-        UpdateMouseLook();   
+        UpdateMouseLook();
+        transform.LookAt(target);   
     }
 
     

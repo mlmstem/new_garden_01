@@ -8105,8 +8105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1488041568}
-  mouseSensitivity: 0.5
+  mouseSensitivity: 0.4
   maxZoomOut: -10
+  target: {fileID: 1780823652}
 --- !u!143 &1043208334
 CharacterController:
   m_ObjectHideFlags: 0
