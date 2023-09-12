@@ -6,6 +6,7 @@ public class PopUp : MonoBehaviour
 {
     [SerializeField] private GameObject popUpWindow;
 
+    // open and close a popup window on click
     public void clickForPopUp()
     {
         if (popUpWindow.activeSelf)
@@ -20,6 +21,7 @@ public class PopUp : MonoBehaviour
 
     public void openPopUp()
     {
+        // close all other pop up windows
         GameObject[] otherWindows = GameObject.FindGameObjectsWithTag("popups");
         foreach (GameObject window in otherWindows)
         {
@@ -30,6 +32,7 @@ public class PopUp : MonoBehaviour
 
     public void closePopUp()
     {
+        // close all other pop-up windows
         GameObject[] otherWindows = GameObject.FindGameObjectsWithTag("popups");
         foreach (GameObject window in otherWindows)
         {
