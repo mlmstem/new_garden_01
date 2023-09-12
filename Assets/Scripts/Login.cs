@@ -7,13 +7,13 @@ using UnityEngine.Networking;
 
 public class Login : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private string authenticationEndpoint = "http://127.0.0.1:13756/account";
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
 
 
-    public void OnLoginClick(){
+    public void OnLoginClick()
+    {
 
         StartCoroutine(TryLogin());
 
@@ -24,7 +24,8 @@ public class Login : MonoBehaviour
 
     }
 
-    private IEnumerator TryLogin(){
+    private IEnumerator TryLogin()
+    {
         string username = usernameInputField.text;
         string password = passwordInputField.text;
 
@@ -32,41 +33,34 @@ public class Login : MonoBehaviour
         var handler = request.SendWebRequest();
 
         float startTime = 0.0f;
-        while(!handler.isDone)
+        while (!handler.isDone)
         {
             startTime += Time.deltaTime;
 
-            if(startTime > 10.0f){
+            if (startTime > 10.0f)
+            {
 
                 break;
             }
 
             yield return null;
 
-        if (request.result == UnityWebRequest.Result.Success){
-            Debug.Log(request.downloadHandler.text);
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log(request.downloadHandler.text);
 
-        }else{
-            Debug.Log("Unable to connect to the server ...");
+            }
+            else
+            {
+                Debug.Log("Unable to connect to the server ...");
+
+            }
+
+
+            yield return null;
+
 
         }
 
-
-        yield return null;
-
-
-        }     
-
-    }
-    void Start()
-    {
-
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
