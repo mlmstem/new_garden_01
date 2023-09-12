@@ -8,6 +8,7 @@ public class CreateGarden : MonoBehaviour
     [SerializeField] private int rows = 3;
     [SerializeField] private int coloumns = 5;
 
+    // creates garden based on input of field size
     void Start()
     {
         for (int i = 0; i < rows; i++)
