@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     Vector3 mousePosition;
-    //GameObject collideObject;
+    private bool onField = false;
 
     private Vector3 GetMousePos()
     {
@@ -33,28 +33,34 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    // private void OnMouseUp()
-    // {
-    //     if (collideObject)
-    //     {
-    //         var fieldStatus = collideObject.GetComponent<FieldStatus>();
-    //         if (!fieldStatus.isFull)
-    //         {
-    //             Debug.Log("field is empty");
-    //             fieldStatus.setFull();
-    //         }
-    //         else
-    //         {
-    //             Debug.Log("field is full");
-    //         }
-    //     }
-    // }
-
-    // void OnTriggerEnter(Collider col)
-    // {
-    //     if (col.GetComponent<Collider>().name == "Field")
-    //     {
-    //         collideObject = col.gameObject;
-    //     }
-    // }
+    // <Implement> destroy object when moved out of field
+    void OnTriggerEnter(Collider col)
+    {
+        if (!onField)
+        {
+            // Debug.Log("hits something");
+            // Debug.Log(col.GetComponent<Collider>().name);
+            // check if object hit is a field
+            if (col.GetComponent<Collider>().name == "Field(Clone)")
+            {
+                // Debug.Log("hits field");
+                var fieldStatus = col.GetComponent<FieldStatus>();
+                // check if field is full
+                if (!fieldStatus.isFull)
+                {
+                    // Debug.Log("field is empty");
+                    // allocate object to the field
+                    onField = true;
+                    fieldStatus.setFull();
+                    this.gameObject.transform.parent = col.gameObject.transform;
+                    this.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+                }
+                else
+                {
+                    // Debug.Log("field is full");
+                    // <Implement> destroy object
+                }
+            }
+        }
+    }
 }
