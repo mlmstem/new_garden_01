@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     Vector3 mousePosition;
+    //GameObject collideObject;
 
     private Vector3 GetMousePos()
     {
@@ -14,10 +15,46 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseDown()
     {
         mousePosition = Input.mousePosition - GetMousePos();
+        //Debug.Log(this.gameObject.name);
     }
 
     private void OnMouseDrag()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+        var moveTo = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+        // make sure object cannot pass through ground
+        if (moveTo.y >= 0)
+        {
+            transform.position = moveTo;
+        }
+        else
+        {
+            moveTo.y = 0;
+            transform.position = moveTo;
+        }
     }
+
+    // private void OnMouseUp()
+    // {
+    //     if (collideObject)
+    //     {
+    //         var fieldStatus = collideObject.GetComponent<FieldStatus>();
+    //         if (!fieldStatus.isFull)
+    //         {
+    //             Debug.Log("field is empty");
+    //             fieldStatus.setFull();
+    //         }
+    //         else
+    //         {
+    //             Debug.Log("field is full");
+    //         }
+    //     }
+    // }
+
+    // void OnTriggerEnter(Collider col)
+    // {
+    //     if (col.GetComponent<Collider>().name == "Field")
+    //     {
+    //         collideObject = col.gameObject;
+    //     }
+    // }
 }
