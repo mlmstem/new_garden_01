@@ -15,6 +15,7 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseDown()
     {
         mousePosition = Input.mousePosition - GetMousePos();
+        onField = false;
         //Debug.Log(this.gameObject.name);
     }
 
@@ -22,7 +23,8 @@ public class DragAndDrop : MonoBehaviour
     {
         var moveTo = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
         // make sure object cannot pass through ground
-        if (moveTo.y >= 0)
+        moveTo.y = 2;
+        if (moveTo.y > 0)
         {
             transform.position = moveTo;
         }
@@ -38,8 +40,8 @@ public class DragAndDrop : MonoBehaviour
     {
         if (!onField)
         {
-            // Debug.Log("hits something");
-            // Debug.Log(col.GetComponent<Collider>().name);
+            //Debug.Log("hits something");
+            Debug.Log(col.GetComponent<Collider>().name);
             // check if object hit is a field
             if (col.GetComponent<Collider>().name == "Field(Clone)")
             {
@@ -58,8 +60,13 @@ public class DragAndDrop : MonoBehaviour
                 else
                 {
                     // Debug.Log("field is full");
-                    // <Implement> destroy object
+                    Destroy(gameObject);
                 }
+            }
+            else
+            {
+                Debug.Log("hits something else");
+                Destroy(gameObject);
             }
         }
     }
