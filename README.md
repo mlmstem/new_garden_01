@@ -21,6 +21,11 @@ to download and run the code, you must have:
 
 - Node (npm)
 - Git, or download repo as zip file
+- Python3
+- Python libraries needed:
+  - Pandas
+  - Matplotlib
+  - Pymongo
 
 ## How To Download
 1. node npm express unity?
