@@ -11,6 +11,8 @@ mongoose.connect(keys.mongoURI, {useNewUrlParser : true, useUnifiedTopology: tru
 
 // Setup databse models
 require('./model/Account');
+require('./model/Plant');
+
 
 // Setup the routes
 

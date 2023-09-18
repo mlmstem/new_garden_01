@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
+
+
     [SerializeField] Transform playerCamera = null;
     [SerializeField] float mouseSensitivity = 0.8f;
 
