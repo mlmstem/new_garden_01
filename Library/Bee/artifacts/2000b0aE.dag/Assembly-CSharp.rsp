@@ -342,6 +342,7 @@
 "Assets/Scripts/Login.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PopUp.cs"
+"Assets/Scripts/testGet.cs"
 -langversion:9.0
 
 /deterministic

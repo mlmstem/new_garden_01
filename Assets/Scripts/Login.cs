@@ -70,13 +70,13 @@ public class Login : MonoBehaviour
                 Debug.Log(returnedAccount);
                 // store in playerPref
                 PlayerPrefs.SetString("Username", returnedAccount.username);
-                
+
                 alertText.text = "Welcome " + returnedAccount.username;
                 LoadNextScene(); // Fixed the method name
 
             }
             else
-            { 
+            {
                 alertText.text = "Invalid credentials";
                 loginButton.interactable = true;
             }
