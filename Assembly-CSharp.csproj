@@ -46,6 +46,7 @@
      <Compile Include="Assets/Scripts/GameAccount.cs" />
      <Compile Include="Assets/Scripts/PopUp.cs" />
      <Compile Include="Assets/Scripts/CreateGarden.cs" />
+     <Compile Include="Assets/Scripts/testGet.cs" />
      <Compile Include="Assets/Scripts/FieldStatus.cs" />
      <Compile Include="Assets/Scripts/PlayerController.cs" />
      <Compile Include="Assets/Scripts/DragAndDrop.cs" />
