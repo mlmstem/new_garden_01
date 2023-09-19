@@ -6,6 +6,8 @@ public class FieldStatus : MonoBehaviour
 {
     // describes the status of the field
     [SerializeField] public bool isFull = false;
+    public int rowIndex;
+    public int colIndex;
 
     public void setFull()
     {
