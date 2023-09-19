@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class DragAndDrop : MonoBehaviour
-{   
+{
     [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
     Vector3 mousePosition;
     private bool onField = false;
@@ -61,7 +61,12 @@ public class DragAndDrop : MonoBehaviour
                     this.gameObject.transform.parent = col.gameObject.transform;
                     this.gameObject.transform.localPosition = new Vector3(0, 0, 0);
 
-                    StartCoroutine(SendPlantDataToServer());
+                    // finding info about the plant to send to database
+                    var plantType = this.gameObject.tag;
+                    Debug.Log(plantType);
+                    Debug.Log(fieldStatus.rowIndex);
+                    Debug.Log(fieldStatus.colIndex);
+                    StartCoroutine(SendPlantDataToServer(plantType, fieldStatus.rowIndex, fieldStatus.colIndex));
                 }
                 else
                 {
@@ -77,54 +82,54 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    IEnumerator SendPlantDataToServer()
-{
-    // Create a JSON object with the default plant data using JsonUtility
-    PlantData plantData = new PlantData
+    IEnumerator SendPlantDataToServer(string type, int rowIndex, int colIndex)
     {
-        plantType = "tomato",
-        startDate = System.DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssZ"),
-        age = 0,
-        position = "unknown",
-        status = "Unknown",
-        moisturePercentage = 100,
-        temperatureCelsius = 100,
-        atmosphericPressurePa = 100
-    };
+        // Create a JSON object with the default plant data using JsonUtility
+        PlantData plantData = new PlantData
+        {
+            plantType = type,
+            startDate = System.DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssZ"),
+            age = 0,
+            position = "(" + rowIndex + ", " + colIndex + ")",
+            status = "Unknown",
+            moisturePercentage = 100,
+            temperatureCelsius = 100,
+            atmosphericPressurePa = 100
+        };
 
-    // Replace "YOUR_USERNAME" with the actual username of the user
-    string username = PlayerPrefs.GetString("Username", "DefaultUsername");
+        // Replace "YOUR_USERNAME" with the actual username of the user
+        string username = PlayerPrefs.GetString("Username", "DefaultUsername");
 
-    // Create a request object
-    UnityWebRequest request = UnityWebRequest.PostWwwForm(plantServer, "POST");
-    request.SetRequestHeader("Content-Type", "application/json");
+        // Create a request object
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(plantServer, "POST");
+        request.SetRequestHeader("Content-Type", "application/json");
 
-    // Create a JSON object to send in the request
-    PlantRequestData requestData = new PlantRequestData
-    {
-        username = username,
-        plantInfo = plantData
-    };
+        // Create a JSON object to send in the request
+        PlantRequestData requestData = new PlantRequestData
+        {
+            username = username,
+            plantInfo = plantData
+        };
 
-    string requestBody = JsonUtility.ToJson(requestData);
+        string requestBody = JsonUtility.ToJson(requestData);
 
-    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
-    request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
-    request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
 
-    // Send the POST request
-    yield return request.SendWebRequest();
+        // Send the POST request
+        yield return request.SendWebRequest();
 
-    if (request.result == UnityWebRequest.Result.Success)
-    {
-        // Plant added successfully
-        Debug.Log("Plant added successfully");
-    }
-    else
-    {
-        // Error handling if the request fails
-        Debug.LogError("Error sending plant data: " + request.error);
-    }
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            // Plant added successfully
+            Debug.Log("Plant added successfully");
+        }
+        else
+        {
+            // Error handling if the request fails
+            Debug.LogError("Error sending plant data: " + request.error);
+        }
     }
 
     [System.Serializable]
