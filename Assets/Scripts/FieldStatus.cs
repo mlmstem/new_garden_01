@@ -9,6 +9,12 @@ public class FieldStatus : MonoBehaviour
     public int rowIndex;
     public int colIndex;
 
+    public void setIndex(int row, int col)
+    {
+        rowIndex = row;
+        colIndex = col;
+    }
+
     public void setFull()
     {
         this.isFull = true;

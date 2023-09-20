@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Account = mongoose.model('accounts');
 const Plant = mongoose.model('Plant')
+const Image = mongoose.model('Image')
 const bodyParser = require('body-parser');
-
+const ObjectId = require('mongodb').ObjectId;
 
 module.exports = app => {
     app.use(bodyParser.json());
@@ -133,5 +134,47 @@ module.exports = app => {
 
         res.send(gotData);
     });
+
+    app.get('/account/getCurrentGarden', async (req, res) => {
+        const { username } = req.body;
+        // console.log(req.body);
+
+        // find user in database
+        const userAccount = await Account.findOne({ username });
+
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+
+        // set up structure of data to receive
+        var gotData = {
+            X: 0,
+            Y: 0,
+            plantType: userAccount.plantList[1].plantType,
+            plantStatus: userAccount.plantList[1].status
+        };
+
+        console.log(gotData);
+
+        res.send(gotData);
+    });
+
+    // app.get('/account/getGraph', async (req, res) => {
+    //     const { imageID } = req.body;
+    //     console.log(req.body);
+
+    //     const imageFile = await Image.findOne({ n: 0 });
+
+    //     if (!imageFile) {
+    //         res.status(404).json({ error: "Image is not found" });
+    //         console.log("image not found");
+    //         return;
+    //     }
+
+    //     res.send(imageFile.data);
+
+
+    // });
 
 }

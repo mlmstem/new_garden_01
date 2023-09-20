@@ -340,6 +340,7 @@
 "Assets/Scripts/FieldStatus.cs"
 "Assets/Scripts/FirstPlayerView.cs"
 "Assets/Scripts/GameAccount.cs"
+"Assets/Scripts/GetGraph.cs"
 "Assets/Scripts/Login.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PopUp.cs"
