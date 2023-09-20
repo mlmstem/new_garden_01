@@ -7,7 +7,7 @@ public class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
     Vector3 mousePosition;
-    private bool onField = false;
+    public bool onField = false;
 
     private Vector3 GetMousePos()
     {
