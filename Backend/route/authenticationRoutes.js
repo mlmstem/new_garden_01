@@ -111,5 +111,27 @@ module.exports = app => {
         res.send(userAccount.password);
     });
 
+    app.get('/account/getProfileData', async (req, res) => {
+        const { username } = req.body;
+        // console.log(req.body);
+
+        // find user in database
+        const userAccount = await Account.findOne({ username });
+
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+
+        // set up structure of data to receive
+        var gotData = {
+            usernameGot: userAccount.username,
+            emailGot: userAccount.password,
+            passwordGot: userAccount.password
+        };
+        // console.log(gotData);
+
+        res.send(gotData);
+    });
 
 }

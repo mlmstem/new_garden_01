@@ -44,6 +44,7 @@
      <Compile Include="Assets/Scripts/FirstPlayerView.cs" />
      <Compile Include="Assets/LowPolyFarmLite/Models/growing_plant.cs" />
      <Compile Include="Assets/Scripts/GameAccount.cs" />
+     <Compile Include="Assets/Scripts/showProfileInfo.cs" />
      <Compile Include="Assets/Scripts/PopUp.cs" />
      <Compile Include="Assets/Scripts/CreateGarden.cs" />
      <Compile Include="Assets/Scripts/testGet.cs" />
@@ -745,6 +746,9 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
