@@ -1,6 +1,6 @@
 // the system to connect the account of users
 const mongoose = require('mongoose');
-const{ Schema } = mongoose;
+const { Schema } = mongoose;
 const Plant = require('./Plant'); // Import the Plant model
 
 const plantSchema = new Schema({

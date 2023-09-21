@@ -8,6 +8,8 @@ public class DragAndDrop : MonoBehaviour
     [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
     Vector3 mousePosition;
     public bool onField = false;
+    public bool pickedUp = false;
+    public bool inDatabase = false;
 
     private Vector3 GetMousePos()
     {
@@ -18,6 +20,7 @@ public class DragAndDrop : MonoBehaviour
     {
         mousePosition = Input.mousePosition - GetMousePos();
         onField = false;
+        pickedUp = true;
         //Debug.Log(this.gameObject.name);
     }
 
@@ -37,10 +40,9 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    // <Implement> destroy object when moved out of field
     void OnTriggerEnter(Collider col)
     {
-        if (!onField)
+        if (!onField && pickedUp)
         {
             //Debug.Log("hits something");
             Debug.Log(col.GetComponent<Collider>().name);
@@ -63,19 +65,30 @@ public class DragAndDrop : MonoBehaviour
 
                     // finding info about the plant to send to database
                     var plantType = this.gameObject.tag;
-                    Debug.Log(plantType);
-                    Debug.Log(fieldStatus.rowIndex);
-                    Debug.Log(fieldStatus.colIndex);
+                    // Debug.Log(plantType);
+                    // Debug.Log(fieldStatus.rowIndex);
+                    // Debug.Log(fieldStatus.colIndex);
                     StartCoroutine(SendPlantDataToServer(plantType, fieldStatus.rowIndex, fieldStatus.colIndex));
                 }
                 else
                 {
                     // Debug.Log("field is full");
+
+                    if (inDatabase)
+                    {
+                        // send plant id
+                        StartCoroutine(RemovePlantData());
+                    }
                     Destroy(gameObject);
                 }
             }
             else
             {
+                if (inDatabase)
+                {
+                    // send plant id
+                    StartCoroutine(RemovePlantData());
+                }
                 Debug.Log("hits something else");
                 Destroy(gameObject);
             }
@@ -124,11 +137,37 @@ public class DragAndDrop : MonoBehaviour
         {
             // Plant added successfully
             Debug.Log("Plant added successfully");
+            inDatabase = true;
         }
         else
         {
             // Error handling if the request fails
             Debug.LogError("Error sending plant data: " + request.error);
+        }
+    }
+
+    IEnumerator RemovePlantData()
+    {
+        Debug.Log("removed");
+        string username = PlayerPrefs.GetString("Username", "DefaultUsername");
+        userData data = new userData();
+        data.username = username;
+
+        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/removePlant");
+        request.SetRequestHeader("Content-Type", "application/json");
+        string requestBody = JsonUtility.ToJson(data);
+        byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success) // Error
+        {
+            Debug.Log(request.error);
+        }
+        else // Success
+        {
+            Debug.Log("delete success");
         }
     }
 
@@ -152,4 +191,9 @@ public class DragAndDrop : MonoBehaviour
         public int atmosphericPressurePa;
     }
 
+    [System.Serializable]
+    public class userData
+    {
+        public string username;
+    }
 }

@@ -33,9 +33,9 @@ public class GetGraph : MonoBehaviour
         }
         else // Success
         {
-            var texture = DownloadHandlerTexture.GetContent(request);
-            graph = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
-            img.GetComponent<Image>().overrideSprite = graph;
+            //var texture = DownloadHandlerTexture.GetContent(request);
+            //graph = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+            //img.GetComponent<Image>().overrideSprite = graph;
         }
     }
 }
