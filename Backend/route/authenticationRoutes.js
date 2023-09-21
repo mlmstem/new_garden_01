@@ -149,8 +149,8 @@ module.exports = app => {
 
         // set up structure of data to receive
         var gotData = {
-            X: 0,
-            Y: 0,
+            X: 1,
+            Y: 1,
             plantType: userAccount.plantList[1].plantType,
             plantStatus: userAccount.plantList[1].status
         };
@@ -195,6 +195,36 @@ module.exports = app => {
         res.send(imageFile.data);
 
 
+    });
+
+    app.get('/account/getPlantData', async (req, res) => {
+        const { username } = req.body;
+        // console.log(req.body);
+
+        // find user in database
+        const userAccount = await Account.findOne({ username });
+
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+
+        // set up structure of data to receive
+        var gotData = {
+            name: userAccount.plantList[1].plantType,
+            id: "1",
+            type: userAccount.plantList[1].plantType,
+            startDate: userAccount.plantList[1].startDate,
+            days: userAccount.plantList[1].age,
+            position: userAccount.plantList[1].position,
+            status: userAccount.plantList[1].status,
+            moisture: userAccount.plantList[1].moisturePercentage,
+            temperature: userAccount.plantList[1].temperatureCelsius,
+            pressure: userAccount.plantList[1].atmosphericPressurePa
+        };
+        // console.log(gotData);
+
+        res.send(gotData);
     });
 
 }

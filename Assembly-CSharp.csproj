@@ -44,6 +44,7 @@
      <Compile Include="Assets/Scripts/Login.cs" />
      <Compile Include="Assets/Scripts/FirstPlayerView.cs" />
      <Compile Include="Assets/LowPolyFarmLite/Models/growing_plant.cs" />
+     <Compile Include="Assets/Scripts/PlantStatus.cs" />
      <Compile Include="Assets/Scripts/GameAccount.cs" />
      <Compile Include="Assets/Scripts/showProfileInfo.cs" />
      <Compile Include="Assets/Scripts/PopUp.cs" />
