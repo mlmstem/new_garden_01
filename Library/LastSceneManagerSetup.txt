@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/LowPolyFarmLite/Scenes/Login Scene.unity
+- path: Assets/LowPolyFarmLite/Scenes/MainTestScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
