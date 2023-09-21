@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Account = mongoose.model('accounts');
 const Plant = mongoose.model('Plant')
-const Image = mongoose.model('Image')
+const Image = mongoose.model('imgtest')
 const bodyParser = require('body-parser');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -17,7 +17,7 @@ module.exports = app => {
             res.send("Invalid credentials");
             return;
         }
-        console.log("Received request with parameters:", req.query);
+        // console.log("Received request with parameters:", req.query);
         //console.log("Sending response:", res);
 
 
@@ -69,7 +69,7 @@ module.exports = app => {
                 res.status(404).json({ error: "User not found" });
                 return;
             }
-            console.log("Request Body:", req.body)
+            // console.log("Request Body:", req.body)
 
             // Create a new Plant object and assign its properties
             const newPlant = new Plant({
@@ -84,8 +84,8 @@ module.exports = app => {
             });
 
             // Save the new plant to the user's plantList
-            console.log("User Account:", userAccount);
-            console.log("New Plant Object:", newPlant);
+            // console.log("User Account:", userAccount);
+            // console.log("New Plant Object:", newPlant);
 
             userAccount.plantList.push(newPlant);
             await userAccount.save();
@@ -100,7 +100,7 @@ module.exports = app => {
     // Additional routes for handling plants...
     app.get('/account/getData', async (req, res) => {
         const { username } = req.body;
-        console.log(req.body);
+        // console.log(req.body);
 
         const userAccount = await Account.findOne({ username });
 
@@ -155,26 +155,46 @@ module.exports = app => {
             plantStatus: userAccount.plantList[1].status
         };
 
-        console.log(gotData);
+        // console.log(gotData);
 
         res.send(gotData);
     });
 
-    // app.get('/account/getGraph', async (req, res) => {
-    //     const { imageID } = req.body;
-    //     console.log(req.body);
+    app.post('/account/removePlant', async (req, res) => {
+        const { username } = req.body;
+        console.log(req.body);
 
-    //     const imageFile = await Image.findOne({ n: 0 });
+        // find user in database
+        const userAccount = await Account.findOne({ username });
 
-    //     if (!imageFile) {
-    //         res.status(404).json({ error: "Image is not found" });
-    //         console.log("image not found");
-    //         return;
-    //     }
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+        console.log(userAccount.plantList);
+        // remove from plant array
+        const removed = await Account.deleteMany({ plantList: { plantType: 'tomato' } });
+        console.log(removed);
+    });
 
-    //     res.send(imageFile.data);
+    app.get('/account/getGraph', async (req, res) => {
+        const { imageID } = req.body;
+        console.log(req.body);
+
+        console.log(Image.findOne());
+        console.log(Account.findOne({ username: 'abc' }));
+        const imageFile = await Image.findOne();
+
+        if (!imageFile) {
+            res.status(404).json({ error: "Image is not found" });
+            console.log("image not found");
+            return;
+        }
+
+        // console.log(imageFile);
+        res.send(imageFile.data);
 
 
-    // });
+    });
 
 }
