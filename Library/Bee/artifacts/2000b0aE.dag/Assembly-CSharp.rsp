@@ -342,6 +342,7 @@
 "Assets/Scripts/GameAccount.cs"
 "Assets/Scripts/GetGraph.cs"
 "Assets/Scripts/Login.cs"
+"Assets/Scripts/PlantStatus.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PopUp.cs"
 "Assets/Scripts/showProfileInfo.cs"
