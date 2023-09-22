@@ -73,19 +73,19 @@ public class CreateGarden : MonoBehaviour
         {
             if (type == "tomato")
             {
-                var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 2, -4 * y), Quaternion.identity);
+                var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisTomato.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisTomato.transform.parent = thisField.transform;
-                thisTomato.transform.localPosition = new Vector3(0, 0, 0);
+                thisTomato.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else
             {
-                var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 2, -4 * y), Quaternion.identity);
+                var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.transform.localPosition = new Vector3(0, 0, 0);
+                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
         }
     }
