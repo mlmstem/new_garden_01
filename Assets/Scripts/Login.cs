@@ -13,12 +13,14 @@ public class Login : MonoBehaviour
     [SerializeField] private Button loginButton;
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
+    [SerializeField] private float alertTextFont = 13f;
 
     public float transitionTime = 1f;
 
     public void OnLoginClick()
     {
         alertText.text = "Signing in...";
+        alertText.fontSize = alertTextFont;
         loginButton.interactable = false;
 
         StartCoroutine(TryLogin());
