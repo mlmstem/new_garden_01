@@ -89,15 +89,35 @@ Sync FarmBot information
 ## Guide To Code
 
 ./Scenes ->  contains all the Scenes created for the application environment
+
+
 ./Assets -> includes all the imported material/ tools we used to develop the project 
+
+
 ./Assets/LowPolyFarmLite/Prefabs -> contains all the 3d model Used developement of the application
+
+
 ./script -> the C# scripts used in the unity game environments (the scripts to control the camera and user mouse input as well as the scripts to control the game objects)
-./Backend -> all the server side environment and setup 
+
+
+./Backend -> all the server side environment and setup
+
+
 ./Backend/package.json -> all the dependencies needed for the project
+
+
 ./Backend/server.js -> the script to initiate the node server
+
+
 ./Backend/config -> the configuration of the backend server (the port and mongodb url at development/mongodb url at development and production phase)
+
+
 ./Backend/model -> the data model and schema used to interact with mongodb
+
+
 ./Backend/routes -> the routes of interaction (req, res) between the server and application
+
+
 ./Mock Data -> the data used to testing the stats generation method as well the application funtions 
 
 ## Tech Stack
