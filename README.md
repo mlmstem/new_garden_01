@@ -35,12 +35,12 @@ to download and run the code, you must have:
 ## How To Download
 
 1. clone or download the repository into your local machine
-2. download and initiate the unity engine
+2. download(if not downloaded) and initiate the unity engine
 3. click open new project and select the repository folder at your local machine (this will open the project within the unity engine environment)
-4. when the project is opened, go to scenes folder and select login scene
-5. press ctrl + p to initiating the scene
+4. when the project is opened, go to scenes folder and select the "login scene"
+5. press ctrl + p to initiate the scene
 6. Go to the Backend folder directory at your local machine and initiate the server by typing node server.js at the terminal
-6. input username and password to login into the farmbot application.
+6. input username and password to login to the farmbot application.
 
 ## Deployment
 
@@ -56,7 +56,7 @@ go to itch.io or any game hosting website
 
 provide the compressed file of your webgl game build
 
-after the game hosting site has generated the url of the application, user will be able to access to the application by clicking the url 
+after the game hosting site has generated an url, user will be able to access the application by clicking the url 
 
 ## Features
 
@@ -81,10 +81,10 @@ Epic 6: Sync FarmBot information
 ./Assets -> includes all the imported material/ tools we used to develop the project 
 
 
-./Assets/LowPolyFarmLite/Prefabs -> contains all the 3d model Used developement of the application
+./Assets/LowPolyFarmLite/Prefabs -> contains all the 3d model Used for developement of the application
 
 
-./script -> the C# scripts used in the unity game environments (the scripts to control the camera and user mouse input as well as the scripts to control the game objects)
+./script -> the C# scripts used in the unity game environments (the scripts to control the camera, to control the mouse /keyboard input, to control the game objects)
 
 
 ./Backend -> all the server side environment and setup
@@ -93,10 +93,10 @@ Epic 6: Sync FarmBot information
 ./Backend/package.json -> all the dependencies needed for the project
 
 
-./Backend/server.js -> the script to initiate the node server
+./Backend/server.js -> the program to initiate the node server
 
 
-./Backend/config -> the configuration of the backend server (the port and mongodb url at development/mongodb url at development and production phase)
+./Backend/config -> the configuration of the backend server (the port and the mongodb url at development and production phase)
 
 
 ./Backend/model -> the data model and schema used to interact with mongodb
@@ -105,7 +105,7 @@ Epic 6: Sync FarmBot information
 ./Backend/routes -> the routes of interaction (req, res) between the server and application
 
 
-./Mock Data -> the data used to testing the stats generation method as well the application funtions 
+./Mock Data -> the data used to test the stat generation methods as well the application funtions 
 
 ## Tech Stack
 
