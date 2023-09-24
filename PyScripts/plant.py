@@ -1,3 +1,4 @@
+#Structure of Position
 class Position:
     def __init__(self, x, y, z):
         self.x = x
@@ -9,7 +10,7 @@ class Position:
         
 
 
-
+#Structure of Plant
 class Plant:
     def __init__(self, timestamp, type, start_date, age, position, status, moist, temp, gas):
         self.timestamp = timestamp

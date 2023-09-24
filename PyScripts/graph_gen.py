@@ -14,6 +14,7 @@ from connection import uri
 client = MongoClient(uri)
 db = client["Plant"]
 
+# Combine all data into one single dataframe
 def concat_all_data():
 
     all_data = pd.DataFrame()
@@ -30,8 +31,10 @@ def concat_all_data():
 
     return all_data
 
+# Generates graphs for overview data
 def overview_data():
 
+    #Pie chart for plant status
     for x in range(1,11):
         mongo_data = db["Decay_"+str(x)].find()
         mongo_df = pd.DataFrame(mongo_data)
@@ -41,6 +44,7 @@ def overview_data():
         plt.savefig('PyScripts\Graphs\pieStatus_'+str(x)+'.png')
         plt.close()
     
+    #Pie chart for plant types
     for x in range(1,11):
         mongo_data = db["Decay_"+str(x)].find()
         mongo_df = pd.DataFrame(mongo_data)
@@ -51,10 +55,12 @@ def overview_data():
         plt.close()
 
 
+# Generates graphs for specific plant data
 def specific_data(data):
 
     grouped = data.groupby(['Position'])        
 
+    #Line graph for moisture
     for name, group in grouped:
 
         filename = re.search("\(\d, \d, \d\)", str(name))
@@ -68,6 +74,7 @@ def specific_data(data):
         plt.savefig('PyScripts\Graphs\moist_'+filename.group()+'.png')
         plt.close()
 
+    #Line graph for temperature
     for name, group in grouped:
 
         filename = re.search("\(\d, \d, \d\)", str(name))
@@ -81,6 +88,7 @@ def specific_data(data):
         plt.savefig('PyScripts\Graphs\\temp_'+filename.group()+'.png')
         plt.close()
 
+    #Line graph for pressure
     for name, group in grouped:
 
         filename = re.search("\(\d, \d, \d\)", str(name))

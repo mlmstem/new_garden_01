@@ -63,6 +63,7 @@ def transfer_all():
         store_file(x)
         retrieve_file(x)
 
+#Download all files from database
 def download_all():
     files = fs.list()
     for x in files:
