@@ -60,30 +60,17 @@ after the game hosting site has generated the url of the application, user will 
 
 ## Features
 
-Epic 1
+Epic 1: Visualize data in a convenient and graphically interesting manner
 
-Visualize data in a convenient and graphically interesting manner
+Epic 2: Be alerted on possible dangers to the plan
 
-Epic 2
+Epic 3: Edit farm plot
 
-Be alerted on possible dangers to the plan
+Epic 4: Manage FarmBot account
 
-Epic 3
+Epic 5: Manage connection of FarmBot to the dashboard (this features might be disabled)
 
-Edit farm plot
-
-Epic 4
-
-Manage FarmBot account
-
-Epic 5
-
-Manage connection of FarmBot to the dashboard (this features might be disabled)
-
-
-Epic 6
-
-Sync FarmBot information
+Epic 6: Sync FarmBot information
 
 
 ## Guide To Code
@@ -128,6 +115,13 @@ see below
 
 ## The Team
 
-Chris Chen -> Product owner 
+Scrum Master -> Haotian Zhuang
+Product owner -> Chris Chen
+UI/UX Designer -> Haotian Zhuang
+Data Visulization Designer -> Yeuk Hon John Ng
+Analysis Model Designer -> Zhexiao Chen
+Front-End Developer -> Chris Chen, Chin Tong Leong
+Back-End Developer -> Yeuk Hon John Ng, Zhexiao Chen
+
 
 ## Links
