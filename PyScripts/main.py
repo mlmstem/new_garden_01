@@ -7,7 +7,17 @@ import os
 
 
 
+#Single entry point for all functions related to graph generation and transfer
 
+"""
+Arguements (only one) that are allowed:
+
+all: transfers all graphs
+down: downloads all graphs from database to local storage
+*.png: single png file for transfer
+overview: generates overview graphs
+specific: generates specific plant graphs
+"""
 
 arguments = sys.argv[1:]
 
