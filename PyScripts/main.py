@@ -5,6 +5,16 @@ import sys
 import fnmatch
 import os
 
+from flask import Flask
+import pymongo
+from bson.json_util import dumps
+from urllib.parse import quote_plus
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+import gridfs
+
+
+
 
 
 #Single entry point for all functions related to graph generation and transfer
@@ -19,6 +29,20 @@ overview: generates overview graphs
 specific: generates specific plant graphs
 """
 
+app = Flask(__name__)
+
+
+# Original username and password
+username = "admin"
+password = "Password123"
+
+# Escaped username and password
+username_escaped = quote_plus(username)
+password_escaped = quote_plus(password)
+
+uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mongodb.net/?retryWrites=true&w=majority"
+
+"""
 arguments = sys.argv[1:]
 
 if (len(arguments)!=1):
@@ -59,3 +83,27 @@ else:
     else:
         print("Arguments incorrect.")
 
+"""
+
+client = MongoClient(uri)
+db = client["SyncUserData"]
+user1 = db['User1']
+
+gdb = client['Graphs']
+fs = gridfs.GridFS(gdb, collection="data_graphs")
+
+stream = client["SyncUserData"].watch()
+
+print("Listening to changes")
+for change in stream:
+    print(dumps(change['ns']['coll']))
+    print("Generating overview graphs for "+change['ns']['coll']+".")
+    user = change['ns']['coll']
+    gen.overview_data(user)
+
+@app.route('/')
+def home():
+    return "Hi"
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -12,7 +12,7 @@ from connection import uri
 
 # Connect to MongoDB
 client = MongoClient(uri)
-db = client["Plant"]
+db = client["SyncUserData"]
 
 # Combine all data into one single dataframe
 def concat_all_data():
@@ -32,28 +32,22 @@ def concat_all_data():
     return all_data
 
 # Generates graphs for overview data
-def overview_data():
+def overview_data(user):
+
+    
+    mongo_data = db[user].find()
+    mongo_df = pd.DataFrame(mongo_data)
 
     #Pie chart for plant status
-    for x in range(1,11):
-        mongo_data = db["Decay_"+str(x)].find()
-        mongo_df = pd.DataFrame(mongo_data)
+    fig, ax = plt.subplots()
+    ax.pie(mongo_df['Status'].value_counts(), labels=mongo_df['Status'].unique(), autopct='%1.1f%%')
+    plt.savefig('PyScripts\Graphs\pieStatus_'+str(user)+'.png')
+    plt.close()
 
-        fig, ax = plt.subplots()
-        ax.pie(mongo_df['Status'].value_counts(), labels=mongo_df['Status'].unique(), autopct='%1.1f%%')
-        plt.savefig('PyScripts\Graphs\pieStatus_'+str(x)+'.png')
-        plt.close()
-    
-    #Pie chart for plant types
-    for x in range(1,11):
-        mongo_data = db["Decay_"+str(x)].find()
-        mongo_df = pd.DataFrame(mongo_data)
-
-        fig, ax = plt.subplots()
-        ax.pie(mongo_df['Plant Type'].value_counts(), labels=mongo_df['Plant Type'].unique(), autopct='%1.1f%%')
-        plt.savefig('PyScripts\Graphs\pieType_'+str(x)+'.png')
-        plt.close()
-
+    fig, ax = plt.subplots()
+    ax.pie(mongo_df['Plant Type'].value_counts(), labels=mongo_df['Plant Type'].unique(), autopct='%1.1f%%')
+    plt.savefig('PyScripts\Graphs\pieType_'+str(user)+'.png')
+    plt.close()
 
 # Generates graphs for specific plant data
 def specific_data(data):

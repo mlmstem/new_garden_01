@@ -15,7 +15,7 @@ uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mon
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 # Connect to the database and collection
-db = client['Plant']
+db = client['Graphs']
 fs = gridfs.GridFS(db, collection="data_graphs")
 
 
@@ -68,3 +68,4 @@ def download_all():
     files = fs.list()
     for x in files:
         retrieve_file(str(x))
+
