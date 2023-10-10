@@ -32,6 +32,7 @@ def store_file(file_name):
             fs.put(f, filename=file_name)
     print("File stored successfully!")
 
+
 # Retrieve the file
 def retrieve_file(file_name):
     
@@ -57,15 +58,22 @@ def transfer_all():
         # check if current file_path is a file
         if os.path.isfile(os.path.join(graph_dir_path, file_path)):
             # add filename to list
-            graph_list.append(file_path)
+            if file_path.endswith('.png'):
+                graph_list.append(file_path)
 
     for x in graph_list:
         store_file(x)
         retrieve_file(x)
+        full_path = os.path.join(graph_dir_path, x)
+        delete_file(full_path)
 
 #Download all files from database
 def download_all():
     files = fs.list()
     for x in files:
         retrieve_file(str(x))
+
+def delete_file(file_path):
+    os.remove(file_path)
+
 

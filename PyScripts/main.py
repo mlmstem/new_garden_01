@@ -29,7 +29,7 @@ overview: generates overview graphs
 specific: generates specific plant graphs
 """
 
-app = Flask(__name__)
+
 
 
 # Original username and password
@@ -84,26 +84,33 @@ else:
         print("Arguments incorrect.")
 
 """
-
-client = MongoClient(uri)
-db = client["SyncUserData"]
-user1 = db['User1']
-
-gdb = client['Graphs']
-fs = gridfs.GridFS(gdb, collection="data_graphs")
-
-stream = client["SyncUserData"].watch()
-
-print("Listening to changes")
-for change in stream:
-    print(dumps(change['ns']['coll']))
-    print("Generating overview graphs for "+change['ns']['coll']+".")
-    user = change['ns']['coll']
-    gen.overview_data(user)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
+    
+
+    client = MongoClient(uri)
+    db = client["SyncUserData"]
+    gdb = client['Graphs']
+    fs = gridfs.GridFS(gdb, collection="data_graphs")
+
+    stream = client["SyncUserData"].watch()
+
+    print("Listening to changes")
+    for change in stream:
+        print(dumps(change['ns']['coll']))
+        print("Generating overview graphs for "+change['ns']['coll']+".")
+        user = change['ns']['coll']
+        gen.overview_data(user)
+        print("Transferring all")
+        img_t.transfer_all()
+    
     return "Hi"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
