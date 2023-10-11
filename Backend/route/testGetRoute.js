@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Account = mongoose.model('accounts');
 
 module.exports = app => {
-    app.get('/getData', async (req, res) => {
+    app.get('/get_image', async (req, res) => {
         const { username } = req.body;
 
         const userAccount = await Account.findOne({ username });
