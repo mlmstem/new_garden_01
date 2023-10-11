@@ -63,7 +63,6 @@ def transfer_all():
 
     for x in graph_list:
         store_file(x)
-        retrieve_file(x)
         full_path = os.path.join(graph_dir_path, x)
         delete_file(full_path)
 
