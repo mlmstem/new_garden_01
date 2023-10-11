@@ -177,6 +177,8 @@ module.exports = app => {
         console.log(removed);
     });
 
+
+    
     app.get('/account/getGraph', async (req, res) => {
         const { imageID } = req.body;
         console.log(req.body);
@@ -196,6 +198,7 @@ module.exports = app => {
 
 
     });
+
 
     app.get('/account/getPlantData', async (req, res) => {
         const { username } = req.body;
@@ -226,5 +229,10 @@ module.exports = app => {
 
         res.send(gotData);
     });
+    
+
+
 
 }
+
+
