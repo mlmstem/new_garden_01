@@ -1,11 +1,12 @@
 import graph_gen as gen
+import analyze as al
 import plant as pl
 import image_transfer as img_t
 import sys
 import fnmatch
 import os
 
-from flask import Flask
+
 import pymongo
 from bson.json_util import dumps
 from urllib.parse import quote_plus
@@ -84,33 +85,23 @@ else:
         print("Arguments incorrect.")
 
 """
-app = Flask(__name__)
 
-@app.route('/')
-def home():
     
 
-    client = MongoClient(uri)
-    db = client["SyncUserData"]
-    gdb = client['Graphs']
-    fs = gridfs.GridFS(gdb, collection="data_graphs")
+client = MongoClient(uri)
+db = client["SyncUserData"]
 
-    stream = client["SyncUserData"].watch()
+stream = db.watch()
 
-    print("Listening to changes")
-    for change in stream:
-        print(dumps(change['ns']['coll']))
-        print("Generating overview graphs for "+change['ns']['coll']+".")
-        user = change['ns']['coll']
-        gen.overview_data(user)
-        print("Transferring all")
-        img_t.transfer_all()
-    
-    return "Hi"
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
+print("Listening to changes")
+for change in stream:
+    user = change['ns']['coll']
+    print("Changes in: "+user)
+    print("Generating overview graphs for: "+user)
+    gen.overview_data(user)
+    print("Transferring all graphs")
+    img_t.transfer_all()
+    print("Generating report")
+    al.gen_report(user)
+    al.upload_report(user)
+    print("Finished")
