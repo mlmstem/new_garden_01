@@ -29,9 +29,12 @@ require('./route/authenticationRoutes')(app);
 conn.once('open', () => {
   Grid.mongo = mongoose.mongo;
   const gfs = Grid(conn.db);
+
   console.log('GridFS stream is ready.');
   require('./route/imageDownloadRoute')(app, gfs);
   require('./route/test.js')(app,gfs);
+
+
 });
 
 // Setup image download route
