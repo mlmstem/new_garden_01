@@ -3,6 +3,7 @@ import json
 from urllib.parse import quote_plus
 from pymongo.server_api import ServerApi
 import os
+import pandas as pd
 
 # Original username and password
 username = "admin"
@@ -23,6 +24,15 @@ srcdb = client["SyncUserData"]
 
 def gen_report(user):
     collection = srcdb[user]
+    mongo_data = collection.find()
+    mongo_df = pd.DataFrame(mongo_data)
+    age_range = []
+    most_common = mongo_df['Plant Type'].value_counts().index.tolist()
+    avg_temp = mongo_df["Temperature (°C)"].mean()
+    avg_moist = mongo_df["Moisture (%)"].mean()
+    avg_pressure = mongo_df["Atmospheric Pressure (Pa)"].mean()
+    age_range.append(int(mongo_df["Age"].min())) 
+    age_range.append(int(mongo_df["Age"].max())) 
 
     # List all plant IDs and their names
     plants_info = [{"Id": plant["Id"], "Plant Type": plant["Plant Type"]} for plant in collection.find()]
@@ -60,6 +70,11 @@ def gen_report(user):
         "plants_above_100": plants_above_100,
         "plants_below_100": plants_below_100,
         "plants_by_status": plants_by_status,
+        "most_common_plant": most_common[0],
+        "age_range": age_range,
+        "avg_temp": avg_temp,
+        "avg_moist": avg_moist,
+        "avg_pressure": avg_pressure
     }
 
     # Save the JSON report to a file
@@ -81,3 +96,4 @@ def upload_report(user):
     json_file.close()
     os.remove(report_path)
 
+gen_report("User1")
