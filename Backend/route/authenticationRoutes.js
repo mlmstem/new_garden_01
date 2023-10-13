@@ -178,7 +178,7 @@ module.exports = app => {
     });
 
 
-    
+
     app.get('/account/getGraph', async (req, res) => {
         const { imageID } = req.body;
         console.log(req.body);
@@ -229,7 +229,28 @@ module.exports = app => {
 
         res.send(gotData);
     });
-    
+
+    app.get('/account/getPlantStatus', async (req, res) => {
+        const { username } = req.body;
+        // console.log(req.body);
+
+        // find user in database
+        const userAccount = await Account.findOne({ username });
+
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+
+        // set up structure of data to receive
+        var gotData = {
+            status: userAccount.plantList[1].status
+        };
+        // console.log(gotData);
+
+        res.send(gotData);
+    });
+
 
 
 
