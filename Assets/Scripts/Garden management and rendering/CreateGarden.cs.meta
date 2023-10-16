@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 086ecdd19673e4296a4e8f210079b19a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - field: {fileID: 3886177398510904771, guid: d3a20be168d5342648635c44b00091e7, type: 3}
+  - tomato: {fileID: 4882004657250975765, guid: f0688303e84c54733b419ea604094caa, type: 3}
+  - cabbage: {fileID: 4749375112876941578, guid: 197cc2bc9b5c847b79afcd554abdafdb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
