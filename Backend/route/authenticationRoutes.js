@@ -138,26 +138,38 @@ module.exports = app => {
     app.get('/account/getCurrentGarden', async (req, res) => {
         const { username } = req.body;
         // console.log(req.body);
-
+    
         // find user in database
         const userAccount = await Account.findOne({ username });
-
+    
         if (!userAccount) {
             res.status(404).json({ error: "User is not found" });
             return;
         }
+    
+        // Extract the plantList array from the user's account
+        const plantList = userAccount.plantList;
+    
+        // Create an array to hold garden data objects
+        const gardenDataArray = [];
+    
+        // Iterate through the plantList and create garden data objects
+        plantList.forEach((plant, index) => {
 
-        // set up structure of data to receive
-        var gotData = {
-            X: 1,
-            Y: 1,
-            plantType: userAccount.plantList[1].plantType,
-            plantStatus: userAccount.plantList[1].status
-        };
+            const X = index % 3;
+            const Y = Math.floor(index / 3);
 
-        // console.log(gotData);
-
-        res.send(gotData);
+            const gardenData = {
+                X: X,
+                Y:Y,
+                plantType: plant.plantType,
+                plantStatus: plant.status
+            };
+            gardenDataArray.push(gardenData);
+        });
+    
+        const gardenDataArrayWrapper = { gardenDataArray };
+        res.json(gardenDataArrayWrapper);
     });
 
     app.post('/account/removePlant', async (req, res) => {
