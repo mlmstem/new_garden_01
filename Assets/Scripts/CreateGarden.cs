@@ -8,9 +8,6 @@ public class CreateGarden : MonoBehaviour
     [SerializeField] private GameObject field;
     [SerializeField] private GameObject tomato;
     [SerializeField] private GameObject cabbage;
-    [SerializeField] private GameObject chili;
-    [SerializeField] private GameObject eggplant;
-    [SerializeField] private GameObject apple;
     private int rows = 2;
     private int column = 3;
     private int numVeg;
@@ -82,37 +79,13 @@ public class CreateGarden : MonoBehaviour
                 //thisTomato.transform.parent = thisField.transform;
                 thisTomato.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
-            else if (type == "cabbage")
+            else
             {
                 var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
-            }
-            else if (type == "chili")
-            {
-                var thisChili = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisChili.GetComponent<DragAndDrop>().onField = true;
-                // change field to full
-                //thisCabbage.transform.parent = thisField.transform;
-                thisChili.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
-            }
-            else if (type == "eggplant")
-            {
-                var thisEggplant = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisEggplant.GetComponent<DragAndDrop>().onField = true;
-                // change field to full
-                //thisCabbage.transform.parent = thisField.transform;
-                thisEggplant.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
-            }
-            else
-            {
-                var thisApple = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisApple.GetComponent<DragAndDrop>().onField = true;
-                // change field to full
-                //thisCabbage.transform.parent = thisField.transform;
-                thisApple.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
         }
     }
@@ -121,21 +94,10 @@ public class CreateGarden : MonoBehaviour
     {
         Instantiate(tomato, new Vector3(6, 2, 0), Quaternion.identity);
     }
+
     public void createCabbage()
     {
         Instantiate(cabbage, new Vector3(6, 2, 0), Quaternion.identity);
-    }
-    public void createChili()
-    {
-        Instantiate(chili, new Vector3(6, 2, 0), Quaternion.identity);
-    }
-    public void createEggplant()
-    {
-        Instantiate(eggplant, new Vector3(6, 2, 0), Quaternion.identity);
-    }
-    public void createApple()
-    {
-        Instantiate(apple, new Vector3(6, 2, 0), Quaternion.identity);
     }
 
     [System.Serializable]
