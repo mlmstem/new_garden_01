@@ -40,19 +40,19 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/GetGraph.cs" />
-     <Compile Include="Assets/Scripts/Login.cs" />
-     <Compile Include="Assets/Scripts/FirstPlayerView.cs" />
+     <Compile Include="Assets/Scripts/specific plant management/DragAndDrop.cs" />
+     <Compile Include="Assets/Scripts/overview data/GetGraph.cs" />
      <Compile Include="Assets/LowPolyFarmLite/Models/growing_plant.cs" />
-     <Compile Include="Assets/Scripts/PlantStatus.cs" />
-     <Compile Include="Assets/Scripts/GameAccount.cs" />
-     <Compile Include="Assets/Scripts/showProfileInfo.cs" />
-     <Compile Include="Assets/Scripts/PopUp.cs" />
-     <Compile Include="Assets/Scripts/CreateGarden.cs" />
      <Compile Include="Assets/Scripts/testGet.cs" />
-     <Compile Include="Assets/Scripts/FieldStatus.cs" />
-     <Compile Include="Assets/Scripts/PlayerController.cs" />
-     <Compile Include="Assets/Scripts/DragAndDrop.cs" />
+     <Compile Include="Assets/Scripts/First person Camera/FirstPlayerView.cs" />
+     <Compile Include="Assets/Scripts/Garden management and rendering/CreateGarden.cs" />
+     <Compile Include="Assets/Scripts/Garden management and rendering/FieldStatus.cs" />
+     <Compile Include="Assets/Scripts/First person Camera/PlayerController.cs" />
+     <Compile Include="Assets/Scripts/overview data/PopUp.cs" />
+     <Compile Include="Assets/Scripts/Login system/Login.cs" />
+     <Compile Include="Assets/Scripts/overview data/showProfileInfo.cs" />
+     <Compile Include="Assets/Scripts/specific plant management/PlantStatus.cs" />
+     <Compile Include="Assets/Scripts/Model and data storage/GameAccount.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

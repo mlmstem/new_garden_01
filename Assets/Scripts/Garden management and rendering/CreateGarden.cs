@@ -8,6 +8,9 @@ public class CreateGarden : MonoBehaviour
     [SerializeField] private GameObject field;
     [SerializeField] private GameObject tomato;
     [SerializeField] private GameObject cabbage;
+    [SerializeField] private GameObject chili;
+    [SerializeField] private GameObject eggplant;
+    [SerializeField] private GameObject apple;
     private int rows = 2;
     private int column = 3;
     private int numVeg;
@@ -15,18 +18,18 @@ public class CreateGarden : MonoBehaviour
     // private int[] allY;
     // private string[] allPlantType;
     // private string[] allPlantStatus;
-   [System.Serializable]
+    [System.Serializable]
     public class GardenData
     {
-    public int X;
-    public int Y;
-    public string plantType;
-    public string plantStatus;
+        public int X;
+        public int Y;
+        public string plantType;
+        public string plantStatus;
     }
 
     public class GardenDataArray
     {
-    public GardenData[] gardenDataArray;
+        public GardenData[] gardenDataArray;
     }
 
     // creates garden based on input of field size
@@ -71,16 +74,16 @@ public class CreateGarden : MonoBehaviour
         }
         else
         {
-        // Deserialize the received JSON data into an array of objects
-        GardenDataArray gardenDataArrayWrapper = JsonUtility.FromJson<GardenDataArray>(request.downloadHandler.text);
-        GardenData[] gardenDataArray = gardenDataArrayWrapper.gardenDataArray;
+            // Deserialize the received JSON data into an array of objects
+            GardenDataArray gardenDataArrayWrapper = JsonUtility.FromJson<GardenDataArray>(request.downloadHandler.text);
+            GardenData[] gardenDataArray = gardenDataArrayWrapper.gardenDataArray;
 
-        // Iterate through the array and instantiate objects in Unity
-        for (int i = 0; i < rows * column && i < gardenDataArray.Length; i++)
+            // Iterate through the array and instantiate objects in Unity
+            for (int i = 0; i < rows * column && i < gardenDataArray.Length; i++)
             {
-            GardenData gardenData = gardenDataArray[i];
-            Debug.Log("the position is: " + gardenData.X + " " + gardenData.Y);
-            showCurrentPlants(gardenData.X, gardenData.Y, gardenData.plantType, gardenData.plantStatus);
+                GardenData gardenData = gardenDataArray[i];
+                Debug.Log("the position is: " + gardenData.X + " " + gardenData.Y);
+                showCurrentPlants(gardenData.X, gardenData.Y, gardenData.plantType, gardenData.plantStatus);
             }
 
         }
@@ -90,12 +93,9 @@ public class CreateGarden : MonoBehaviour
 
     public void showCurrentPlants(int x, int y, string type, string status)
     {
-
-
-        
         if (status == "Unknown")
         {
-            if (type == "tomato")
+            if (type == "tomato" || type == "Tomato")
             {
                 var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisTomato.GetComponent<DragAndDrop>().onField = true;
@@ -103,9 +103,50 @@ public class CreateGarden : MonoBehaviour
                 //thisTomato.transform.parent = thisField.transform;
                 thisTomato.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
-            else
+            else if (type == "cabbage" || type == "Cabbage")
             {
                 var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                // change field to full
+                //thisCabbage.transform.parent = thisField.transform;
+                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+            }
+            else if (type == "Eggplant")
+            {
+                var thisCabbage = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                // change field to full
+                //thisCabbage.transform.parent = thisField.transform;
+                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+            }
+            else if (type == "Chili")
+            {
+                var thisCabbage = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                // change field to full
+                //thisCabbage.transform.parent = thisField.transform;
+                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+            }
+            else if (type == "Cucumber")
+            {
+                var thisCabbage = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                // change field to full
+                //thisCabbage.transform.parent = thisField.transform;
+                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+            }
+            else if (type == "Carrot")
+            {
+                var thisCabbage = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                // change field to full
+                //thisCabbage.transform.parent = thisField.transform;
+                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+            }
+            else
+            {
+                // is a Potato
+                var thisCabbage = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
@@ -116,12 +157,23 @@ public class CreateGarden : MonoBehaviour
 
     public void createTomato()
     {
-        Instantiate(tomato, new Vector3(3, 2, 0), Quaternion.identity);
+        Instantiate(tomato, new Vector3(6, 2, 0), Quaternion.identity);
     }
-
     public void createCabbage()
     {
         Instantiate(cabbage, new Vector3(6, 2, 0), Quaternion.identity);
+    }
+    public void createChili()
+    {
+        Instantiate(chili, new Vector3(6, 2, 0), Quaternion.identity);
+    }
+    public void createEggplant()
+    {
+        Instantiate(eggplant, new Vector3(6, 2, 0), Quaternion.identity);
+    }
+    public void createApple()
+    {
+        Instantiate(apple, new Vector3(6, 2, 0), Quaternion.identity);
     }
 
     [System.Serializable]
