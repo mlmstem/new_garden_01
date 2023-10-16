@@ -7,6 +7,9 @@ TagManager:
   - popups
   - cabbage
   - tomato
+  - eggplant
+  - chili
+  - apple
   layers:
   - Default
   - TransparentFX
