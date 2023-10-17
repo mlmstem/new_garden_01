@@ -138,21 +138,21 @@ module.exports = app => {
     app.get('/account/getCurrentGarden', async (req, res) => {
         const { username } = req.body;
         // console.log(req.body);
-    
+
         // find user in database
         const userAccount = await Account.findOne({ username });
-    
+
         if (!userAccount) {
             res.status(404).json({ error: "User is not found" });
             return;
         }
-    
+
         // Extract the plantList array from the user's account
         const plantList = userAccount.plantList;
-    
+
         // Create an array to hold garden data objects
         const gardenDataArray = [];
-    
+
         // Iterate through the plantList and create garden data objects
         plantList.forEach((plant, index) => {
 
@@ -161,13 +161,13 @@ module.exports = app => {
 
             const gardenData = {
                 X: X,
-                Y:Y,
+                Y: Y,
                 plantType: plant.plantType,
                 plantStatus: plant.status
             };
             gardenDataArray.push(gardenData);
         });
-    
+
         const gardenDataArrayWrapper = { gardenDataArray };
         res.json(gardenDataArrayWrapper);
     });
@@ -190,7 +190,7 @@ module.exports = app => {
     });
 
 
-    
+
     app.get('/account/getGraph', async (req, res) => {
         const { imageID } = req.body;
         console.log(req.body);
@@ -241,7 +241,7 @@ module.exports = app => {
 
         res.send(gotData);
     });
-    
+
 
 
 

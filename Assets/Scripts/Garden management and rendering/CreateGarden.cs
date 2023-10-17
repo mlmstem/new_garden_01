@@ -11,8 +11,8 @@ public class CreateGarden : MonoBehaviour
     [SerializeField] private GameObject chili;
     [SerializeField] private GameObject eggplant;
     [SerializeField] private GameObject apple;
-    private int rows = 2;
-    private int column = 3;
+    private int rows = 3;
+    private int column = 4;
     private int numVeg;
     // private int[] allX;
     // private int[] allY;
