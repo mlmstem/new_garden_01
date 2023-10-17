@@ -59,6 +59,8 @@ public class DragAndDrop : MonoBehaviour
                 Col = fieldStatus.colIndex;
                 Row = fieldStatus.rowIndex;
 
+                Debug.Log("current location is " + Col + "  " + Row);
+
                 // check if field is full
                 if (!fieldStatus.isFull)
                 {
@@ -93,6 +95,10 @@ public class DragAndDrop : MonoBehaviour
             }
             else
             {
+
+                // var fieldStatus = col.GetComponent<FieldStatus>();
+                // Col = fieldStatus.colIndex;
+                // Row = fieldStatus.rowIndex;
 
                 StartCoroutine(RemovePlantData(Row,Col));
                 Debug.Log("deleting object");
