@@ -33,9 +33,12 @@ public class PlantStatus : MonoBehaviour
     public double temperature;
     public double pressure;
 
+    public int rowIndex;
+    public int colIndex;
+
     private void Start()
     {
-        StartCoroutine(GetPlantInfo());
+        StartCoroutine(GetPlantInfo(rowIndex, colIndex));
     }
 
     public void OnMouseOver()
@@ -46,7 +49,7 @@ public class PlantStatus : MonoBehaviour
         }
     }
 
-    private IEnumerator GetPlantInfo()
+    private IEnumerator GetPlantInfo(int rowIndex, int colIndex)
     {
         string username = PlayerPrefs.GetString("Username", "DefaultUsername");
         userData data = new userData();
