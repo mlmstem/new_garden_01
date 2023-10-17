@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/specific plant management/DragAndDrop.cs" />
      <Compile Include="Assets/Scripts/overview data/GetGraph.cs" />
+     <Compile Include="Assets/Scripts/Danger alert/demoSyncShowDanger.cs" />
      <Compile Include="Assets/LowPolyFarmLite/Models/growing_plant.cs" />
      <Compile Include="Assets/Scripts/testGet.cs" />
      <Compile Include="Assets/Scripts/First person Camera/FirstPlayerView.cs" />
