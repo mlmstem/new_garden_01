@@ -35,8 +35,8 @@ public class PlantStatus : MonoBehaviour
 
     private void Start()
     {
-        gameObject.GetComponent<DragAndDrop>().Row = rowIndex;
-        gameObject.GetComponent<DragAndDrop>().Col = colIndex;
+        rowIndex = gameObject.GetComponent<DragAndDrop>().Row;
+        colIndex = gameObject.GetComponent<DragAndDrop>().Col;
         StartCoroutine(GetPlantInfo(rowIndex, colIndex));
         Debug.Log(rowIndex);
         Debug.Log(colIndex);

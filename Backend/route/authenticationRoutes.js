@@ -248,12 +248,12 @@ module.exports = app => {
             return;
         }
 
-        var plantPos = "(" + rowIndex + ", " + colIndex + ")";
+        var plantPos = "(" + colIndex + ", " + rowIndex + ")";
         console.log("postion: ", plantPos);
 
         // Extract the plantList array from the user's account
         const plantList = userAccount.plantList;
-        // console.log(plantList);
+        //console.log(plantList);
 
         var foundPlant;
         var i = 0;
@@ -266,6 +266,10 @@ module.exports = app => {
         });
         console.log("number %d", i);
         console.log(foundPlant);
+        if (foundPlant == undefined) {
+            res.status(404).json({ error: "Plant is not found" });
+            return;
+        }
 
         // set up structure of data to receive
         var gotData = {
