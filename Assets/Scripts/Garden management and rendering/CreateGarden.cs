@@ -83,7 +83,7 @@ public class CreateGarden : MonoBehaviour
             {
                 GardenData gardenData = gardenDataArray[i];
                 Debug.Log("the position is: " + gardenData.X + " " + gardenData.Y);
-                showCurrentPlants(gardenData.X, gardenData.Y, gardenData.plantType, gardenData.plantStatus);
+                showCurrentPlants(gardenData.Y, gardenData.X, gardenData.plantType, gardenData.plantStatus);
             }
 
         }
@@ -157,23 +157,23 @@ public class CreateGarden : MonoBehaviour
 
     public void createTomato()
     {
-        Instantiate(tomato, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(tomato, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createCabbage()
     {
-        Instantiate(cabbage, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(cabbage, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createChili()
     {
-        Instantiate(chili, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(chili, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createEggplant()
     {
-        Instantiate(eggplant, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(eggplant, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createApple()
     {
-        Instantiate(apple, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(apple, new Vector3(5, 2, 0), Quaternion.identity);
     }
 
     [System.Serializable]
