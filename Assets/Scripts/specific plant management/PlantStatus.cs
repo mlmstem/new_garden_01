@@ -35,7 +35,11 @@ public class PlantStatus : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(GetPlantInfo());
+        rowIndex = gameObject.GetComponent<DragAndDrop>().Row;
+        colIndex = gameObject.GetComponent<DragAndDrop>().Col;
+        StartCoroutine(GetPlantInfo(rowIndex, colIndex));
+        Debug.Log(rowIndex);
+        Debug.Log(colIndex);
     }
 
     public void OnMouseOver()
@@ -46,11 +50,19 @@ public class PlantStatus : MonoBehaviour
         }
     }
 
-    private IEnumerator GetPlantInfo()
+    private IEnumerator GetPlantInfo(int rowIndex, int colIndex)
     {
+        if (rowIndex < 0 && colIndex < 0)
+        {
+            // rowIndex or colIndex is not a valid number
+            Debug.LogError("Invalid rowIndex or colIndex: " + rowIndex + ", " + colIndex);
+        }
+
+        PlantData data = new PlantData();
         string username = PlayerPrefs.GetString("Username", "DefaultUsername");
-        userData data = new userData();
         data.username = username;
+        data.rowIndex = rowIndex;
+        data.colIndex = colIndex;
 
         UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getPlantData");
         request.SetRequestHeader("Content-Type", "application/json");
@@ -88,8 +100,10 @@ public class PlantStatus : MonoBehaviour
     }
 
     [System.Serializable]
-    public class userData
+    public class PlantData
     {
         public string username;
-    }
+        public int rowIndex;
+        public int colIndex;
+    };
 }

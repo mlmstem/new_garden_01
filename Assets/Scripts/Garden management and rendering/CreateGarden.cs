@@ -99,6 +99,8 @@ public class CreateGarden : MonoBehaviour
             {
                 var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisTomato.GetComponent<DragAndDrop>().onField = true;
+                thisTomato.GetComponent<DragAndDrop>().Row = x;
+                thisTomato.GetComponent<DragAndDrop>().Col = y;
                 // change field to full
                 //thisTomato.transform.parent = thisField.transform;
                 thisTomato.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
@@ -109,71 +111,83 @@ public class CreateGarden : MonoBehaviour
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
+                thisCabbage.GetComponent<DragAndDrop>().Row = x;
+                thisCabbage.GetComponent<DragAndDrop>().Col = y;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Eggplant")
             {
-                var thisCabbage = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                var thisEggplant = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisEggplant.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+                thisEggplant.GetComponent<DragAndDrop>().Row = x;
+                thisEggplant.GetComponent<DragAndDrop>().Col = y;
+                thisEggplant.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Chili")
             {
-                var thisCabbage = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                var thisChili = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisChili.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+                thisChili.GetComponent<DragAndDrop>().Row = x;
+                thisChili.GetComponent<DragAndDrop>().Col = y;
+                thisChili.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Cucumber")
             {
-                var thisCabbage = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                var thisCucumber = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCucumber.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+                thisCucumber.GetComponent<DragAndDrop>().Row = x;
+                thisCucumber.GetComponent<DragAndDrop>().Col = y;
+                thisCucumber.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Carrot")
             {
-                var thisCabbage = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                var thisCarrot = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisCarrot.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+                thisCarrot.GetComponent<DragAndDrop>().Row = x;
+                thisCarrot.GetComponent<DragAndDrop>().Col = y;
+                thisCarrot.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else
             {
                 // is a Potato
-                var thisCabbage = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCabbage.GetComponent<DragAndDrop>().onField = true;
+                var thisPotato = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+                thisPotato.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
+                thisPotato.GetComponent<DragAndDrop>().Row = x;
+                thisPotato.GetComponent<DragAndDrop>().Col = y;
+                thisPotato.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
         }
     }
 
     public void createTomato()
     {
-        Instantiate(tomato, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(tomato, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createCabbage()
     {
-        Instantiate(cabbage, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(cabbage, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createChili()
     {
-        Instantiate(chili, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(chili, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createEggplant()
     {
-        Instantiate(eggplant, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(eggplant, new Vector3(5, 2, 0), Quaternion.identity);
     }
     public void createApple()
     {
-        Instantiate(apple, new Vector3(6, 2, 0), Quaternion.identity);
+        Instantiate(apple, new Vector3(5, 2, 0), Quaternion.identity);
     }
 
     [System.Serializable]
