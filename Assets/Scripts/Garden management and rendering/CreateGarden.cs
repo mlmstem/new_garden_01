@@ -118,7 +118,6 @@ public class CreateGarden : MonoBehaviour
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
 <<<<<<< HEAD
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
 =======
                 thisEggplant.GetComponent<DragAndDrop>().Row = x;
                 thisEggplant.GetComponent<DragAndDrop>().Col = y;
@@ -132,7 +131,6 @@ public class CreateGarden : MonoBehaviour
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
 <<<<<<< HEAD
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
 =======
                 thisChili.GetComponent<DragAndDrop>().Row = x;
                 thisChili.GetComponent<DragAndDrop>().Col = y;
@@ -145,8 +143,6 @@ public class CreateGarden : MonoBehaviour
                 thisCucumber.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-<<<<<<< HEAD
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
 =======
                 thisCucumber.GetComponent<DragAndDrop>().Row = x;
                 thisCucumber.GetComponent<DragAndDrop>().Col = y;
@@ -160,7 +156,6 @@ public class CreateGarden : MonoBehaviour
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
 <<<<<<< HEAD
-                thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
 =======
                 thisCarrot.GetComponent<DragAndDrop>().Row = x;
                 thisCarrot.GetComponent<DragAndDrop>().Col = y;
