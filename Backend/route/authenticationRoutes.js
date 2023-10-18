@@ -255,12 +255,10 @@ module.exports = app => {
         //console.log(plantList);
 
         var foundPlant;
-        var i = 0;
         // Iterate through the plantList and create garden data objects
         plantList.forEach((plant, index) => {
             if (plant.position == plantPos) {
                 foundPlant = plant;
-                i++;
             }
         });
         console.log("number %d", i);
@@ -273,7 +271,7 @@ module.exports = app => {
         // set up structure of data to receive
         var gotData = {
             name: foundPlant.plantType,
-            id: i,
+            id: index,
             type: foundPlant.plantType,
             startDate: foundPlant.startDate,
             days: foundPlant.age,
@@ -288,7 +286,47 @@ module.exports = app => {
         res.send(gotData);
     });
 
+    app.get('/account/getPlantDanger', async (req, res) => {
+        const { username, rowIndex, colIndex } = req.body;
+        // console.log(req.body);
 
+        // find user in database
+        const userAccount = await Account.findOne({ username });
+
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+
+        var plantPos = "(" + colIndex + ", " + rowIndex + ")";
+        console.log("postion: ", plantPos);
+
+        // Extract the plantList array from the user's account
+        const plantList = userAccount.plantList;
+        //console.log(plantList);
+
+        var foundPlant;
+        // Iterate through the plantList and create garden data objects
+        plantList.forEach((plant, index) => {
+            if (plant.position == plantPos) {
+                foundPlant = plant;
+            }
+        });
+        console.log("number %d", i);
+        console.log(foundPlant);
+        if (foundPlant == undefined) {
+            res.status(404).json({ error: "Plant is not found" });
+            return;
+        }
+
+        // set up structure of data to receive
+        var gotData = {
+            danger: foundPlant.status
+        };
+        // console.log(gotData);
+
+        res.send(gotData);
+    });
 
 
 }
