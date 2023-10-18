@@ -214,7 +214,6 @@ module.exports = app => {
 
 
 
-
     app.get('/account/getGraph', async (req, res) => {
         const { imageID } = req.body;
         console.log(req.body);
