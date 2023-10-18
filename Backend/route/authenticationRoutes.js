@@ -173,46 +173,22 @@ module.exports = app => {
     });
 
     app.post('/account/removePlant', async (req, res) => {
-        const { username, rowIndex, colIndex} = req.body;
+        const { username } = req.body;
+        console.log(req.body);
 
-        console.log("receives request on the client end");
-    
-        // Find the user in the database
+        // find user in database
         const userAccount = await Account.findOne({ username });
-    
+
         if (!userAccount) {
             res.status(404).json({ error: "User is not found" });
             return;
         }
-
-    
-        // Calculate the index of the plant based on row and col
-
-        // console.log(username);
-        // console.log(row);
-        // console.log(col);
-
-        const plantIndex = rowIndex * 2 + colIndex;
-
-        console.log(plantIndex);
-    
-        // Check if the calculated index is valid
-        if (plantIndex >= 0 && plantIndex < userAccount.plantList.length) {
-            // Remove the plant from the array
-            userAccount.plantList.splice(plantIndex, 1);
-            
-            // Save the updated user account
-            await userAccount.save();
-            console.log("plant remove successful")
-    
-            res.status(200).json({ message: "Plant removed successfully" });
-        } else {
-            console.log("plant remove failure");
-            res.status(404).json({ error: "Invalid row and col values" });
-        }
+        console.log(userAccount.plantList);
+        // remove from plant array
+        const removed = await Account.deleteMany({ plantList: { plantType: 'tomato' } });
+        console.log(removed);
     });
 
-    
 
     
     app.get('/account/getGraph', async (req, res) => {
@@ -270,3 +246,5 @@ module.exports = app => {
 
 
 }
+
+

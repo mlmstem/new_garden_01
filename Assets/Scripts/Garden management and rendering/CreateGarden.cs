@@ -99,8 +99,6 @@ public class CreateGarden : MonoBehaviour
             {
                 var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
                 thisTomato.GetComponent<DragAndDrop>().onField = true;
-                thisTomato.GetComponent<DragAndDrop>().Row = x;
-                thisTomato.GetComponent<DragAndDrop>().Col = y;
                 // change field to full
                 //thisTomato.transform.parent = thisField.transform;
                 thisTomato.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
@@ -111,8 +109,6 @@ public class CreateGarden : MonoBehaviour
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.GetComponent<DragAndDrop>().Row = x;
-                thisCabbage.GetComponent<DragAndDrop>().Col = y;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Eggplant")
@@ -121,8 +117,6 @@ public class CreateGarden : MonoBehaviour
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.GetComponent<DragAndDrop>().Row = x;
-                thisCabbage.GetComponent<DragAndDrop>().Col = y;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Chili")
@@ -131,8 +125,6 @@ public class CreateGarden : MonoBehaviour
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.GetComponent<DragAndDrop>().Row = x;
-                thisCabbage.GetComponent<DragAndDrop>().Col = y;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Cucumber")
@@ -141,8 +133,6 @@ public class CreateGarden : MonoBehaviour
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.GetComponent<DragAndDrop>().Row = x;
-                thisCabbage.GetComponent<DragAndDrop>().Col = y;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else if (type == "Carrot")
@@ -151,8 +141,6 @@ public class CreateGarden : MonoBehaviour
                 thisCabbage.GetComponent<DragAndDrop>().onField = true;
                 // change field to full
                 //thisCabbage.transform.parent = thisField.transform;
-                thisCabbage.GetComponent<DragAndDrop>().Row = x;
-                thisCabbage.GetComponent<DragAndDrop>().Col = y;
                 thisCabbage.transform.localPosition = new Vector3(-4 * x, 0, -4 * y);
             }
             else
