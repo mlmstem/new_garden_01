@@ -42,11 +42,13 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/specific plant management/DragAndDrop.cs" />
      <Compile Include="Assets/Scripts/overview data/GetGraph.cs" />
+     <Compile Include="Assets/Scripts/Danger alert/demoSyncShowDanger.cs" />
      <Compile Include="Assets/LowPolyFarmLite/Models/growing_plant.cs" />
      <Compile Include="Assets/Scripts/testGet.cs" />
      <Compile Include="Assets/Scripts/First person Camera/FirstPlayerView.cs" />
      <Compile Include="Assets/Scripts/Garden management and rendering/CreateGarden.cs" />
      <Compile Include="Assets/Scripts/Garden management and rendering/FieldStatus.cs" />
+     <Compile Include="Assets/Scripts/Danger alert/InDangerToRed.cs" />
      <Compile Include="Assets/Scripts/First person Camera/PlayerController.cs" />
      <Compile Include="Assets/Scripts/overview data/PopUp.cs" />
      <Compile Include="Assets/Scripts/Login system/Login.cs" />
@@ -686,17 +688,59 @@
     <Reference Include="mscorlib">
         <HintPath>/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
@@ -710,53 +754,23 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>/Users/connieleong/Desktop/new_garden_01/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -138,21 +138,21 @@ module.exports = app => {
     app.get('/account/getCurrentGarden', async (req, res) => {
         const { username } = req.body;
         // console.log(req.body);
-    
+
         // find user in database
         const userAccount = await Account.findOne({ username });
-    
+
         if (!userAccount) {
             res.status(404).json({ error: "User is not found" });
             return;
         }
-    
+
         // Extract the plantList array from the user's account
         const plantList = userAccount.plantList;
-    
+
         // Create an array to hold garden data objects
         const gardenDataArray = [];
-    
+
         // Iterate through the plantList and create garden data objects
         plantList.forEach((plant, index) => {
 
@@ -161,36 +161,73 @@ module.exports = app => {
 
             const gardenData = {
                 X: X,
-                Y:Y,
+                Y: Y,
                 plantType: plant.plantType,
                 plantStatus: plant.status
             };
             gardenDataArray.push(gardenData);
         });
-    
+
         const gardenDataArrayWrapper = { gardenDataArray };
         res.json(gardenDataArrayWrapper);
     });
 
     app.post('/account/removePlant', async (req, res) => {
+<<<<<<< HEAD
         const { username } = req.body;
         console.log(req.body);
 
         // find user in database
+=======
+        const { username, rowIndex, colIndex } = req.body;
+
+        console.log("receives request on the client end");
+
+        // Find the user in the database
+>>>>>>> master
         const userAccount = await Account.findOne({ username });
 
         if (!userAccount) {
             res.status(404).json({ error: "User is not found" });
             return;
         }
+<<<<<<< HEAD
         console.log(userAccount.plantList);
         // remove from plant array
         const removed = await Account.deleteMany({ plantList: { plantType: 'tomato' } });
         console.log(removed);
+=======
+
+
+        // Calculate the index of the plant based on row and col
+
+        // console.log(username);
+        // console.log(row);
+        // console.log(col);
+
+        const plantIndex = rowIndex * 2 + colIndex;
+
+        console.log(plantIndex);
+
+        // Check if the calculated index is valid
+        if (plantIndex >= 0 && plantIndex < userAccount.plantList.length) {
+            // Remove the plant from the array
+            userAccount.plantList.splice(plantIndex, 1);
+
+            // Save the updated user account
+            await userAccount.save();
+            console.log("plant remove successful")
+
+            res.status(200).json({ message: "Plant removed successfully" });
+        } else {
+            console.log("plant remove failure");
+            res.status(404).json({ error: "Invalid row and col values" });
+        }
+>>>>>>> master
     });
 
 
-    
+
     app.get('/account/getGraph', async (req, res) => {
         const { imageID } = req.body;
         console.log(req.body);
@@ -213,7 +250,7 @@ module.exports = app => {
 
 
     app.get('/account/getPlantData', async (req, res) => {
-        const { username } = req.body;
+        const { username, rowIndex, colIndex } = req.body;
         // console.log(req.body);
 
         // find user in database
@@ -224,25 +261,86 @@ module.exports = app => {
             return;
         }
 
+        var plantPos = "(" + colIndex + ", " + rowIndex + ")";
+        console.log("postion: ", plantPos);
+
+        // Extract the plantList array from the user's account
+        const plantList = userAccount.plantList;
+        //console.log(plantList);
+
+        var foundPlant;
+        // Iterate through the plantList and create garden data objects
+        plantList.forEach((plant, index) => {
+            if (plant.position == plantPos) {
+                foundPlant = plant;
+            }
+        });
+        console.log("number %d", i);
+        console.log(foundPlant);
+        if (foundPlant == undefined) {
+            res.status(404).json({ error: "Plant is not found" });
+            return;
+        }
+
         // set up structure of data to receive
         var gotData = {
-            name: userAccount.plantList[1].plantType,
-            id: "1",
-            type: userAccount.plantList[1].plantType,
-            startDate: userAccount.plantList[1].startDate,
-            days: userAccount.plantList[1].age,
-            position: userAccount.plantList[1].position,
-            status: userAccount.plantList[1].status,
-            moisture: userAccount.plantList[1].moisturePercentage,
-            temperature: userAccount.plantList[1].temperatureCelsius,
-            pressure: userAccount.plantList[1].atmosphericPressurePa
+            name: foundPlant.plantType,
+            id: index,
+            type: foundPlant.plantType,
+            startDate: foundPlant.startDate,
+            days: foundPlant.age,
+            position: foundPlant.position,
+            status: foundPlant.status,
+            moisture: foundPlant.moisturePercentage,
+            temperature: foundPlant.temperatureCelsius,
+            pressure: foundPlant.atmosphericPressurePa
         };
         // console.log(gotData);
 
         res.send(gotData);
     });
-    
 
+    app.get('/account/getPlantDanger', async (req, res) => {
+        const { username, rowIndex, colIndex } = req.body;
+        // console.log(req.body);
+
+        // find user in database
+        const userAccount = await Account.findOne({ username });
+
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
+            return;
+        }
+
+        var plantPos = "(" + colIndex + ", " + rowIndex + ")";
+        console.log("postion: ", plantPos);
+
+        // Extract the plantList array from the user's account
+        const plantList = userAccount.plantList;
+        //console.log(plantList);
+
+        var foundPlant;
+        // Iterate through the plantList and create garden data objects
+        plantList.forEach((plant, index) => {
+            if (plant.position == plantPos) {
+                foundPlant = plant;
+            }
+        });
+        console.log("number %d", i);
+        console.log(foundPlant);
+        if (foundPlant == undefined) {
+            res.status(404).json({ error: "Plant is not found" });
+            return;
+        }
+
+        // set up structure of data to receive
+        var gotData = {
+            danger: foundPlant.status
+        };
+        // console.log(gotData);
+
+        res.send(gotData);
+    });
 
 
 }
