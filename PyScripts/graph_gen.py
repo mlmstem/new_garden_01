@@ -44,9 +44,12 @@ def overview_data(user):
     mongo_data = db[user].find()
     mongo_df = pd.DataFrame(mongo_data)
 
+    status_list = ["Healthy", "In Danger", "Dead"]
+    bar_colors = ['green', 'yellow', 'red']
+    dictionary = {'Healthy': 0, 'In Danger': 0, 'Dead': 0} | mongo_df['Status'].value_counts().to_dict()
     #Pie chart for plant status
     fig, ax = plt.subplots()
-    ax.pie(mongo_df['Status'].value_counts(), labels=mongo_df['Status'].unique(), autopct='%1.1f%%')
+    ax.bar(status_list, list(dictionary.values()), color=bar_colors)
     plt.savefig('PyScripts\Graphs\pieStatus_'+str(user)+'.png')
     plt.close()
 
@@ -68,7 +71,7 @@ def specific_data(data):
         filename = re.search("\(\d, \d, \d\)", str(name))
 
         fig, ax = plt.subplots()
-        ax.plot(group['Timestamp'], group['Moisture (%)'])
+        ax.plot(group['Timestamp'], group['Moisture (%)'], marker='o')
         plt.xticks(rotation=45, ha='right', fontsize=7)
         plt.title("Moisture of plant "+str(group['Id'].unique()))
         plt.xlabel('Timestamp')
@@ -83,7 +86,7 @@ def specific_data(data):
         filename = re.search("\(\d, \d, \d\)", str(name))
 
         fig, ax = plt.subplots()
-        ax.plot(group['Timestamp'], group['Temperature (°C)'])
+        ax.plot(group['Timestamp'], group['Temperature (°C)'], marker='o')
         plt.xticks(rotation=45, ha='right', fontsize=7)
         plt.title("Temperature of plant "+str(group['Id'].unique()))
         plt.xlabel('Timestamp')
@@ -98,7 +101,7 @@ def specific_data(data):
         filename = re.search("\(\d, \d, \d\)", str(name))
         
         fig, ax = plt.subplots()
-        ax.plot(group['Timestamp'], group['Atmospheric Pressure (Pa)'])
+        ax.plot(group['Timestamp'], group['Atmospheric Pressure (Pa)'], marker='o')
         plt.xticks(rotation=45, ha='right', fontsize=7)
         plt.title("Pressure of plant "+str(group['Id'].unique()))
         plt.xlabel('Timestamp')
@@ -107,4 +110,5 @@ def specific_data(data):
         plt.savefig('PyScripts\Graphs\linePressure_'+filename.group()+'.png')
         plt.close()
 
-
+#specific_data(concat_all_data())
+overview_data('User1')
