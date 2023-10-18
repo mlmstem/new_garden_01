@@ -11,7 +11,7 @@ public class demoSyncShowDanger : MonoBehaviour
     {
         foreach (GameObject plant in toPutDanger)
         {
-            Object.GetComponent<MeshRenderer>().material = material;
+            gameObject.GetComponent<MeshRenderer>().material = material;
         }
     }
 }
