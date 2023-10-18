@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 7416824426545144155}
   m_Layer: 0
   m_Name: Cabbage_01_LOD1
-  m_TagString: Untagged
+  m_TagString: danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1933,7 +1933,7 @@ GameObject:
   - component: {fileID: 4029532634039467256}
   m_Layer: 0
   m_Name: Cabbage_01_LOD0
-  m_TagString: Untagged
+  m_TagString: danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
