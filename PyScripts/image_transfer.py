@@ -3,8 +3,6 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import gridfs
 import os
-import sys
-import fnmatch
 
 # Connection details from connection.py
 username = "admin"
