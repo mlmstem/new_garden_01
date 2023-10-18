@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
+    [SerializeField] private GameObject inputPopUp;
     Vector3 mousePosition;
     public bool onField = false;
     public bool pickedUp = false;
@@ -45,7 +46,7 @@ public class DragAndDrop : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider col)
-    {   
+    {
 
         if (!onField && pickedUp)
         {
@@ -64,6 +65,7 @@ public class DragAndDrop : MonoBehaviour
                 // check if field is full
                 if (!fieldStatus.isFull)
                 {
+                    inputPopUp.SetActive(true);
                     // Debug.Log("field is empty");
                     // allocate object to the field
                     // Using post request here to send plant data to mongodb atlas
@@ -88,7 +90,7 @@ public class DragAndDrop : MonoBehaviour
                     {
                         // send plant id
                         Debug.Log("deleting object");
-                        StartCoroutine(RemovePlantData(Row,Col));
+                        StartCoroutine(RemovePlantData(Row, Col));
                     }
                     Destroy(gameObject);
                 }
@@ -100,7 +102,7 @@ public class DragAndDrop : MonoBehaviour
                 // Col = fieldStatus.colIndex;
                 // Row = fieldStatus.rowIndex;
 
-                StartCoroutine(RemovePlantData(Row,Col));
+                StartCoroutine(RemovePlantData(Row, Col));
                 Debug.Log("deleting object");
                 // if (inDatabase)
                 // {
@@ -175,48 +177,48 @@ public class DragAndDrop : MonoBehaviour
 
 
 
-IEnumerator RemovePlantData(int rowIndex, int colIndex)
-{
-    string username = PlayerPrefs.GetString("Username", "DefaultUsername");
-
-    if (rowIndex >= 0 && colIndex >= 0)
+    IEnumerator RemovePlantData(int rowIndex, int colIndex)
     {
-        // rowIndex and colIndex are valid numbers, continue with the request logic
+        string username = PlayerPrefs.GetString("Username", "DefaultUsername");
+
+        if (rowIndex >= 0 && colIndex >= 0)
+        {
+            // rowIndex and colIndex are valid numbers, continue with the request logic
+        }
+        else
+        {
+            // rowIndex or colIndex is not a valid number
+            Debug.LogError("Invalid rowIndex or colIndex: " + rowIndex + ", " + colIndex);
+        }
+
+        PlantRemovalData data = new PlantRemovalData
+        {
+            username = username,
+            rowIndex = rowIndex,
+            colIndex = colIndex
+        };
+
+        Debug.Log("removing plant on position " + rowIndex + colIndex);
+
+        // Use UnityWebRequest.Post to send data as JSON
+        UnityWebRequest request = UnityWebRequest.PostWwwForm("http://127.0.0.1:13756/account/removePlant", "");
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        string requestBody = JsonUtility.ToJson(data);
+        byte[] requestBodyRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        request.uploadHandler = new UploadHandlerRaw(requestBodyRaw);
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            Debug.Log("delete success");
+        }
     }
-    else
-    {
-        // rowIndex or colIndex is not a valid number
-        Debug.LogError("Invalid rowIndex or colIndex: " + rowIndex + ", " + colIndex);
-    }
-
-    PlantRemovalData data = new PlantRemovalData
-    {
-        username = username,
-        rowIndex = rowIndex,
-        colIndex = colIndex
-    };
-
-    Debug.Log("removing plant on position " + rowIndex + colIndex);
-
-    // Use UnityWebRequest.Post to send data as JSON
-    UnityWebRequest request = UnityWebRequest.PostWwwForm("http://127.0.0.1:13756/account/removePlant", "");
-    request.SetRequestHeader("Content-Type", "application/json");
-
-    string requestBody = JsonUtility.ToJson(data);
-    byte[] requestBodyRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
-    request.uploadHandler = new UploadHandlerRaw(requestBodyRaw);
-
-    yield return request.SendWebRequest();
-
-    if (request.result != UnityWebRequest.Result.Success)
-    {
-        Debug.Log(request.error);
-    }
-    else
-    {
-        Debug.Log("delete success");
-    }
-}
 
 
 
