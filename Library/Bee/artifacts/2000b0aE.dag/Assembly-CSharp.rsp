@@ -340,6 +340,7 @@
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.5f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/LowPolyFarmLite/Models/growing_plant.cs"
 "Assets/Scripts/Danger alert/demoSyncShowDanger.cs"
+"Assets/Scripts/Danger alert/InDangerToRed.cs"
 "Assets/Scripts/First person Camera/FirstPlayerView.cs"
 "Assets/Scripts/First person Camera/PlayerController.cs"
 "Assets/Scripts/Garden management and rendering/CreateGarden.cs"

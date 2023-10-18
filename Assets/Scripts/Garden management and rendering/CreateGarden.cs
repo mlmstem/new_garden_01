@@ -83,7 +83,7 @@ public class CreateGarden : MonoBehaviour
             {
                 GardenData gardenData = gardenDataArray[i];
                 Debug.Log("the position is: " + gardenData.X + " " + gardenData.Y);
-                showCurrentPlants(gardenData.X, gardenData.Y, gardenData.plantType, gardenData.plantStatus);
+                showCurrentPlants(gardenData.Y, gardenData.X, gardenData.plantType, gardenData.plantStatus);
             }
 
         }
