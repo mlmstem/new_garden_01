@@ -17,7 +17,7 @@ password_escaped = quote_plus(password)
 uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mongodb.net/?retryWrites=true&w=majority"
 
 # Connect to MongoDB
-client = MongoClient(uri)
+client = MongoClient(uri, server_api=ServerApi('1'))
 outputdb = client["Reports"]
 srcdb = client["SyncUserData"]
 
@@ -95,5 +95,3 @@ def upload_report(user):
         analysis_collection.insert_one(data)
     json_file.close()
     os.remove(report_path)
-
-gen_report("User1")

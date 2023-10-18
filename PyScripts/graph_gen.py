@@ -1,17 +1,24 @@
-from plant import Plant
-from plant import Position
-from pymongo import MongoClient
+from urllib.parse import quote_plus
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime
-import csv
-import json
+
 import re
 
-from connection import uri
+# Original username and password
+username = "admin"
+password = "Password123"
+
+# Escaped username and password
+username_escaped = quote_plus(username)
+password_escaped = quote_plus(password)
+
+# Construct the URI
+uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mongodb.net/?retryWrites=true&w=majority"
 
 # Connect to MongoDB
-client = MongoClient(uri)
+client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["SyncUserData"]
 
 # Combine all data into one single dataframe
@@ -21,14 +28,13 @@ def concat_all_data():
 
     for x in range(1,11):
 
-        mongo_data = db["Decay_"+str(x)].find()
-        mongo_df = pd.DataFrame(mongo_data)
+        mongo_data = "Mock Data\Faster_Decay_v2_"+str(x)+".csv"
+        mongo_df = pd.read_csv(mongo_data)
 
         all_data = pd.concat([all_data, mongo_df])
 
     all_data.sort_values(by=['Timestamp'])
-    all_data['_id'].astype('string_')
-
+    all_data['Id'].astype('string_')
     return all_data
 
 # Generates graphs for overview data
@@ -52,7 +58,9 @@ def overview_data(user):
 # Generates graphs for specific plant data
 def specific_data(data):
 
-    grouped = data.groupby(['Position'])        
+    all_data = pd.DataFrame()
+    all_data = pd.concat([all_data, data])
+    grouped = all_data.groupby(['Position'])        
 
     #Line graph for moisture
     for name, group in grouped:
@@ -61,11 +69,12 @@ def specific_data(data):
 
         fig, ax = plt.subplots()
         ax.plot(group['Timestamp'], group['Moisture (%)'])
-        plt.xticks(rotation=90, ha='right')
+        plt.xticks(rotation=45, ha='right', fontsize=7)
         plt.title("Moisture of plant "+str(group['Id'].unique()))
         plt.xlabel('Timestamp')
         plt.ylabel('%')
-        plt.savefig('PyScripts\Graphs\moist_'+filename.group()+'.png')
+        plt.tight_layout()
+        plt.savefig('PyScripts\Graphs\lineMoist_'+filename.group()+'.png')
         plt.close()
 
     #Line graph for temperature
@@ -75,11 +84,12 @@ def specific_data(data):
 
         fig, ax = plt.subplots()
         ax.plot(group['Timestamp'], group['Temperature (°C)'])
-        plt.xticks(rotation=90, ha='right')
+        plt.xticks(rotation=45, ha='right', fontsize=7)
         plt.title("Temperature of plant "+str(group['Id'].unique()))
         plt.xlabel('Timestamp')
         plt.ylabel('C')
-        plt.savefig('PyScripts\Graphs\\temp_'+filename.group()+'.png')
+        plt.tight_layout()
+        plt.savefig('PyScripts\Graphs\lineTemp_'+filename.group()+'.png')
         plt.close()
 
     #Line graph for pressure
@@ -89,10 +99,12 @@ def specific_data(data):
         
         fig, ax = plt.subplots()
         ax.plot(group['Timestamp'], group['Atmospheric Pressure (Pa)'])
-        plt.xticks(rotation=90, ha='right')
+        plt.xticks(rotation=45, ha='right', fontsize=7)
         plt.title("Pressure of plant "+str(group['Id'].unique()))
         plt.xlabel('Timestamp')
         plt.ylabel('Pa')
-        plt.savefig('PyScripts\Graphs\pressure_'+filename.group()+'.png')
+        plt.tight_layout()
+        plt.savefig('PyScripts\Graphs\linePressure_'+filename.group()+'.png')
         plt.close()
+
 

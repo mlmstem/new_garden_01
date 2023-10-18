@@ -1,18 +1,12 @@
 import graph_gen as gen
 import analyze as al
-import plant as pl
 import image_transfer as img_t
-import sys
-import fnmatch
-import os
 
 
-import pymongo
 from bson.json_util import dumps
 from urllib.parse import quote_plus
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-import gridfs
 
 
 
@@ -88,7 +82,7 @@ else:
 
     
 
-client = MongoClient(uri)
+client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["SyncUserData"]
 
 stream = db.watch()
@@ -103,5 +97,6 @@ for change in stream:
     img_t.transfer_all()
     print("Generating report")
     al.gen_report(user)
+    print("Uploading report")
     al.upload_report(user)
     print("Finished")
