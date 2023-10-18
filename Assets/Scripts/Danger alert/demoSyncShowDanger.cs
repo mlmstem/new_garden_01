@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class demoSyncShowDanger : MonoBehaviour
 {
-    [SerializeField] private GameObject[] toPutDanger;
+    private GameObject[] toPutDanger;
     [SerializeField] private Material material;
+
+    private void Start()
+    {
+        toPutDanger = GameObject.FindGameObjectsWithTag("danger");
+    }
 
     public void syncAndDanger()
     {
         foreach (GameObject plant in toPutDanger)
         {
-            gameObject.GetComponent<MeshRenderer>().material = material;
+            plant.GetComponent<MeshRenderer>().material = material;
         }
     }
 }
