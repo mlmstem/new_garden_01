@@ -113,7 +113,7 @@ public class CreateGarden : MonoBehaviour
             thisCabbage.GetComponent<DragAndDrop>().Col = y;
             thisCabbage.transform.localPosition = new Vector3(0, 0, 0);
         }
-        else if (type == "Eggplant")
+        else if (type == "Eggplant" || type == "eggplant")
         {
             var thisEggplant = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
             thisEggplant.GetComponent<DragAndDrop>().onField = true;
