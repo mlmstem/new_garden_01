@@ -21,6 +21,7 @@ uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mon
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["SyncUserData"]
 
+demo_db = client["loginGarden"]
 # Combine all data into one single dataframe
 def concat_all_data():
 
@@ -40,23 +41,85 @@ def concat_all_data():
 # Generates graphs for overview data
 def overview_data(user):
 
-    
+    demo_data = demo_db["accounts"]
+    query = {"username": "chris"}
+    demo_plants = demo_data.find_one(query)["plantList"]
+    demo_df = pd.DataFrame(demo_plants)
+
+
     mongo_data = db[user].find()
     mongo_df = pd.DataFrame(mongo_data)
 
+    moist_list = ["0-25%", "26-50%", "51-75%", "76-100%"]
+    temp_list = ['0-10', '11-20', '21-30', '31-40']
+    pressure_list = ['85000-92500', '92501-100000', '100001-107500', '107501-115000']
     status_list = ["Healthy", "In Danger", "Dead"]
-    bar_colors = ['green', 'yellow', 'red']
-    dictionary = {'Healthy': 0, 'In Danger': 0, 'Dead': 0} | mongo_df['Status'].value_counts().to_dict()
-    #Pie chart for plant status
-    fig, ax = plt.subplots()
-    ax.bar(status_list, list(dictionary.values()), color=bar_colors)
-    plt.savefig('PyScripts\Graphs\pieStatus_'+str(user)+'.png')
-    plt.close()
 
+    demo_df['moisture_percentile'] = pd.cut(demo_df['moisturePercentage'], [0,25,50,75,100], labels=moist_list)
+    demo_df['temp_percentile'] = pd.cut(demo_df['temperatureCelsius'], [0,10,20,30,40], labels=temp_list)
+    demo_df['pressure_percentile'] = pd.cut(demo_df['atmosphericPressurePa'], [85000, 92500, 100000, 107500, 115000], labels=pressure_list)
+
+    bar_colors = ['green', 'yellow', 'red']
+
+
+    status_dict =      {'Healthy': 0, 'In Danger': 0, 'Dead': 0}                                    | demo_df['status'].value_counts().to_dict()
+    moist_dict =       {"0-25%": 0, "26-50%": 0, "51-75%": 0, "76-100%":0}                          | demo_df['moisture_percentile'].value_counts().to_dict()
+    temp_dict =        {"0-10": 0, "11-20": 0, "21-30": 0, "31-40":0}                               | demo_df['temp_percentile'].value_counts().to_dict()
+    pressure_dict =    {"85000-92500": 0, "92501-100000": 0, "100001-107500": 0, "107501-115000":0} | demo_df['pressure_percentile'].value_counts().to_dict()
+
+    #Bar chart for plant status
+    fig, ax = plt.subplots()
+    #ax.bar(status_list, list(status_dict.values()), color=bar_colors, width=0.5)
+    ax.pie(demo_df['status'].value_counts(), labels=status_list, colors = bar_colors, autopct='%1.1f%%')
+    plt.title("Plant status distribution")
+    #plt.xlabel('Status')
+    #plt.ylabel('Number of plants')
+    plt.savefig('PyScripts\Graphs\\pieStatus.png')
+    plt.close()
+    print("done")
+
+    
+    #Bar chart for plant moisture
+    fig, ax = plt.subplots()
+    ax.bar(moist_list, list(moist_dict.values()), width=0.5)
+    plt.title("Plant moisture level distribution")
+    plt.xlabel('Moisture level')
+    plt.ylabel('Number of plants')
+    plt.savefig('PyScripts\Graphs\\barMoist.png')
+    plt.close()
+    print("done")
+    
+
+    #Bar chart for plant temp
+    fig, ax = plt.subplots()
+    ax.bar(temp_list, list(temp_dict.values()), width=0.5)
+    plt.title("Plant temperature distribution")
+    plt.xlabel('Temperature degree (C)')
+    plt.ylabel('Number of plants')
+    plt.savefig('PyScripts\Graphs\\barTemp.png')
+    plt.close()
+    print("done")
+
+    
+    #Bar chart for plant pressure
+    fig, ax = plt.subplots()
+    ax.bar(pressure_list, list(pressure_dict.values()), width=0.5)
+    plt.title("Plant pressure distribution")
+    plt.xlabel('Pressure (Pa)')
+    plt.ylabel('Number of plants')
+    plt.savefig('PyScripts\Graphs\\barPressure.png')
+    plt.close()
+    print("done")
+
+    
+    #Pie chart for plant type distribution
     fig, ax = plt.subplots()
     ax.pie(mongo_df['Plant Type'].value_counts(), labels=mongo_df['Plant Type'].unique(), autopct='%1.1f%%')
-    plt.savefig('PyScripts\Graphs\pieType_'+str(user)+'.png')
+    plt.title("Plant type distribution")
+    plt.savefig('PyScripts\Graphs\pieType.png')
     plt.close()
+    print("done")
+    
 
 # Generates graphs for specific plant data
 def specific_data(data):
