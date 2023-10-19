@@ -562,6 +562,7 @@
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"MovedFromExtractorCombine Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll.mvfrm","enqueuedNodeIndex":352,"enqueueingNodeAnnotation":"Csc Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll (+2 others)","enqueueingNodeIndex":338}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteText Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll.mvfrm.rsp","enqueuedNodeIndex":351,"enqueueingNodeAnnotation":"MovedFromExtractorCombine Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll.mvfrm","enqueueingNodeIndex":352}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb","enqueuedNodeIndex":426,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":6}
+<<<<<<< Updated upstream
 {"msg":"nodeRetryBuild","annotation":"Csc Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll (+2 others)","index":338}
 {"msg":"runNodeAction","annotation":"Csc Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll (+2 others)","displayName":"Csc Assembly-CSharp","index":338}
 {"msg":"noderesult","processed_node_count":422,"number_of_nodes_ever_queued":426,"annotation":"Csc Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll (+2 others)","index":338,"exitcode":0,"outputfile":"Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll","stdout":"Assets/Scripts/specific plant management/PlantStatus.cs(25,19): warning CS0108: 'PlantStatus.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.\nAssets/Scripts/Login system/Login.cs(65,14): warning CS0618: 'UnityWebRequest.isNetworkError' is obsolete: 'UnityWebRequest.isNetworkError is deprecated. Use (UnityWebRequest.result == UnityWebRequest.Result.ConnectionError) instead.'\nAssets/Scripts/Login system/Login.cs(65,41): warning CS0618: 'UnityWebRequest.isHttpError' is obsolete: 'UnityWebRequest.isHttpError is deprecated. Use (UnityWebRequest.result == UnityWebRequest.Result.ProtocolError) instead.'\nAssets/Scripts/testGet.cs(9,37): warning CS0414: The field 'testGet.authenticationEndpoint' is assigned but its value is never used"}
@@ -572,3 +573,5 @@
 {"msg":"noderesult","processed_node_count":423,"number_of_nodes_ever_queued":426,"annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb","index":426,"exitcode":0,"outputfile":"Library/ScriptAssemblies/Assembly-CSharp.pdb"}
 {"msg":"noderesult","processed_node_count":424,"number_of_nodes_ever_queued":426,"annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":425,"exitcode":0,"outputfile":"Library/ScriptAssemblies/Assembly-CSharp.dll"}
 >>>>>>> master
+=======
+>>>>>>> Stashed changes

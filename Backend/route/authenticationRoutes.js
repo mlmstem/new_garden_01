@@ -275,8 +275,8 @@ module.exports = app => {
                 foundPlant = plant;
             }
         });
-        console.log("number %d", i);
-        console.log(foundPlant);
+        // console.log("number %d", i);
+        // console.log(foundPlant);
         if (foundPlant == undefined) {
             res.status(404).json({ error: "Plant is not found" });
             return;
@@ -326,8 +326,8 @@ module.exports = app => {
                 foundPlant = plant;
             }
         });
-        console.log("number %d", i);
-        console.log(foundPlant);
+        //console.log("number %d", i);
+        //console.log(foundPlant);
         if (foundPlant == undefined) {
             res.status(404).json({ error: "Plant is not found" });
             return;

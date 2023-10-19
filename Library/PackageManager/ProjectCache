@@ -5,6 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       ticks: 638309335602628359
     m_Hash: 1290111452
@@ -12,12 +13,17 @@ m_ProjectFiles:
       ticks: 638331167070000000
     m_Hash: 659036267
 >>>>>>> master
+=======
+      ticks: 638332334828925616
+    m_Hash: 1481337233
+>>>>>>> Stashed changes
   m_LockFileStatus:
     m_FilePath: C:/Users/Chris/Unity Garden app/My project (1)/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       ticks: 638309335602628359
     m_Hash: 919810831
@@ -25,6 +31,10 @@ m_ProjectFiles:
       ticks: 638331167070000000
     m_Hash: 3341541543
 >>>>>>> master
+=======
+      ticks: 638332334828935607
+    m_Hash: 1459743427
+>>>>>>> Stashed changes
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -333,7 +343,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 5.1.1
   source: 1
-  resolvedPath: /Users/connieleong/Desktop/new_garden_01/Library/PackageCache/com.unity.probuilder@5.1.1
+  resolvedPath: C:\Users\Chris\Unity Garden app\My project (1)\Library\PackageCache\com.unity.probuilder@5.1.1
   assetPath: Packages/com.unity.probuilder
   name: com.unity.probuilder
   displayName: ProBuilder
@@ -2893,7 +2903,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.0.1
   source: 1
-  resolvedPath: /Users/connieleong/Desktop/new_garden_01/Library/PackageCache/com.unity.settings-manager@2.0.1
+  resolvedPath: C:\Users\Chris\Unity Garden app\My project (1)\Library\PackageCache\com.unity.settings-manager@2.0.1
   assetPath: Packages/com.unity.settings-manager
   name: com.unity.settings-manager
   displayName: Settings Manager

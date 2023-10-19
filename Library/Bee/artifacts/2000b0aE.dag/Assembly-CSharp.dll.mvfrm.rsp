@@ -1,8 +1,18 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 Library\Bee\artifacts\mvdfrm\Unity.2D.Sprite.Editor.ref.dll_493FFFF13AE54DA2.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.EditorCoroutines.Editor.ref.dll_63B9EB35A0645901.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Performance.Profile-Analyzer.Editor.ref.dll_C0422B8CE3C1BDD1.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.PlasticSCM.Editor.ref.dll_9B6D9940AFF80C3C.mvfrm
+<<<<<<< Updated upstream
+=======
+Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.AddOns.Editor.ref.dll_D995EF1038746A20.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.AssetIdRemapUtility.ref.dll_09D2527CC8F3A5D6.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.Editor.ref.dll_59A1CF82CA38FE5B.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.ref.dll_EF80F7E9FCEB26B6.mvfrm
+>>>>>>> Stashed changes
 Library\Bee\artifacts\mvdfrm\Unity.Rider.Editor.ref.dll_BB682F4C994978A9.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll_A9B4CA1AA14E26F9.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll_C83781DD64A29266.mvfrm
@@ -103,6 +113,7 @@ Library\Bee\artifacts\mvdfrm\UnityEngine.VRModule.dll_C59093975F00E8B8.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WindModule.dll_DA9903E34E9FE0D4.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.XRModule.dll_F84F569BE83B3616.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WebGLModule.dll_8491E38D84A2DECF.mvfrm
+<<<<<<< Updated upstream
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_6B5854E2366B9BC5.mvfrm
 =======
 Library/Bee/artifacts/mvdfrm/Unity.2D.Sprite.Editor.ref.dll_493FFFF13AE54DA2.mvfrm
@@ -215,3 +226,6 @@ Library/Bee/artifacts/mvdfrm/UnityEngine.WindModule.dll_DBA5986C060B5BAE.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.XRModule.dll_E89BC52BC7B0D9B0.mvfrm
 Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Antlr3.Runtime.dll_6B5854E2366B9BC5.mvfrm
 >>>>>>> master
+=======
+Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_6B5854E2366B9BC5.mvfrm
+>>>>>>> Stashed changes
