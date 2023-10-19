@@ -1,0 +1,182 @@
+[
+    {
+        "Id": 1,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-08-20",
+        "Age": 46,
+        "Position": [
+            1,
+            1,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 55.38721735284162,
+        "Temperature (\u00b0C)": 25.457383176906006,
+        "Atmospheric Pressure (Pa)": 98759.74082599719
+    },
+    {
+        "Id": 2,
+        "Plant Type": "Potato",
+        "Start Date": "2023-07-12",
+        "Age": 85,
+        "Position": [
+            2,
+            1,
+            1
+        ],
+        "Status": "In Danger",
+        "Moisture (%)": 45.99644155031105,
+        "Temperature (\u00b0C)": -0.2626916168181439,
+        "Atmospheric Pressure (Pa)": 96406.748472716
+    },
+    {
+        "Id": 3,
+        "Plant Type": "Carrot",
+        "Start Date": "2023-02-09",
+        "Age": 238,
+        "Position": [
+            3,
+            1,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 75.18559082003198,
+        "Temperature (\u00b0C)": 20.12269039225597,
+        "Atmospheric Pressure (Pa)": 102705.16529036307
+    },
+    {
+        "Id": 4,
+        "Plant Type": "Carrot",
+        "Start Date": "2023-03-24",
+        "Age": 195,
+        "Position": [
+            4,
+            1,
+            1
+        ],
+        "Status": "In Danger",
+        "Moisture (%)": 60.879512445619966,
+        "Temperature (\u00b0C)": 12.618610548401644,
+        "Atmospheric Pressure (Pa)": 96614.29536248755
+    },
+    {
+        "Id": 5,
+        "Plant Type": "Cucumber",
+        "Start Date": "2023-02-15",
+        "Age": 232,
+        "Position": [
+            1,
+            2,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 52.09035802124938,
+        "Temperature (\u00b0C)": 27.13520050787043,
+        "Atmospheric Pressure (Pa)": 95562.3336080245
+    },
+    {
+        "Id": 6,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-02-06",
+        "Age": 241,
+        "Position": [
+            2,
+            2,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 45.63659388642247,
+        "Temperature (\u00b0C)": 29.22780797403384,
+        "Atmospheric Pressure (Pa)": 97157.84919944391
+    },
+    {
+        "Id": 7,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-06-29",
+        "Age": 98,
+        "Position": [
+            3,
+            2,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 67.30232654385523,
+        "Temperature (\u00b0C)": 20.71991161947283,
+        "Atmospheric Pressure (Pa)": 97825.47745613933
+    },
+    {
+        "Id": 8,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-04-16",
+        "Age": 172,
+        "Position": [
+            4,
+            2,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 63.82526647689088,
+        "Temperature (\u00b0C)": 26.400494516373506,
+        "Atmospheric Pressure (Pa)": 98212.26557021322
+    },
+    {
+        "Id": 9,
+        "Plant Type": "Chili",
+        "Start Date": "2023-01-23",
+        "Age": 255,
+        "Position": [
+            1,
+            3,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 58.89749728641696,
+        "Temperature (\u00b0C)": 20.203938871509962,
+        "Atmospheric Pressure (Pa)": 97516.76567694398
+    },
+    {
+        "Id": 10,
+        "Plant Type": "Potato",
+        "Start Date": "2023-04-22",
+        "Age": 166,
+        "Position": [
+            2,
+            3,
+            1
+        ],
+        "Status": "In Danger",
+        "Moisture (%)": 55.64034151376164,
+        "Temperature (\u00b0C)": -6.042806288308296,
+        "Atmospheric Pressure (Pa)": 97161.7893697875
+    },
+    {
+        "Id": 11,
+        "Plant Type": "Potato",
+        "Start Date": "2023-09-22",
+        "Age": 13,
+        "Position": [
+            3,
+            3,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 72.60573550330727,
+        "Temperature (\u00b0C)": 22.786668577908628,
+        "Atmospheric Pressure (Pa)": 102950.83286665611
+    },
+    {
+        "Id": 12,
+        "Plant Type": "Cucumber",
+        "Start Date": "2023-02-12",
+        "Age": 235,
+        "Position": [
+            4,
+            3,
+            1
+        ],
+        "Status": "Healthy",
+        "Moisture (%)": 44.17708269475888,
+        "Temperature (\u00b0C)": 19.84497848677941,
+        "Atmospheric Pressure (Pa)": 96806.1407702424
+    }
+]
