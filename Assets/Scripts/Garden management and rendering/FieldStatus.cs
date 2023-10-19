@@ -9,6 +9,14 @@ public class FieldStatus : MonoBehaviour
     public int rowIndex;
     public int colIndex;
 
+    private void Update()
+    {
+        if (this.transform.childCount == 0)
+        {
+            setEmpty();
+        }
+    }
+
     public void setIndex(int row, int col)
     {
         rowIndex = row;

@@ -12,7 +12,8 @@ public class demoSyncShowDanger : MonoBehaviour
         toPutDanger = GameObject.FindGameObjectsWithTag("danger");
         foreach (GameObject plant in toPutDanger)
         {
-            plant.GetComponent<MeshRenderer>().material = material;
+            // plant.GetComponent<MeshRenderer>().material = material;
+            plant.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }

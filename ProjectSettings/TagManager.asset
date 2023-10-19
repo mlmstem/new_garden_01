@@ -12,6 +12,8 @@ TagManager:
   - apple
   - danger
   - closepopup
+  - field
+  - exclaim
   layers:
   - Default
   - TransparentFX
