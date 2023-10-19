@@ -255,13 +255,15 @@ module.exports = app => {
         //console.log(plantList);
 
         var foundPlant;
+        var i;
         // Iterate through the plantList and create garden data objects
         plantList.forEach((plant, index) => {
             if (plant.position == plantPos) {
                 foundPlant = plant;
+                i = index;
             }
         });
-        console.log("number %d", i);
+
         console.log(foundPlant);
         if (foundPlant == undefined) {
             res.status(404).json({ error: "Plant is not found" });
@@ -271,7 +273,7 @@ module.exports = app => {
         // set up structure of data to receive
         var gotData = {
             name: foundPlant.plantType,
-            id: index,
+            id: i,
             type: foundPlant.plantType,
             startDate: foundPlant.startDate,
             days: foundPlant.age,
