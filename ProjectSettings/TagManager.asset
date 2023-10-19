@@ -11,6 +11,7 @@ TagManager:
   - chili
   - apple
   - danger
+  - closepopup
   layers:
   - Default
   - TransparentFX
