@@ -1,182 +1,182 @@
 [
     {
         "Id": 1,
-        "Plant Type": "Chilli",
-        "Start Date": "2023-05-11",
-        "Age": 161,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-09-27",
+        "Age": 22,
         "Position": [
             1,
             1
         ],
         "Status": "Healthy",
-        "Moisture (%)": 69.59099299268745,
-        "Temperature (\u00b0C)": 19.74165960574855,
-        "Atmospheric Pressure (Pa)": 98186.87808796635,
-        "Timestamp": "2023-01-01 12:05:59"
+        "Moisture (%)": 60.07558173307679,
+        "Temperature (\u00b0C)": 23.356254378290405,
+        "Atmospheric Pressure (Pa)": 100434.61758759168,
+        "Timestamp": "2023-01-01 03:29:05"
     },
     {
         "Id": 2,
         "Plant Type": "Cucumber",
-        "Start Date": "2023-05-04",
-        "Age": 168,
+        "Start Date": "2023-02-07",
+        "Age": 254,
         "Position": [
             2,
             1
         ],
         "Status": "Healthy",
-        "Moisture (%)": 66.3035352880577,
-        "Temperature (\u00b0C)": 21.385356908793653,
-        "Atmospheric Pressure (Pa)": 101342.22774985156,
-        "Timestamp": "2023-01-01 06:05:44"
+        "Moisture (%)": 65.83371206432508,
+        "Temperature (\u00b0C)": 24.63819665602671,
+        "Atmospheric Pressure (Pa)": 101598.60328764794,
+        "Timestamp": "2023-01-01 13:44:42"
     },
     {
         "Id": 3,
-        "Plant Type": "Tomato",
-        "Start Date": "2023-08-13",
-        "Age": 67,
+        "Plant Type": "Cucumber",
+        "Start Date": "2023-05-05",
+        "Age": 167,
         "Position": [
             3,
             1
         ],
         "Status": "Healthy",
-        "Moisture (%)": 56.32715360382232,
-        "Temperature (\u00b0C)": 22.294248334753355,
-        "Atmospheric Pressure (Pa)": 101445.19386460168,
-        "Timestamp": "2023-01-01 07:57:12"
+        "Moisture (%)": 59.30173066929967,
+        "Temperature (\u00b0C)": 18.882437796948388,
+        "Atmospheric Pressure (Pa)": 100864.4593478598,
+        "Timestamp": "2023-01-01 02:54:04"
     },
     {
         "Id": 4,
-        "Plant Type": "Tomato",
-        "Start Date": "2023-08-31",
-        "Age": 49,
+        "Plant Type": "Cucumber",
+        "Start Date": "2023-02-19",
+        "Age": 242,
         "Position": [
             4,
             1
         ],
         "Status": "Healthy",
-        "Moisture (%)": 59.96631053342889,
-        "Temperature (\u00b0C)": 22.41242796779328,
-        "Atmospheric Pressure (Pa)": 99172.01893398193,
-        "Timestamp": "2023-01-01 08:07:03"
+        "Moisture (%)": 66.63897038494173,
+        "Temperature (\u00b0C)": 18.7702725059216,
+        "Atmospheric Pressure (Pa)": 99254.02602992114,
+        "Timestamp": "2023-01-01 03:22:11"
     },
     {
         "Id": 5,
-        "Plant Type": "Chilli",
-        "Start Date": "2023-01-14",
-        "Age": 278,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-06-16",
+        "Age": 125,
         "Position": [
             1,
             2
         ],
         "Status": "Healthy",
-        "Moisture (%)": 52.74400334146444,
-        "Temperature (\u00b0C)": 23.303129713435087,
-        "Atmospheric Pressure (Pa)": 102732.41158262827,
-        "Timestamp": "2023-01-01 17:56:19"
+        "Moisture (%)": 61.99591955390564,
+        "Temperature (\u00b0C)": 26.78160005215664,
+        "Atmospheric Pressure (Pa)": 97820.74040775852,
+        "Timestamp": "2023-01-01 11:37:36"
     },
     {
         "Id": 6,
         "Plant Type": "Chilli",
-        "Start Date": "2023-04-01",
-        "Age": 201,
+        "Start Date": "2023-02-02",
+        "Age": 259,
         "Position": [
             2,
             2
         ],
         "Status": "Healthy",
-        "Moisture (%)": 68.0039957823808,
-        "Temperature (\u00b0C)": 21.0522503427516,
-        "Atmospheric Pressure (Pa)": 97100.83731180073,
-        "Timestamp": "2023-01-01 23:32:02"
+        "Moisture (%)": 65.22243964595589,
+        "Temperature (\u00b0C)": 23.299297970529885,
+        "Atmospheric Pressure (Pa)": 99641.17678577629,
+        "Timestamp": "2023-01-01 02:21:22"
     },
     {
         "Id": 7,
         "Plant Type": "Tomato",
-        "Start Date": "2023-06-04",
-        "Age": 137,
+        "Start Date": "2023-08-17",
+        "Age": 63,
         "Position": [
             3,
             2
         ],
         "Status": "Healthy",
-        "Moisture (%)": 69.83661438491878,
-        "Temperature (\u00b0C)": 24.122477930571435,
-        "Atmospheric Pressure (Pa)": 99877.302490114,
-        "Timestamp": "2023-01-01 19:19:06"
+        "Moisture (%)": 60.7526144498795,
+        "Temperature (\u00b0C)": 24.627295399389368,
+        "Atmospheric Pressure (Pa)": 99325.93375270141,
+        "Timestamp": "2023-01-01 13:01:47"
     },
     {
         "Id": 8,
         "Plant Type": "Cucumber",
-        "Start Date": "2023-01-19",
-        "Age": 273,
+        "Start Date": "2023-07-20",
+        "Age": 91,
         "Position": [
             4,
             2
         ],
         "Status": "Healthy",
-        "Moisture (%)": 57.996019702137254,
-        "Temperature (\u00b0C)": 25.546916938513768,
-        "Atmospheric Pressure (Pa)": 99950.58402086329,
-        "Timestamp": "2023-01-01 07:14:51"
+        "Moisture (%)": 60.46932892781687,
+        "Temperature (\u00b0C)": 19.665796570318044,
+        "Atmospheric Pressure (Pa)": 102891.0271656872,
+        "Timestamp": "2023-01-01 16:08:53"
     },
     {
         "Id": 9,
         "Plant Type": "Tomato",
-        "Start Date": "2023-06-27",
-        "Age": 114,
+        "Start Date": "2023-05-01",
+        "Age": 171,
         "Position": [
             1,
             3
         ],
         "Status": "Healthy",
-        "Moisture (%)": 66.0608008663406,
-        "Temperature (\u00b0C)": 25.636675590660836,
-        "Atmospheric Pressure (Pa)": 100204.51175721671,
-        "Timestamp": "2023-01-01 12:55:51"
+        "Moisture (%)": 56.33596777268575,
+        "Temperature (\u00b0C)": 26.082076389654134,
+        "Atmospheric Pressure (Pa)": 101920.23104257774,
+        "Timestamp": "2023-01-01 14:53:07"
     },
     {
         "Id": 10,
-        "Plant Type": "Chilli",
-        "Start Date": "2023-09-01",
-        "Age": 48,
+        "Plant Type": "Tomato",
+        "Start Date": "2023-03-18",
+        "Age": 215,
         "Position": [
             2,
             3
         ],
         "Status": "Healthy",
-        "Moisture (%)": 66.12252707046743,
-        "Temperature (\u00b0C)": 20.459301768650132,
-        "Atmospheric Pressure (Pa)": 100170.03193917415,
-        "Timestamp": "2023-01-01 17:56:36"
+        "Moisture (%)": 67.29737139404132,
+        "Temperature (\u00b0C)": 18.953324769971545,
+        "Atmospheric Pressure (Pa)": 97870.25153510086,
+        "Timestamp": "2023-01-01 13:54:08"
     },
     {
         "Id": 11,
         "Plant Type": "Tomato",
-        "Start Date": "2023-07-02",
-        "Age": 109,
+        "Start Date": "2023-09-30",
+        "Age": 19,
         "Position": [
             3,
             3
         ],
         "Status": "Healthy",
-        "Moisture (%)": 57.64655036698648,
-        "Temperature (\u00b0C)": 26.854495538452095,
-        "Atmospheric Pressure (Pa)": 101392.68468695259,
-        "Timestamp": "2023-01-01 17:28:15"
+        "Moisture (%)": 59.35058264719133,
+        "Temperature (\u00b0C)": 25.511690010530728,
+        "Atmospheric Pressure (Pa)": 102045.81643531373,
+        "Timestamp": "2023-01-01 04:34:03"
     },
     {
         "Id": 12,
-        "Plant Type": "Chilli",
-        "Start Date": "2023-04-20",
-        "Age": 182,
+        "Plant Type": "Cucumber",
+        "Start Date": "2023-07-17",
+        "Age": 94,
         "Position": [
             4,
             3
         ],
         "Status": "Healthy",
-        "Moisture (%)": 59.522761878383534,
-        "Temperature (\u00b0C)": 25.870692319614996,
-        "Atmospheric Pressure (Pa)": 100410.66922399131,
-        "Timestamp": "2023-01-01 16:39:10"
+        "Moisture (%)": 68.52944832526461,
+        "Temperature (\u00b0C)": 24.501314948810933,
+        "Atmospheric Pressure (Pa)": 97779.87986245216,
+        "Timestamp": "2023-01-01 08:26:53"
     }
 ]
