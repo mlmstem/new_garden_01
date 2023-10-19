@@ -20,7 +20,7 @@ public class Login : MonoBehaviour
     public void OnLoginClick()
     {
         alertText.text = "Signing in...";
-        alertText.fontSize = alertTextFont;
+        // alertText.fontSize = alertTextFont;
         loginButton.interactable = false;
 
         StartCoroutine(TryLogin());
