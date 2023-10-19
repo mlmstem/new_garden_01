@@ -83,7 +83,7 @@ public class CreateGarden : MonoBehaviour
             {
                 GardenData gardenData = gardenDataArray[i];
                 Debug.Log("the position is: " + gardenData.X + " " + gardenData.Y);
-                showCurrentPlants(gardenData.Y, gardenData.X, gardenData.plantType, gardenData.plantStatus);
+                showCurrentPlants(gardenData.X, gardenData.Y, gardenData.plantType, gardenData.plantStatus);
             }
 
         }
@@ -93,79 +93,76 @@ public class CreateGarden : MonoBehaviour
 
     public void showCurrentPlants(int x, int y, string type, string status)
     {
-        if (status == "Unknown")
+        if (type == "tomato" || type == "Tomato")
         {
-            if (type == "tomato" || type == "Tomato")
-            {
-                var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisTomato.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisTomato.transform.parent = field.transform;
-                thisTomato.GetComponent<DragAndDrop>().Row = x;
-                thisTomato.GetComponent<DragAndDrop>().Col = y;
-                thisTomato.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            else if (type == "cabbage" || type == "Cabbage")
-            {
-                var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCabbage.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisCabbage.transform.parent = field.transform;
-                thisCabbage.GetComponent<DragAndDrop>().Row = x;
-                thisCabbage.GetComponent<DragAndDrop>().Col = y;
-                thisCabbage.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            else if (type == "Eggplant")
-            {
-                var thisEggplant = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisEggplant.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisEggplant.transform.parent = field.transform;
-                thisEggplant.GetComponent<DragAndDrop>().Row = x;
-                thisEggplant.GetComponent<DragAndDrop>().Col = y;
-                thisEggplant.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            else if (type == "Chili")
-            {
-                var thisChili = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisChili.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisChili.transform.parent = field.transform;
-                thisChili.GetComponent<DragAndDrop>().Row = x;
-                thisChili.GetComponent<DragAndDrop>().Col = y;
-                thisChili.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            else if (type == "Cucumber")
-            {
-                var thisCucumber = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCucumber.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisCucumber.transform.parent = field.transform;
-                thisCucumber.GetComponent<DragAndDrop>().Row = x;
-                thisCucumber.GetComponent<DragAndDrop>().Col = y;
-                thisCucumber.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            else if (type == "Carrot")
-            {
-                var thisCarrot = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisCarrot.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisCarrot.transform.parent = field.transform;
-                thisCarrot.GetComponent<DragAndDrop>().Row = x;
-                thisCarrot.GetComponent<DragAndDrop>().Col = y;
-                thisCarrot.transform.localPosition = new Vector3(0, 0, 0);
-            }
-            else
-            {
-                // is a Potato
-                var thisPotato = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-                thisPotato.GetComponent<DragAndDrop>().onField = true;
-                var field = getField(x, y);
-                thisPotato.transform.parent = field.transform;
-                thisPotato.GetComponent<DragAndDrop>().Row = x;
-                thisPotato.GetComponent<DragAndDrop>().Col = y;
-                thisPotato.transform.localPosition = new Vector3(0, 0, 0);
-            }
+            var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisTomato.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisTomato.transform.parent = field.transform;
+            thisTomato.GetComponent<DragAndDrop>().Row = x;
+            thisTomato.GetComponent<DragAndDrop>().Col = y;
+            thisTomato.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else if (type == "cabbage" || type == "Cabbage")
+        {
+            var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisCabbage.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisCabbage.transform.parent = field.transform;
+            thisCabbage.GetComponent<DragAndDrop>().Row = x;
+            thisCabbage.GetComponent<DragAndDrop>().Col = y;
+            thisCabbage.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else if (type == "Eggplant")
+        {
+            var thisEggplant = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisEggplant.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisEggplant.transform.parent = field.transform;
+            thisEggplant.GetComponent<DragAndDrop>().Row = x;
+            thisEggplant.GetComponent<DragAndDrop>().Col = y;
+            thisEggplant.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else if (type == "Chili")
+        {
+            var thisChili = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisChili.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisChili.transform.parent = field.transform;
+            thisChili.GetComponent<DragAndDrop>().Row = x;
+            thisChili.GetComponent<DragAndDrop>().Col = y;
+            thisChili.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else if (type == "Cucumber")
+        {
+            var thisCucumber = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisCucumber.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisCucumber.transform.parent = field.transform;
+            thisCucumber.GetComponent<DragAndDrop>().Row = x;
+            thisCucumber.GetComponent<DragAndDrop>().Col = y;
+            thisCucumber.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else if (type == "Carrot")
+        {
+            var thisCarrot = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisCarrot.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisCarrot.transform.parent = field.transform;
+            thisCarrot.GetComponent<DragAndDrop>().Row = x;
+            thisCarrot.GetComponent<DragAndDrop>().Col = y;
+            thisCarrot.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            // is a Potato
+            var thisPotato = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisPotato.GetComponent<DragAndDrop>().onField = true;
+            var field = getField(x, y);
+            thisPotato.transform.parent = field.transform;
+            thisPotato.GetComponent<DragAndDrop>().Row = x;
+            thisPotato.GetComponent<DragAndDrop>().Col = y;
+            thisPotato.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 
