@@ -64,8 +64,8 @@ public class PlantStatus : MonoBehaviour
         PlantData data = new PlantData();
         string username = PlayerPrefs.GetString("Username", "DefaultUsername");
         data.username = username;
-        data.rowIndex = rowIndex;
-        data.colIndex = colIndex;
+        data.rowIndex = colIndex;
+        data.colIndex = rowIndex;
 
         UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getPlantData");
         request.SetRequestHeader("Content-Type", "application/json");
