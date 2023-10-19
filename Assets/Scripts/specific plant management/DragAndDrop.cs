@@ -71,7 +71,13 @@ public class DragAndDrop : MonoBehaviour
                 {
                     inputPopUp.SetActive(true);
                     closepopup = GameObject.FindWithTag("closepopup");
-                    closepopup.SetActive(false);
+                    if (closepopup)
+                    {
+                        if (closepopup.activeSelf)
+                        {
+                            closepopup.SetActive(false);
+                        }
+                    }
                     // Debug.Log("field is empty");
                     // allocate object to the field
                     // Using post request here to send plant data to mongodb atlas
@@ -84,15 +90,15 @@ public class DragAndDrop : MonoBehaviour
                 }
                 else
                 {
-                    // Debug.Log("field is full");
+                    Debug.Log("field is full");
 
-                    if (inDatabase)
-                    {
-                        // send plant id
-                        Debug.Log("deleting object");
-                        StartCoroutine(RemovePlantData(Row, Col));
-                    }
-                    Destroy(gameObject);
+                    // if (inDatabase)
+                    // {
+                    //     // send plant id
+                    //     Debug.Log("deleting object");
+                    //     StartCoroutine(RemovePlantData(Row, Col));
+                    // }
+                    // Destroy(gameObject);
                 }
             }
             else
@@ -130,7 +136,14 @@ public class DragAndDrop : MonoBehaviour
             // Debug.Log(fieldStatus.rowIndex);
             // Debug.Log(fieldStatus.colIndex);
             window.SetActive(false);
-            closepopup.SetActive(true);
+            closepopup = GameObject.FindWithTag("closepopup");
+            if (closepopup)
+            {
+                if (!closepopup.activeSelf)
+                {
+                    closepopup.SetActive(true);
+                }
+            }
             StartCoroutine(SendPlantDataToServer(plantType, Row, Col, statusInputField.text, int.Parse(moistureInputField.text), int.Parse(temperatureInputField.text), int.Parse(pressureInputField.text)));
         }
     }

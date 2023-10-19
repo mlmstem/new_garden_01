@@ -156,8 +156,10 @@ module.exports = app => {
         // Iterate through the plantList and create garden data objects
         plantList.forEach((plant, index) => {
 
-            const X = index % 3;
-            const Y = Math.floor(index / 3);
+            const X = parseInt(plant.position.slice(1, 2));
+            const Y = parseInt(plant.position.slice(4, 5));
+            console.log("x is %d", X);
+            console.log("y is %d", Y);
 
             const gardenData = {
                 X: X,
