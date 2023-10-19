@@ -38,15 +38,18 @@ public class PlantStatus : MonoBehaviour
         rowIndex = gameObject.GetComponent<DragAndDrop>().Row;
         colIndex = gameObject.GetComponent<DragAndDrop>().Col;
         StartCoroutine(GetPlantInfo(rowIndex, colIndex));
-        Debug.Log(rowIndex);
-        Debug.Log(colIndex);
+        // Debug.Log(rowIndex);
+        // Debug.Log(colIndex);
     }
 
     public void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            this.GetComponent<PopUp>().openPopUp();
+            if (this.GetComponent<DragAndDrop>().onField)
+            {
+                this.GetComponent<PopUp>().openPopUp();
+            }
         }
     }
 

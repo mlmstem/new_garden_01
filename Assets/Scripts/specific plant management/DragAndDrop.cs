@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class DragAndDrop : MonoBehaviour
     public bool onField = false;
     public bool pickedUp = false;
     public bool inDatabase = false;
-
     public int Col;
-
     public int Row;
+    [SerializeField] private TMP_InputField statusInputField;
+    [SerializeField] private TMP_InputField moistureInputField;
+    [SerializeField] private TMP_InputField temperatureInputField;
+    [SerializeField] private TMP_InputField pressureInputField;
+    private GameObject closepopup;
 
     private Vector3 GetMousePos()
     {
@@ -66,6 +70,8 @@ public class DragAndDrop : MonoBehaviour
                 if (!fieldStatus.isFull)
                 {
                     inputPopUp.SetActive(true);
+                    closepopup = GameObject.FindWithTag("closepopup");
+                    closepopup.SetActive(false);
                     // Debug.Log("field is empty");
                     // allocate object to the field
                     // Using post request here to send plant data to mongodb atlas
@@ -75,12 +81,6 @@ public class DragAndDrop : MonoBehaviour
                     this.gameObject.transform.parent = col.gameObject.transform;
                     this.gameObject.transform.localPosition = new Vector3(0, 0, 0);
 
-                    // finding info about the plant to send to database
-                    var plantType = this.gameObject.tag;
-                    // Debug.Log(plantType);
-                    // Debug.Log(fieldStatus.rowIndex);
-                    // Debug.Log(fieldStatus.colIndex);
-                    StartCoroutine(SendPlantDataToServer(plantType, fieldStatus.rowIndex, fieldStatus.colIndex));
                 }
                 else
                 {
@@ -116,7 +116,26 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    IEnumerator SendPlantDataToServer(string type, int rowIndex, int colIndex)
+    public void setSend(GameObject window)
+    {
+        if (statusInputField.text != "" && moistureInputField.text != "" && temperatureInputField.text != "" && pressureInputField.text != "")
+        {
+            Debug.Log(statusInputField.text);
+            Debug.Log(moistureInputField.text);
+            Debug.Log(temperatureInputField.text);
+            Debug.Log(pressureInputField.text);
+            // finding info about the plant to send to database
+            var plantType = this.gameObject.tag;
+            // Debug.Log(plantType);
+            // Debug.Log(fieldStatus.rowIndex);
+            // Debug.Log(fieldStatus.colIndex);
+            window.SetActive(false);
+            closepopup.SetActive(true);
+            StartCoroutine(SendPlantDataToServer(plantType, Row, Col, statusInputField.text, int.Parse(moistureInputField.text), int.Parse(temperatureInputField.text), int.Parse(pressureInputField.text)));
+        }
+    }
+
+    IEnumerator SendPlantDataToServer(string type, int rowIndex, int colIndex, string status, int moist, int temp, int pressure)
     {
         // Create a JSON object with the default plant data using JsonUtility
         PlantData plantData = new PlantData
@@ -125,10 +144,10 @@ public class DragAndDrop : MonoBehaviour
             startDate = System.DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssZ"),
             age = 0,
             position = "(" + rowIndex + ", " + colIndex + ")",
-            status = "Unknown",
-            moisturePercentage = 100,
-            temperatureCelsius = 100,
-            atmosphericPressurePa = 100
+            status = status,
+            moisturePercentage = moist,
+            temperatureCelsius = temp,
+            atmosphericPressurePa = pressure
         };
 
         // Replace "YOUR_USERNAME" with the actual username of the user
