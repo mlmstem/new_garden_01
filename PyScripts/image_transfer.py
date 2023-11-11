@@ -49,7 +49,7 @@ def transfer_one(filename):
 
 #Transfer all files
 def transfer_all():
-    graph_dir_path = 'PyScripts\\Graphs'
+    graph_dir_path = "Graphs"
     graph_list = []
 
     for file_path in os.listdir(graph_dir_path):
@@ -61,8 +61,8 @@ def transfer_all():
 
     for x in graph_list:
         store_file(x)
-        full_path = os.path.join(graph_dir_path, x)
-        delete_file(full_path)
+        #full_path = os.path.join(graph_dir_path, x)
+        #delete_file(full_path)
 
 #Download all files from database
 def download_all():
@@ -72,5 +72,3 @@ def download_all():
 
 def delete_file(file_path):
     os.remove(file_path)
-
-
