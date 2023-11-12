@@ -3,8 +3,6 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import gridfs
 import os
-import sys
-import fnmatch
 
 # Connection details from connection.py
 username = "admin"
@@ -15,7 +13,7 @@ uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mon
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 # Connect to the database and collection
-db = client['Plant']
+db = client['Graphs']
 fs = gridfs.GridFS(db, collection="data_graphs")
 
 
@@ -31,6 +29,7 @@ def store_file(file_name):
         else:
             fs.put(f, filename=file_name)
     print("File stored successfully!")
+
 
 # Retrieve the file
 def retrieve_file(file_name):
@@ -50,21 +49,26 @@ def transfer_one(filename):
 
 #Transfer all files
 def transfer_all():
-    graph_dir_path = 'PyScripts\\Graphs'
+    graph_dir_path = "Graphs"
     graph_list = []
 
     for file_path in os.listdir(graph_dir_path):
         # check if current file_path is a file
         if os.path.isfile(os.path.join(graph_dir_path, file_path)):
             # add filename to list
-            graph_list.append(file_path)
+            if file_path.endswith('.png'):
+                graph_list.append(file_path)
 
     for x in graph_list:
         store_file(x)
-        retrieve_file(x)
+        #full_path = os.path.join(graph_dir_path, x)
+        #delete_file(full_path)
 
 #Download all files from database
 def download_all():
     files = fs.list()
     for x in files:
         retrieve_file(str(x))
+
+def delete_file(file_path):
+    os.remove(file_path)
