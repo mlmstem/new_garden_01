@@ -63,7 +63,7 @@ python -m pip install -U matplotlib
 python -m pip install pandas
 ```
 3. Open PyScripts to access all python scripts
-4. Run Main.py with arguments listed in the file to test
+4. Run Main.py to start listening, Ctrl+C to quit
 
 ## Deployment
 
