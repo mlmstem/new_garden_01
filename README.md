@@ -35,7 +35,7 @@ to download and run the code, you must have:
   - "express": "^4.18.2",
   - "mongodb": "^6.0.0",
   - "mongoose": "^7.5.0"
-- Python3
+- Python 3.10.11
 - Python libraries needed:
   - Pandas
   - Matplotlib
