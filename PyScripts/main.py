@@ -1,10 +1,11 @@
 import graph_gen as gen
-import plant as pl
+import analyze as al
 import image_transfer as img_t
-import sys
-import fnmatch
-import os
 
+from bson.json_util import dumps
+from urllib.parse import quote_plus
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 
 #Single entry point for all functions related to graph generation and transfer
@@ -19,6 +20,22 @@ overview: generates overview graphs
 specific: generates specific plant graphs
 """
 
+
+
+
+# Original username and password
+username = "admin"
+password = "Password123"
+
+# Escaped username and password
+username_escaped = quote_plus(username)
+password_escaped = quote_plus(password)
+
+uri = f"mongodb+srv://{username_escaped}:{password_escaped}@cluster0.g9kdlqh.mongodb.net/?retryWrites=true&w=majority"
+
+
+#Manual mode
+"""
 arguments = sys.argv[1:]
 
 if (len(arguments)!=1):
@@ -59,3 +76,32 @@ else:
     else:
         print("Arguments incorrect.")
 
+"""
+
+    
+#Listening mode
+client = MongoClient(uri, server_api=ServerApi('1'))
+db = client["loginGarden"]
+coll = db["accounts"]
+
+stream = coll.watch()
+
+print("Listening to changes...")
+for change in stream:
+    id = change['documentKey']['_id']
+    acc = coll.find_one( {"_id": id})
+    test_user = acc['username']
+    #user = change['ns']['coll']
+    print("Changes in: "+test_user)
+    print("Generating overview graphs for: "+test_user)
+    gen.overview_data(test_user)
+    print("Transferring all graphs")
+    img_t.transfer_all()
+
+    #print("Generating report")
+    #al.gen_report(user)
+    #print("Uploading report")
+    #al.upload_report(user)
+
+    print("Finished")
+    print("Listening to changes...")
