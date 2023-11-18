@@ -55,7 +55,7 @@ to download and run the code, you must have:
 ## Graph Generation Functionality
 
 To test the graph generation functionalities:
-1. Make sure you have Python3 installed
+1. Make sure you have Python 3.10.11 or above installed
 2. If you haven't already, download the following libraries:
 ```
 python -m pip install pymongo
