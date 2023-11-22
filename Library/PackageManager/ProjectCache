@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638360419191167671
-    m_Hash: 805306106
+      ticks: 638362255672191792
+    m_Hash: 762931879
   m_LockFileStatus:
     m_FilePath: C:/Users/Chris/Unity Garden app/My project (1)/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638360419203234294
-    m_Hash: 2063379649
+      ticks: 638362255672201798
+    m_Hash: 466417559
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
