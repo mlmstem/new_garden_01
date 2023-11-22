@@ -17,7 +17,7 @@ public class PlantStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI startDateField;
     [SerializeField] private TextMeshProUGUI daysField;
     [SerializeField] private TextMeshProUGUI positionField;
-    [SerializeField] private TextMeshProUGUI statusField;
+    [SerializeField] public TextMeshProUGUI statusField;
     [SerializeField] private TextMeshProUGUI moistureField;
     [SerializeField] private TextMeshProUGUI temperatureField;
     [SerializeField] private TextMeshProUGUI pressureField;

@@ -14,11 +14,13 @@ TagManager:
   - closepopup
   - field
   - exclaim
+  - Environment
+  - robot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Plant
   - Water
   - UI
   - 

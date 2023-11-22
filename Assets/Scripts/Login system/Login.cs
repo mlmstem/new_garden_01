@@ -13,6 +13,10 @@ public class Login : MonoBehaviour
     [SerializeField] private Button loginButton;
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
+
+    [SerializeField] private Button signupButton;
+    [SerializeField] private TMP_InputField usernameInputField1;
+    [SerializeField] private TMP_InputField passwordInputField2;
     [SerializeField] private float alertTextFont = 13f;
 
     public float transitionTime = 1f;
@@ -24,6 +28,78 @@ public class Login : MonoBehaviour
         loginButton.interactable = false;
 
         StartCoroutine(TryLogin());
+    }
+
+    public void OnSignUpClick(){
+
+        alertText.text = "registrating...";
+
+        signupButton.interactable = false;
+
+        StartCoroutine(TrySignUp());
+
+    }
+
+    private IEnumerator TrySignUp()
+    {
+        string username = usernameInputField1.text;
+        string password = passwordInputField2.text;
+
+        if (username.Length < 3 || username.Length > 24)
+        {
+            alertText.text = "Invalid username";
+            signupButton.interactable = true;
+            yield break;
+        }
+
+        if (password.Length < 3 || password.Length > 24)
+        {
+            alertText.text = "Invalid password";
+            signupButton.interactable = true;
+            yield break;
+        }
+
+        UnityWebRequest request = UnityWebRequest.Get($"{authenticationEndpoint}?rUsername={username}&rPassword={password}");
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while (!handler.isDone)
+        {
+            startTime += Time.deltaTime;
+
+            if (startTime > 10.0f)
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            string responseText = request.downloadHandler.text;
+
+            // Check if the response contains the "Registration success" message
+            if (!string.IsNullOrEmpty(responseText))
+            {
+                // Successfully received a response, consider it a registration success
+                alertText.text = "Registration success";
+            }
+            else
+            {
+                // The response is null or empty, consider it a registration failure
+                alertText.text = "Registration failure";
+            }
+        }
+        else
+        {
+            // Request failed, consider it a registration failure
+            alertText.text = "Registration failure";
+    }
+
+    signupButton.interactable = true;
+
+
     }
 
     private IEnumerator TryLogin()

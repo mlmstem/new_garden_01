@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44664663, g: 0.49649304, b: 0.5748589, a: 1}
+  m_IndirectSpecularColor: {r: 0.44664693, g: 0.49649364, b: 0.5748597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3767,6 +3767,9 @@ MonoBehaviour:
   loginButton: {fileID: 786227694}
   usernameInputField: {fileID: 544777768}
   passwordInputField: {fileID: 840797612}
+  signupButton: {fileID: 1236126103}
+  usernameInputField1: {fileID: 1941058387}
+  passwordInputField2: {fileID: 121764966}
   alertTextFont: 13
   transitionTime: 1
 --- !u!1 &1139883057
@@ -4116,7 +4119,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1136385244}
         m_TargetAssemblyTypeName: Login, Assembly-CSharp
-        m_MethodName: OnLoginClick
+        m_MethodName: OnSignUpClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

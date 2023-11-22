@@ -1,23 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class CreateGarden : MonoBehaviour
 {
     [SerializeField] private GameObject field;
-    [SerializeField] private GameObject tomato;
-    [SerializeField] private GameObject cabbage;
-    [SerializeField] private GameObject chili;
-    [SerializeField] private GameObject eggplant;
-    [SerializeField] private GameObject apple;
+    [SerializeField] private GameObject tomatoPrefab;
+    [SerializeField] private GameObject cabbagePrefab;
+    [SerializeField] private GameObject chiliPrefab;
+    [SerializeField] private GameObject eggplantPrefab;
+    [SerializeField] private GameObject applePrefab;
+
     private int rows = 3;
     private int column = 4;
-    private int numVeg;
-    // private int[] allX;
-    // private int[] allY;
-    // private string[] allPlantType;
-    // private string[] allPlantStatus;
+
     [System.Serializable]
     public class GardenData
     {
@@ -32,7 +28,7 @@ public class CreateGarden : MonoBehaviour
         public GardenData[] gardenDataArray;
     }
 
-    // creates garden based on input of field size
+    // creates a garden based on the input field size
     void Start()
     {
         for (int i = 0; i < rows; i++)
@@ -44,11 +40,6 @@ public class CreateGarden : MonoBehaviour
                 fieldStatus.setIndex(i, j);
             }
         }
-
-        // allX = new int[rows * column];
-        // allY = new int[rows * column];
-        // allPlantType = new string[rows * column];
-        // allPlantStatus = new string[rows * column];
 
         StartCoroutine(ShowCurrentGarden());
     }
@@ -82,88 +73,57 @@ public class CreateGarden : MonoBehaviour
             for (int i = 0; i < rows * column && i < gardenDataArray.Length; i++)
             {
                 GardenData gardenData = gardenDataArray[i];
-                Debug.Log("the position is: " + gardenData.X + " " + gardenData.Y);
                 showCurrentPlants(gardenData.X, gardenData.Y, gardenData.plantType, gardenData.plantStatus);
             }
-
         }
-
-
     }
 
     public void showCurrentPlants(int x, int y, string type, string status)
     {
-        if (type == "tomato" || type == "Tomato")
+        GameObject plantPrefab = null;
+
+        // Determine the prefab based on the plant type
+        switch (type.ToLower())
         {
-            var thisTomato = Instantiate(tomato, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisTomato.GetComponent<DragAndDrop>().onField = true;
-            var field = getField(x, y);
-            thisTomato.transform.parent = field.transform;
-            thisTomato.GetComponent<DragAndDrop>().Row = x;
-            thisTomato.GetComponent<DragAndDrop>().Col = y;
-            thisTomato.transform.localPosition = new Vector3(0, 0, 0);
+            case "tomato":
+                plantPrefab = tomatoPrefab;
+                break;
+            case "cabbage":
+                plantPrefab = cabbagePrefab;
+                break;
+            case "eggplant":
+                plantPrefab = eggplantPrefab;
+                break;
+            case "chili":
+                plantPrefab = chiliPrefab;
+                break;
+            case "apple":
+                plantPrefab = applePrefab;
+                break;
+            default:
+                Debug.LogWarning("Unknown plant type: " + type);
+                return;
         }
-        else if (type == "cabbage" || type == "Cabbage")
+
+        if (plantPrefab != null)
         {
-            var thisCabbage = Instantiate(cabbage, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisCabbage.GetComponent<DragAndDrop>().onField = true;
+            var thisPlant = Instantiate(plantPrefab, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
+            thisPlant.GetComponent<DragAndDrop>().onField = true;
+            thisPlant.GetComponent<DragAndDrop>().enteredField = true;
             var field = getField(x, y);
-            thisCabbage.transform.parent = field.transform;
-            thisCabbage.GetComponent<DragAndDrop>().Row = x;
-            thisCabbage.GetComponent<DragAndDrop>().Col = y;
-            thisCabbage.transform.localPosition = new Vector3(0, 0, 0);
+            thisPlant.transform.parent = field.transform;
+            thisPlant.GetComponent<DragAndDrop>().Row = x;
+            thisPlant.GetComponent<DragAndDrop>().Col = y;
+            thisPlant.transform.localPosition = new Vector3(0, 0, 0);
+            CollisionImmune collisionImmune = thisPlant.GetComponent<CollisionImmune>();
+            if (collisionImmune != null)
+                {
+                collisionImmune.enabled = true;
+                }
+
         }
-        else if (type == "Eggplant" || type == "eggplant")
-        {
-            var thisEggplant = Instantiate(eggplant, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisEggplant.GetComponent<DragAndDrop>().onField = true;
-            var field = getField(x, y);
-            thisEggplant.transform.parent = field.transform;
-            thisEggplant.GetComponent<DragAndDrop>().Row = x;
-            thisEggplant.GetComponent<DragAndDrop>().Col = y;
-            thisEggplant.transform.localPosition = new Vector3(0, 0, 0);
-        }
-        else if (type == "Chili")
-        {
-            var thisChili = Instantiate(chili, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisChili.GetComponent<DragAndDrop>().onField = true;
-            var field = getField(x, y);
-            thisChili.transform.parent = field.transform;
-            thisChili.GetComponent<DragAndDrop>().Row = x;
-            thisChili.GetComponent<DragAndDrop>().Col = y;
-            thisChili.transform.localPosition = new Vector3(0, 0, 0);
-        }
-        else if (type == "Cucumber")
-        {
-            var thisCucumber = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisCucumber.GetComponent<DragAndDrop>().onField = true;
-            var field = getField(x, y);
-            thisCucumber.transform.parent = field.transform;
-            thisCucumber.GetComponent<DragAndDrop>().Row = x;
-            thisCucumber.GetComponent<DragAndDrop>().Col = y;
-            thisCucumber.transform.localPosition = new Vector3(0, 0, 0);
-        }
-        else if (type == "Carrot")
-        {
-            var thisCarrot = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisCarrot.GetComponent<DragAndDrop>().onField = true;
-            var field = getField(x, y);
-            thisCarrot.transform.parent = field.transform;
-            thisCarrot.GetComponent<DragAndDrop>().Row = x;
-            thisCarrot.GetComponent<DragAndDrop>().Col = y;
-            thisCarrot.transform.localPosition = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            // is a Potato
-            var thisPotato = Instantiate(apple, new Vector3(-4 * x, 0, -4 * y), Quaternion.identity);
-            thisPotato.GetComponent<DragAndDrop>().onField = true;
-            var field = getField(x, y);
-            thisPotato.transform.parent = field.transform;
-            thisPotato.GetComponent<DragAndDrop>().Row = x;
-            thisPotato.GetComponent<DragAndDrop>().Col = y;
-            thisPotato.transform.localPosition = new Vector3(0, 0, 0);
-        }
+
+      
     }
 
     private GameObject getField(int row, int col)
@@ -181,30 +141,70 @@ public class CreateGarden : MonoBehaviour
         return null;
     }
 
-    public void createTomato()
-    {
-        Instantiate(tomato, new Vector3(5, 2, 0), Quaternion.identity);
-    }
-    public void createCabbage()
-    {
-        Instantiate(cabbage, new Vector3(5, 2, 0), Quaternion.identity);
-    }
-    public void createChili()
-    {
-        Instantiate(chili, new Vector3(5, 2, 0), Quaternion.identity);
-    }
-    public void createEggplant()
-    {
-        Instantiate(eggplant, new Vector3(5, 2, 0), Quaternion.identity);
-    }
-    public void createApple()
-    {
-        Instantiate(apple, new Vector3(5, 2, 0), Quaternion.identity);
-    }
-
     [System.Serializable]
     public class userData
     {
         public string username;
     }
+
+
+     public void createTomato()
+    {
+         GameObject newTomato = Instantiate(tomatoPrefab, new Vector3(5, 2, 0), Quaternion.identity);
+        
+        // Disable CollisionImmune script for the newly created tomato
+        CollisionImmune collisionImmune = newTomato.GetComponent<CollisionImmune>();
+        if (collisionImmune != null)
+        {
+            collisionImmune.enabled = false;
+        }
+    }
+
+    public void createCabbage()
+    {
+        GameObject newCabbage = Instantiate(cabbagePrefab, new Vector3(5, 2, 0), Quaternion.identity);
+
+        CollisionImmune collisionImmune = newCabbage.GetComponent<CollisionImmune>();
+        if (collisionImmune != null)
+        {
+            collisionImmune.enabled = false;
+        }
+    }
+
+    public void createChili()
+    {
+         GameObject newchili = Instantiate(chiliPrefab, new Vector3(5, 2, 0), Quaternion.identity);
+        
+        // Disable CollisionImmune script for the newly created tomato
+        CollisionImmune collisionImmune = newchili.GetComponent<CollisionImmune>();
+        if (collisionImmune != null)
+        {
+            collisionImmune.enabled = false;
+        }
+    }
+
+    public void createEggplant()
+    {
+         GameObject newEggplant = Instantiate(eggplantPrefab, new Vector3(5, 2, 0), Quaternion.identity);
+        
+        // Disable CollisionImmune script for the newly created tomato
+        CollisionImmune collisionImmune = newEggplant.GetComponent<CollisionImmune>();
+        if (collisionImmune != null)
+        {
+            collisionImmune.enabled = false;
+        }
+    }
+
+    public void createApple()
+    {
+         GameObject newApple = Instantiate(applePrefab, new Vector3(5, 2, 0), Quaternion.identity);
+        
+        // Disable CollisionImmune script for the newly created tomato
+        CollisionImmune collisionImmune = newApple.GetComponent<CollisionImmune>();
+        if (collisionImmune != null)
+        {
+            collisionImmune.enabled = false;
+        }
+    }
+
 }

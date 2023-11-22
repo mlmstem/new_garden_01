@@ -5,6 +5,8 @@ const Image = mongoose.model('imgtest')
 const bodyParser = require('body-parser');
 const ObjectId = require('mongodb').ObjectId;
 
+const numColumns = 4;
+
 module.exports = app => {
     app.use(bodyParser.json());
     app.get('/account', async (req, res) => {
@@ -110,6 +112,7 @@ module.exports = app => {
         }
 
         res.send(userAccount.password);
+
     });
 
     app.get('/account/getProfileData', async (req, res) => {
@@ -136,6 +139,8 @@ module.exports = app => {
     });
 
     app.get('/account/getCurrentGarden', async (req, res) => {
+
+
         const { username } = req.body;
         // console.log(req.body);
 
@@ -176,65 +181,98 @@ module.exports = app => {
 
     app.post('/account/removePlant', async (req, res) => {
         const { username, rowIndex, colIndex } = req.body;
-
+    
         console.log("receives request on the client end");
 
+        
+    
         // Find the user in the database
         const userAccount = await Account.findOne({ username });
-
+    
         if (!userAccount) {
             res.status(404).json({ error: "User is not found" });
             return;
         }
-
-
-        // Calculate the index of the plant based on row and col
-
-        // console.log(username);
-        // console.log(row);
-        // console.log(col);
-
-        const plantIndex = rowIndex * 2 + colIndex;
-
-        console.log(plantIndex);
-
-        // Check if the calculated index is valid
-        if (plantIndex >= 0 && plantIndex < userAccount.plantList.length) {
+    
+        // Iterate through the plantList array to find and remove the corresponding plant
+        let removedPlantIndex = -1;
+        userAccount.plantList.forEach((plant, index) => {
+            const plantRow = parseInt(plant.position.slice(1, 2));
+            const plantCol = parseInt(plant.position.slice(4, 5));
+    
+            if (plantRow === rowIndex && plantCol === colIndex) {
+                removedPlantIndex = index;
+            }
+        });
+    
+        if (removedPlantIndex !== -1) {
             // Remove the plant from the array
-            userAccount.plantList.splice(plantIndex, 1);
-
+            userAccount.plantList.splice(removedPlantIndex, 1);
+    
             // Save the updated user account
             await userAccount.save();
-            console.log("plant remove successful")
 
+            
+            console.log("Plant removed successfully");
+    
             res.status(200).json({ message: "Plant removed successfully" });
         } else {
-            console.log("plant remove failure");
-            res.status(404).json({ error: "Invalid row and col values" });
+            console.log("Plant remove failure");
+            res.status(404).json({ error: "Plant not found at the specified position" });
         }
     });
 
 
 
     app.get('/account/getGraph', async (req, res) => {
-        const { imageID } = req.body;
-        console.log(req.body);
-
-        console.log(Image.findOne());
-        console.log(Account.findOne({ username: 'abc' }));
-        const imageFile = await Image.findOne();
-
-        if (!imageFile) {
-            res.status(404).json({ error: "Image is not found" });
-            console.log("image not found");
+        const { username } = req.body;
+    
+        // Find user in the database
+        const userAccount = await Account.findOne({ username });
+    
+        if (!userAccount) {
+            res.status(404).json({ error: "User is not found" });
             return;
         }
-
-        // console.log(imageFile);
-        res.send(imageFile.data);
-
-
+    
+        // Extract the plantList array from the user's account
+        const plantList = userAccount.plantList;
+    
+        // Create an array to hold garden data objects
+        const gardenDataArray = [];
+    
+        // Helper function to format numbers to a string with one decimal place
+        const formatNumber = (number) => {
+            return parseFloat(number).toFixed(1);
+        };
+    
+        // Iterate through the plantList and create garden data objects
+        plantList.forEach((plant, index) => {
+            // Ensure that Temp, moisture, and Pressure are sent as floats
+            const Temp = parseFloat(plant.temperatureCelsius);
+            const moisture = parseFloat(plant.moisturePercentage);
+            const Pressure = parseFloat(plant.atmosphericPressurePa);
+    
+            // Ensure that plantStatus is sent as a string
+            const plantStatus = String(plant.status);
+    
+            const gardenData = {
+                Temp: isNaN(Temp) ? '0.0' : formatNumber(Temp),
+                Pressure: isNaN(Pressure) ? '0.0' : formatNumber(Pressure),
+                moisture: isNaN(moisture) ? '0.0' : formatNumber(moisture),
+                plantStatus: plantStatus,
+            };
+    
+            console.log(" the temp is: " + gardenData.Temp);
+            console.log(" the moisture is: " + gardenData.moisture);
+    
+            gardenDataArray.push(gardenData);
+        });
+    
+        const gardenDataArrayWrapper = { gardenDataArray };
+        res.json(gardenDataArrayWrapper);
     });
+    
 
 
     app.get('/account/getPlantData', async (req, res) => {
@@ -271,6 +309,7 @@ module.exports = app => {
             res.status(404).json({ error: "Plant is not found" });
             return;
         }
+
 
         // set up structure of data to receive
         var gotData = {

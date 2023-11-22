@@ -3,22 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
+using UnityEngine.UI;
 
 public class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
     [SerializeField] private GameObject inputPopUp;
+    [SerializeField] private GameObject removalPopUp;
+
+
     Vector3 mousePosition;
     public bool onField = false;
     public bool pickedUp = false;
     public bool inDatabase = false;
     public int Col;
     public int Row;
-    [SerializeField] private TMP_InputField statusInputField;
+    [SerializeField] private TMP_Dropdown statusDropdown;
     [SerializeField] private TMP_InputField moistureInputField;
     [SerializeField] private TMP_InputField temperatureInputField;
     [SerializeField] private TMP_InputField pressureInputField;
+
+    [SerializeField] private TextMeshProUGUI Status1;
+    [SerializeField] private TextMeshProUGUI Type1;
+    [SerializeField] private TextMeshProUGUI Position1;
+    [SerializeField] private TextMeshProUGUI moistureText1;
+    [SerializeField] private TextMeshProUGUI temperatureText1;
+    [SerializeField] private TextMeshProUGUI pressureText1;
     private GameObject closepopup;
+    [SerializeField] public bool enteredField = false;
+
+
+    private int originalRow;
+    private int originalCol;
 
     private Vector3 GetMousePos()
     {
@@ -31,6 +47,12 @@ public class DragAndDrop : MonoBehaviour
         onField = false;
         pickedUp = true;
         //Debug.Log(this.gameObject.name);
+
+
+        originalRow = Row;
+        originalCol = Col;
+    
+
     }
 
     private void OnMouseDrag()
@@ -49,108 +71,278 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider col)
+     private void OnMouseUp()
     {
-
-        if (!onField && pickedUp)
+        if (onField)
         {
-            //Debug.Log("hits something");
-            Debug.Log(col.GetComponent<Collider>().name);
-            // check if object hit is a field
-            if (col.GetComponent<Collider>().name == "Field(Clone)")
+            // Check if the field is full
+            var fieldStatus = getFieldStatus(Row, Col);
+            if (fieldStatus != null && fieldStatus.isFull)
             {
-                // Debug.Log("hits field");
-                var fieldStatus = col.GetComponent<FieldStatus>();
-                Col = fieldStatus.colIndex;
-                Row = fieldStatus.rowIndex;
-
-                Debug.Log("current location is " + Col + "  " + Row);
-
-                // check if field is full
-                if (!fieldStatus.isFull)
-                {
-                    inputPopUp.SetActive(true);
-                    closepopup = GameObject.FindWithTag("closepopup");
-                    if (closepopup)
-                    {
-                        if (closepopup.activeSelf)
-                        {
-                            closepopup.SetActive(false);
-                        }
-                    }
-                    // Debug.Log("field is empty");
-                    // allocate object to the field
-                    // Using post request here to send plant data to mongodb atlas
-
-                    onField = true;
-                    fieldStatus.setFull();
-                    this.gameObject.transform.parent = col.gameObject.transform;
-                    this.gameObject.transform.localPosition = new Vector3(0, 0, 0);
-
-                }
-                else
-                {
-                    Debug.Log("field is full");
-
-                    // if (inDatabase)
-                    // {
-                    //     // send plant id
-                    //     Debug.Log("deleting object");
-                    //     StartCoroutine(RemovePlantData(Row, Col));
-                    // }
-                    // Destroy(gameObject);
-                }
+                // Set the plant inactive if the field is full
+                gameObject.SetActive(false);
             }
             else
             {
-
-                // var fieldStatus = col.GetComponent<FieldStatus>();
-                // Col = fieldStatus.colIndex;
-                // Row = fieldStatus.rowIndex;
-
-                StartCoroutine(RemovePlantData(Row, Col));
-                Debug.Log("deleting object");
-                // if (inDatabase)
-                // {
-                //     // send plant id
-                //     StartCoroutine(RemovePlantData(Row,Col));
-                //     Debug.Log("deleting object");
-                // }
-                Debug.Log("hits something else");
-                Destroy(gameObject);
+                // Plant is over an empty field or other space, set it active
+                gameObject.SetActive(true);
             }
         }
     }
 
-    public void setSend(GameObject window)
+
+
+    void OnTriggerEnter(Collider col)
     {
-        if (statusInputField.text != "" && moistureInputField.text != "" && temperatureInputField.text != "" && pressureInputField.text != "")
+        if (!onField && pickedUp)
         {
-            Debug.Log(statusInputField.text);
-            Debug.Log(moistureInputField.text);
-            Debug.Log(temperatureInputField.text);
-            Debug.Log(pressureInputField.text);
-            // finding info about the plant to send to database
-            var plantType = this.gameObject.tag;
-            // Debug.Log(plantType);
-            // Debug.Log(fieldStatus.rowIndex);
-            // Debug.Log(fieldStatus.colIndex);
-            window.SetActive(false);
-            closepopup = GameObject.FindWithTag("closepopup");
-            if (closepopup)
+            // Check if object hit is a field
+            if (col.GetComponent<Collider>().name == "Field(Clone)")
             {
-                if (!closepopup.activeSelf)
+                StartCoroutine(EnterFieldCoroutine(col));
+            }
+            else if (col.CompareTag("apple") || col.CompareTag("tomato") || col.CompareTag("cabbage") || col.CompareTag("chili") || col.CompareTag("eggplant"))
+            {
+    // Check if the collided object is a plant
+                DragAndDrop otherPlant = col.GetComponent<DragAndDrop>();
+                if (otherPlant != null && otherPlant.onField)
                 {
-                    closepopup.SetActive(true);
+                    // Return the plant to its original position when colliding with another plant
+                    Debug.Log("Hitting another plant!!");
+                    DestroyPlant(); // Destroy the initiating plant
                 }
             }
-            StartCoroutine(SendPlantDataToServer(plantType, Row, Col, statusInputField.text, int.Parse(moistureInputField.text), int.Parse(temperatureInputField.text), int.Parse(pressureInputField.text)));
+             else if (col.CompareTag("Environment"))
+            {
+                if (enteredField)
+                {
+                    // If the plant has entered the field and hits an environment object, trigger RemovePlant
+
+                    Debug.Log(col.GetComponent<Collider>().name);
+                    RemovePlant();
+                }
+                else
+                {
+                    // If the plant has not entered the field and hits an environment object, set it to inactive
+                    gameObject.SetActive(false);
+                }
+            }
+            else if (!col.GetComponent<Collider>().name.StartsWith("NonField"))
+            {
+                // Disable collision with non-field objects
+                GetComponent<Collider>().enabled = false;
+            }
         }
+        else if (col.CompareTag("robot"))
+        {
+            // Destroy the plant if it collides with an object with the "robot" tag
+
+            Debug.Log("hitting with the robot !!");
+            DestroyPlant();
+        }
+    }
+
+    IEnumerator EnterFieldCoroutine(Collider col)
+    {
+        var fieldStatus = col.GetComponent<FieldStatus>();
+        Col = fieldStatus.colIndex;
+        Row = fieldStatus.rowIndex;
+
+        // Check if field is full
+        if (!fieldStatus.isFull)
+        {
+            if (!enteredField)
+            {
+            inputPopUp.SetActive(true);
+            }
+            closepopup = GameObject.FindWithTag("closepopup");
+            if (closepopup && closepopup.activeSelf)
+            {
+                closepopup.SetActive(false);
+            }
+            onField = true;
+            fieldStatus.setFull();
+            this.gameObject.transform.parent = col.gameObject.transform;
+            this.gameObject.transform.localPosition = new Vector3(0, 0, 0);
+
+            // Set enteredField to true when the plant enters the field
+            enteredField = true;
+
+            CollisionImmune collisionImmune = this.GetComponent<CollisionImmune>();
+            if (collisionImmune != null)
+            {
+                collisionImmune.enabled = true;
+            }
+
+            // Rigidbody rb = GetComponent<Rigidbody>();
+            // rb.WakeUp();  // Wake up the Rigidbody
+
+            // // Disable gravity with a frame delay
+            // rb.useGravity = false;
+            yield return null;  // Wait for the next frame
+            //yield return new WaitForSeconds(2);
+
+            // Disable collider
+            // GetComponent<Collider>().enabled = false;
+        }
+        else
+        {
+            // Field is full, check if the plant has entered the field
+            if (enteredField)
+            {
+                // Plant has entered the field, return it to its initial position
+                Debug.Log("returning to the initial position");
+                ReturnToOriginalPosition();
+
+
+            }
+            else
+            {
+                // Plant has not entered the field, set it to inactive
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+   void ReturnToOriginalPosition()
+    {
+        // Return the plant to its original position only when the plant has entered the field and is being dragged
+        if (enteredField)
+        {
+            Row = originalRow;
+            Col = originalCol;
+            var initialFieldStatus = getFieldStatus(originalRow, originalCol);
+
+            Debug.Log("now returning to " +  originalRow + " " + originalCol );
+
+            if (initialFieldStatus != null)
+            {
+                transform.parent = initialFieldStatus.transform;
+                transform.localPosition = new Vector3(0, 0, 0);
+
+                
+            }
+            else
+            {
+                // Handle the case where the initialFieldStatus is not found (optional)
+                Debug.LogWarning("Initial field status not found for Row: " + originalRow + ", Col: " + originalCol);
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        // Check if the plant is leaving the field
+        if (col.GetComponent<Collider>().name == "Field(Clone)")
+        {
+            var fieldStatus = col.GetComponent<FieldStatus>();
+
+            // Reset field status to false when the plant leaves the field
+            // Rigidbody rb = GetComponent<Rigidbody>();
+
+            // // Enable gravity
+            // if (rb)
+            // {
+            //     // Enable gravity
+            //     rb.useGravity = true;
+            // }
+            // else
+            // {
+            //     Debug.LogError("Rigidbody component not found!");
+            // }
+
+            // // Enable collision detection
+            // GetComponent<Collider>().enabled = true;
+
+            // Reset field status to false when the plant leaves the field
+            fieldStatus.setEmpty();
+        }
+        else
+        {
+            // Check if the collider is another field clone
+            if (col.GetComponent<Collider>().name.StartsWith("Field(Clone)"))
+            {
+                // Return the plant to its original position
+                transform.parent = null;
+                transform.localPosition = new Vector3(0, 0, 0);
+
+                // Optionally, you can add any other logic related to the plant hitting another field clone
+            }
+            else if (col.CompareTag("robot"))
+            {
+                // Destroy the plant if it collides with an object with the "robot" tag
+                DestroyPlant();
+            }
+        }
+    }
+
+    void DestroyPlant()
+    {
+        // Destroy the plant and handle any other logic related to the destruction
+        Destroy(gameObject);
+    }
+
+
+    public void RemovePlant()
+    {
+    StartCoroutine(RemovePlantData(Row, Col));
+    // Optionally, you can add any other logic related to plant removal
+    Debug.Log("starting removing the plant on Row : " + Row + " COL: " +  Col);
+    }
+
+   public void setSend(GameObject window)
+    {
+    if (moistureInputField.text != "" && temperatureInputField.text != "" && pressureInputField.text != "")
+    {
+        Debug.Log(moistureInputField.text);
+        Debug.Log(temperatureInputField.text);
+        Debug.Log(pressureInputField.text);
+
+        // Finding info about the plant to send to the database
+        var plantType = this.gameObject.tag;
+
+        // Access the selected value from the dropdown
+        string selectedStatus = statusDropdown.options[statusDropdown.value].text;
+
+        Debug.Log(selectedStatus);
+
+        window.SetActive(false);
+        closepopup = GameObject.FindWithTag("closepopup");
+
+        if (closepopup)
+        {
+            if (!closepopup.activeSelf)
+            {
+                closepopup.SetActive(true);
+            }
+        }
+
+        StartCoroutine(SendPlantDataToServer(plantType, Row, Col, selectedStatus, int.Parse(moistureInputField.text), int.Parse(temperatureInputField.text), int.Parse(pressureInputField.text)));
+    }
     }
 
     IEnumerator SendPlantDataToServer(string type, int rowIndex, int colIndex, string status, int moist, int temp, int pressure)
     {
         // Create a JSON object with the default plant data using JsonUtility
+        var plantStatus = GetComponent<PlantStatus>();
+        plantStatus.name = type;
+        plantStatus.type = type;
+        plantStatus.status = status;
+        plantStatus.rowIndex = rowIndex;
+        plantStatus.moisture = moist;
+        plantStatus.temperature = temp;
+        plantStatus.pressure = pressure;
+
+        Status1.text = "Status: " + status;
+        Type1.text = "Plant Type: " + type;
+        moistureText1.text = "Moisture (%): " + moist;
+        temperatureText1.text = "Temperature (°C): " + temp;
+        pressureText1.text = "Pressure (Pa): " + pressure;
+        Position1.text = "Position: " + "(" + rowIndex + ", " + colIndex + ")";
+            
+
+// Repeat the pattern for other properties...
+
         PlantData plantData = new PlantData
         {
             plantType = type,
@@ -249,10 +441,23 @@ public class DragAndDrop : MonoBehaviour
         else
         {
             Debug.Log("delete success");
+            Destroy(gameObject);
         }
     }
 
-
+    private FieldStatus getFieldStatus(int row, int col)
+    {
+        var fields = GameObject.FindGameObjectsWithTag("field");
+        foreach (var field in fields)
+        {
+            var fieldStatus = field.GetComponent<FieldStatus>();
+            if (fieldStatus != null && fieldStatus.rowIndex == row && fieldStatus.colIndex == col)
+            {
+                return fieldStatus;
+            }
+        }
+        return null;
+    }
 
     [System.Serializable]
     public class PlantRequestData
@@ -279,4 +484,4 @@ public class DragAndDrop : MonoBehaviour
     {
         public string username;
     }
-}
+}                                  

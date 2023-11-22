@@ -30,7 +30,7 @@ const plantSchema = new mongoose.Schema({
       },
       status: {
         type: String,
-        enum: ['Healthy', 'Diseased', 'Unknown'],
+        enum: ['Healthy', 'Diseased', 'Unknown', "In Danger", "Dead"],
         default: 'Unknown',
       },
       moisturePercentage: {

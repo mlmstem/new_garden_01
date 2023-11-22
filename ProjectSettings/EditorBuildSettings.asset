@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestFetch.unity
     guid: 503e65c46c96a4fafb1d7ee958fd7a0a
+  - enabled: 1
+    path: Assets/Scenes/BarGraph Overview.unity
+    guid: 430e86c7ce451db4dbf3a20edd47d7e5
   m_configObjects: {}
