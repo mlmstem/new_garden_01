@@ -67,14 +67,31 @@ public class PlantStatus : MonoBehaviour
         data.rowIndex = colIndex;
         data.colIndex = rowIndex;
 
-        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getPlantData");
-        request.SetRequestHeader("Content-Type", "application/json");
-        string requestBody = JsonUtility.ToJson(data);
-        byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
-        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
-        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+         string url = $"http://127.0.0.1:13756/account/getPlantData?username={username}&colIndex={rowIndex}&rowIndex={colIndex}";
+         UnityWebRequest request = UnityWebRequest.Get(url);
 
-        yield return request.SendWebRequest();
+        // request.SetRequestHeader("Content-Type", "application/json");
+        // string requestBody = JsonUtility.ToJson(data);
+        // byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        // request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
+        // request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+        // yield return request.SendWebRequest();
+
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while (!handler.isDone)
+        {
+            startTime += Time.deltaTime;
+
+            if (startTime > 3.0f)
+            {
+                break;
+            }
+
+            yield return null;
+        }
 
         if (request.result != UnityWebRequest.Result.Success) // Error
         {

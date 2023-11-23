@@ -13,12 +13,16 @@ module.exports = app => {
         // use req.query to get what user inputing into the browser
         // use res (response) to send the information back to the browser
 
+        console.log("logging in");
+
         const { rUsername, rPassword } = req.query;
 
         if (rUsername == null || rPassword == null) {
             res.send("Invalid credentials");
             return;
         }
+
+
         // console.log("Received request with parameters:", req.query);
         //console.log("Sending response:", res);
 
@@ -116,7 +120,7 @@ module.exports = app => {
     });
 
     app.get('/account/getProfileData', async (req, res) => {
-        const { username } = req.body;
+        const { username } = req.query;
         // console.log(req.body);
 
         // find user in database
@@ -140,8 +144,10 @@ module.exports = app => {
 
     app.get('/account/getCurrentGarden', async (req, res) => {
 
+        console.log("receiving web request");
 
-        const { username } = req.body;
+
+        const { username } = req.query;
         // console.log(req.body);
 
         // find user in database
@@ -225,7 +231,8 @@ module.exports = app => {
 
 
     app.get('/account/getGraph', async (req, res) => {
-        const { username } = req.body;
+
+        const { username } = req.query;
     
         // Find user in the database
         const userAccount = await Account.findOne({ username });
@@ -276,7 +283,7 @@ module.exports = app => {
 
 
     app.get('/account/getPlantData', async (req, res) => {
-        const { username, rowIndex, colIndex } = req.body;
+        const { username, rowIndex, colIndex } = req.query;
         // console.log(req.body);
 
         // find user in database

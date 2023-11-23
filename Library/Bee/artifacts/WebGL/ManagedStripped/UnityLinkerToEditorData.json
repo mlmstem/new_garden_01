@@ -62,6 +62,7 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -79,6 +80,7 @@
           {
             "name": "AudioListener",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -119,6 +121,7 @@
           {
             "name": "Camera",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -142,6 +145,7 @@
           {
             "name": "Cubemap",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -165,6 +169,7 @@
           {
             "name": "EditorExtension",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -182,6 +187,7 @@
           {
             "name": "GameObject",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -221,6 +227,7 @@
           {
             "name": "LevelGameManager",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -232,6 +239,7 @@
           {
             "name": "Light",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -252,6 +260,7 @@
           {
             "name": "LightingSettings",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity"
             ],
@@ -261,6 +270,7 @@
           {
             "name": "LightmapSettings",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -278,6 +288,7 @@
           {
             "name": "Material",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -289,6 +300,7 @@
           {
             "name": "Mesh",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -300,6 +312,7 @@
           {
             "name": "MeshFilter",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -311,6 +324,7 @@
           {
             "name": "MeshRenderer",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -322,6 +336,7 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -339,6 +354,7 @@
           {
             "name": "MonoScript",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -350,6 +366,7 @@
           {
             "name": "NamedObject",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -385,6 +402,7 @@
           {
             "name": "RectTransform",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -402,6 +420,7 @@
           {
             "name": "RenderSettings",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -437,6 +456,7 @@
           {
             "name": "Shader",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -468,6 +488,7 @@
           {
             "name": "Sprite",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity"
@@ -678,6 +699,8 @@
           {
             "name": "BoxCollider",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
+              "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
               "Assets/Scenes/TestScene.unity"
@@ -688,6 +711,8 @@
           {
             "name": "CapsuleCollider",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
+              "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity"
             ],
             "dependencyType": 0,
@@ -710,6 +735,7 @@
           {
             "name": "MeshCollider",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -736,6 +762,8 @@
           {
             "name": "SphereCollider",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
+              "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestScene.unity"
             ],
@@ -907,11 +935,18 @@
           {
             "name": "Font",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
               "Assets/Scenes/TestScene.unity"
             ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "TextMesh",
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
@@ -953,6 +988,7 @@
           {
             "name": "Canvas",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",
@@ -970,6 +1006,7 @@
           {
             "name": "CanvasRenderer",
             "scenes": [
+              "Assets/Scenes/BarGraph Overview.unity",
               "Assets/Scenes/Login Scene.unity",
               "Assets/Scenes/MainTestScene.unity",
               "Assets/Scenes/TestFetch.unity",

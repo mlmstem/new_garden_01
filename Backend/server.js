@@ -2,6 +2,15 @@ const express = require('express');
 const keys = require('./config/keys.js');
 const app = express();
 const Grid = require('gridfs-stream');
+const path = require('path');
+const cors = require('cors');
+
+app.use(cors());
+
+
+app.use(express.static('Backend'));
+
+app.use('/Version4', express.static(path.join(__dirname, 'Version4')));
 
 
 // Setting up DB
@@ -10,6 +19,8 @@ const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true,
 });
+
+
 
 // Configure GridFS to use the Mongoose connection
 const conn = mongoose.connection;

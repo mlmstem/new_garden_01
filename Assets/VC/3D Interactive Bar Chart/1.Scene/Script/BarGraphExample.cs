@@ -52,14 +52,30 @@ public class BarGraphExample : MonoBehaviour
         userData data = new userData();
         data.username = username;
 
-        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getGraph");
-        request.SetRequestHeader("Content-Type", "application/json");
-        string requestBody = JsonUtility.ToJson(data);
-        byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
-        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
-        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        string url = $"http://127.0.0.1:13756/account/getGraph?username={username}";
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        //request.SetRequestHeader("Content-Type", "application/json");
+        //string requestBody = JsonUtility.ToJson(data);
+        //byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        //request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
+        //request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
 
-        yield return request.SendWebRequest();
+        //yield return request.SendWebRequest();
+
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while (!handler.isDone)
+        {
+            startTime += Time.deltaTime;
+
+            if (startTime > 10.0f)
+            {
+                break;
+            }
+
+            yield return null;
+        }
 
         if (request.result != UnityWebRequest.Result.Success)
         {

@@ -1,0 +1,12 @@
+*{
+    margin : 0 px;
+    padding : 0 px;
+    box-sizing:  border-box;
+}
+
+.container {
+    min-height: 100vh;
+    min-width: none;
+    background-image: url('FarmbotBackground.gif');
+}
+

@@ -11,6 +11,8 @@ public class CreateGarden : MonoBehaviour
     [SerializeField] private GameObject eggplantPrefab;
     [SerializeField] private GameObject applePrefab;
 
+    [SerializeField] private string authenticationEndpoint = "http://127.0.0.1:13756/account/getCurrentGarden";
+
     private int rows = 3;
     private int column = 4;
 
@@ -46,28 +48,52 @@ public class CreateGarden : MonoBehaviour
 
     private IEnumerator ShowCurrentGarden()
     {
+
+        Debug.Log("sending unity request");
         string username = PlayerPrefs.GetString("Username", "DefaultUsername");
         userData data = new userData();
         data.username = username;
 
-        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getCurrentGarden");
-        request.SetRequestHeader("Content-Type", "application/json");
-        string requestBody = JsonUtility.ToJson(data);
-        byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
-        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
-        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        Debug.Log("username is : " + data.username);
 
-        yield return request.SendWebRequest();
+        
+        UnityWebRequest request = UnityWebRequest.Get($"{authenticationEndpoint}?username={username}");
+        //UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getCurrentGarden");
+        // request.SetRequestHeader("Content-Type", "application/json");
+        // string requestBody = JsonUtility.ToJson(data);
+        // byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        // request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
+        //request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while (!handler.isDone)
+        {
+            startTime += Time.deltaTime;
+
+            if (startTime > 10.0f)
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
+        //yield return request.SendWebRequest();
 
         if (request.result != UnityWebRequest.Result.Success) // Error
         {
             Debug.Log(request.error);
+            // Debug.LogError(request.error);
+            // Debug.LogError(request.downloadHandler.text);
         }
         else
         {
             // Deserialize the received JSON data into an array of objects
             GardenDataArray gardenDataArrayWrapper = JsonUtility.FromJson<GardenDataArray>(request.downloadHandler.text);
             GardenData[] gardenDataArray = gardenDataArrayWrapper.gardenDataArray;
+
+            Debug.Log("Accquiring the garden array data");
 
             // Iterate through the array and instantiate objects in Unity
             for (int i = 0; i < rows * column && i < gardenDataArray.Length; i++)
@@ -77,6 +103,8 @@ public class CreateGarden : MonoBehaviour
             }
         }
     }
+
+
 
     public void showCurrentPlants(int x, int y, string type, string status)
     {

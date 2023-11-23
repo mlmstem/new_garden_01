@@ -47,22 +47,44 @@ public class CheckStatus : MonoBehaviour
 
     private IEnumerator GetGraphData()
     {
+        Debug.Log("sending unity request");
         string username = PlayerPrefs.GetString("Username", "DefaultUsername");
         userData data = new userData();
         data.username = username;
 
-        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getGraph");
-        request.SetRequestHeader("Content-Type", "application/json");
-        string requestBody = JsonUtility.ToJson(data);
-        byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
-        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
-        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        Debug.Log("username is : " + data.username);
 
-        yield return request.SendWebRequest();
+
+        string url = $"http://127.0.0.1:13756/account/getCurrentGarden?username={username}";
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        //request.SetRequestHeader("Content-Type", "application/json");
+        //string requestBody = JsonUtility.ToJson(data);
+        //byte[] usernameRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
+        //request.uploadHandler = (UploadHandler)new UploadHandlerRaw(usernameRaw);
+        //request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+
+        //yield return request.SendWebRequest();
+
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while (!handler.isDone)
+        {
+            startTime += Time.deltaTime;
+
+            if (startTime > 10.0f)
+            {
+                break;
+            }
+
+            yield return null;
+        }
 
         if (request.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(request.error);
+            Debug.LogError(request.error);
+            Debug.LogError(request.downloadHandler.text);
         }
         else
         {
