@@ -1330,7 +1330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df4a663ade5949de97c52549004067b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantServer: http://127.0.0.1:13756/account/add-plant
+  plantServer: /account/add-plant
+  plantServer1: /account/removePlant
   inputPopUp: {fileID: 8436368546472222963, guid: 7f4468c63e437e94fa635d7a6e05c336, type: 3}
   removalPopUp: {fileID: 3631902340229731262}
   onField: 0
