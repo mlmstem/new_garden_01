@@ -11,7 +11,8 @@ public class CreateGarden : MonoBehaviour
     [SerializeField] private GameObject eggplantPrefab;
     [SerializeField] private GameObject applePrefab;
 
-    [SerializeField] private string authenticationEndpoint = "http://127.0.0.1:13756/account/getCurrentGarden";
+    //[SerializeField] private string authenticationEndpoint = "http://127.0.0.1:13756/account/getCurrentGarden";
+    [SerializeField] private string authenticationEndpoint = "/account/getCurrentGarden";
 
     private int rows = 3;
     private int column = 4;

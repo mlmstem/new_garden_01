@@ -55,7 +55,8 @@ public class CheckStatus : MonoBehaviour
         Debug.Log("username is : " + data.username);
 
 
-        string url = $"http://127.0.0.1:13756/account/getCurrentGarden?username={username}";
+        //string url = $"http://127.0.0.1:13756/account/getCurrentGarden?username={username}";
+        string url = $"/account/getCurrentGarden?username={username}";
         UnityWebRequest request = UnityWebRequest.Get(url);
         //request.SetRequestHeader("Content-Type", "application/json");
         //string requestBody = JsonUtility.ToJson(data);

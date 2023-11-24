@@ -6903,7 +6903,7 @@ struct DelegateEntry_tEF8C32582207CB5E2FE7AE07C62560D8CDA846DC  : public Runtime
 struct U3CU3Ec_tBA1A111849D52D0678AB3B2D6B256A8F90FAAC7E  : public RuntimeObject
 {
 };
-struct U3CEnterFieldCoroutineU3Ed__28_tB9BA7850CC1FD0A59354415C2E2041EE6C381CDD  : public RuntimeObject
+struct U3CEnterFieldCoroutineU3Ed__29_t8F4C8347F7C8A3148D82B74CC97812FF2FFC866A  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -6912,7 +6912,7 @@ struct U3CEnterFieldCoroutineU3Ed__28_tB9BA7850CC1FD0A59354415C2E2041EE6C381CDD 
 	FieldStatus_t9044C463EAF5E7DA81A102E70ADD07CAFD4F9B34* ___U3CfieldStatusU3E5__1;
 	CollisionImmune_t1CD52942FE68091E68FF065B565B68777851CC82* ___U3CcollisionImmuneU3E5__2;
 };
-struct U3CRemovePlantDataU3Ed__36_t1E0A1356A103B283DE03EE0AC558F80F598333CF  : public RuntimeObject
+struct U3CRemovePlantDataU3Ed__37_t62C6C219B2B0EB7159834FCE93A2EA97DFE6BEEB  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -6925,7 +6925,7 @@ struct U3CRemovePlantDataU3Ed__36_t1E0A1356A103B283DE03EE0AC558F80F598333CF  : p
 	String_t* ___U3CrequestBodyU3E5__4;
 	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___U3CrequestBodyRawU3E5__5;
 };
-struct U3CSendPlantDataToServerU3Ed__34_tFE3219ADB7BB15A74518521BA79966BD6C2B7CE9  : public RuntimeObject
+struct U3CSendPlantDataToServerU3Ed__35_tAC95CB302CE54EBD8F9D71271E84FAA95E551272  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -29668,6 +29668,7 @@ struct DisableForcesAndCollisions_tF659263CA904243AD825C3223A769ED1AB88605A  : p
 struct DragAndDrop_t1C7ED55A6AEBB48D767F151363053F4E3025E2E4  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	String_t* ___plantServer;
+	String_t* ___plantServer1;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___inputPopUp;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___removalPopUp;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___mousePosition;
@@ -43047,11 +43048,11 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize3677 = { sizeof(PlantData_t6
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3678;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3678 = { sizeof(userData_t852977956DB6232DB0F6EBEC2001D6EE1DFAD429), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3679;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3679 = { sizeof(U3CEnterFieldCoroutineU3Ed__28_tB9BA7850CC1FD0A59354415C2E2041EE6C381CDD), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3679 = { sizeof(U3CEnterFieldCoroutineU3Ed__29_t8F4C8347F7C8A3148D82B74CC97812FF2FFC866A), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3680;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3680 = { sizeof(U3CRemovePlantDataU3Ed__36_t1E0A1356A103B283DE03EE0AC558F80F598333CF), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3680 = { sizeof(U3CRemovePlantDataU3Ed__37_t62C6C219B2B0EB7159834FCE93A2EA97DFE6BEEB), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3681;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3681 = { sizeof(U3CSendPlantDataToServerU3Ed__34_tFE3219ADB7BB15A74518521BA79966BD6C2B7CE9), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3681 = { sizeof(U3CSendPlantDataToServerU3Ed__35_tAC95CB302CE54EBD8F9D71271E84FAA95E551272), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3682;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3682 = { sizeof(DragAndDrop_t1C7ED55A6AEBB48D767F151363053F4E3025E2E4), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3683;

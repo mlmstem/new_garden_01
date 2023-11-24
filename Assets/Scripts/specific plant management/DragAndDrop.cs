@@ -7,7 +7,11 @@ using UnityEngine.UI;
 
 public class DragAndDrop : MonoBehaviour
 {
-    [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
+    
+    //[SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
+
+    [SerializeField] private string plantServer = "/account/add-plant";
+    [SerializeField] private string plantServer1 = "/account/removePlant";
     [SerializeField] private GameObject inputPopUp;
     [SerializeField] private GameObject removalPopUp;
 
@@ -425,12 +429,14 @@ public class DragAndDrop : MonoBehaviour
         Debug.Log("removing plant on position " + rowIndex + colIndex);
 
         // Use UnityWebRequest.Post to send data as JSON
-        UnityWebRequest request = UnityWebRequest.PostWwwForm("http://127.0.0.1:13756/account/removePlant", "");
+        //UnityWebRequest request = UnityWebRequest.PostWwwForm("http://127.0.0.1:13756/account/removePlant", "");
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(plantServer1, "");
         request.SetRequestHeader("Content-Type", "application/json");
 
         string requestBody = JsonUtility.ToJson(data);
         byte[] requestBodyRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);
         request.uploadHandler = new UploadHandlerRaw(requestBodyRaw);
+        //request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
 
         yield return request.SendWebRequest();
 

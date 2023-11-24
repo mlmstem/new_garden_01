@@ -26,7 +26,8 @@ public class showProfileInfo : MonoBehaviour
         data.username = username;
 
         
-        string url = $"http://127.0.0.1:13756/account/getProfileData?username={username}";
+        // string url = $"http://127.0.0.1:13756/account/getProfileData?username={username}";
+        string url = $"/account/getProfileData?username={username}";
         UnityWebRequest request = UnityWebRequest.Get(url);
         //UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getProfileData");
         // request.SetRequestHeader("Content-Type", "application/json");

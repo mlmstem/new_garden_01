@@ -52,7 +52,8 @@ public class BarGraphExample : MonoBehaviour
         userData data = new userData();
         data.username = username;
 
-        string url = $"http://127.0.0.1:13756/account/getGraph?username={username}";
+        //string url = $"http://127.0.0.1:13756/account/getGraph?username={username}";
+        string url = $"/account/getGraph?username={username}";
         UnityWebRequest request = UnityWebRequest.Get(url);
         //request.SetRequestHeader("Content-Type", "application/json");
         //string requestBody = JsonUtility.ToJson(data);
