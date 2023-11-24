@@ -3417,7 +3417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df4a663ade5949de97c52549004067b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantServer: http://127.0.0.1:13756/account/add-plant
+  plantServer: http://127.0.0.1:1375/account/add-plant
+  plantServer1: /account/removePlant
   inputPopUp: {fileID: 3670668021978059106}
   removalPopUp: {fileID: 8549434351405063748}
   onField: 0

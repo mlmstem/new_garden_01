@@ -451,7 +451,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7928}
     - Class: 114
-      Script: {instanceID: 34262}
+      Script: {instanceID: 50154}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -552,7 +552,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6772}
     - Class: 114
-      Script: {instanceID: 8700}
+      Script: {instanceID: 8330}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2117,6 +2117,12 @@ ScriptsOnlyBuild:
     className: TeleType
   - hash:
       serializedVersion: 2
+      Hash: 8c9ab86ed3a685782342df2dd0a57eb3
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Login
+  - hash:
+      serializedVersion: 2
       Hash: b6e08e9716184d5736af5af9ffaf1513
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -2163,12 +2169,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 8c9ab86ed3a685782342df2dd0a57eb3
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Login
   platform: 20
   scenePathNames:
   - Assets/Scenes/Login Scene.unity

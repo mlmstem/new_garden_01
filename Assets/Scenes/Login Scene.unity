@@ -3762,7 +3762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a2521c792d8db45a7097abc9e5ff5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  authenticationEndpoint: http://127.0.0.1:13756/account
+  authenticationEndpoint: /account
   alertText: {fileID: 1258154065}
   loginButton: {fileID: 786227694}
   usernameInputField: {fileID: 544777768}
