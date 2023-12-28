@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "This is a established transport layer between web server and Mongodb",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "npx nodemon server.js",
     "production": "node server.js",
@@ -11,7 +11,7 @@
   "author": "Chris",
   "license": "ISC",
   "engines": {
-    "node": "18.13.0"
+    "node": "18.x"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
