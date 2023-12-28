@@ -8,7 +8,7 @@
       {
         "src": "package.json",
         "use": "@vercel/static-build",
-        "config": { "command": "npm install && npm run build" }
+        "config": { "command": "npm install && npm run dev" }
       }
     ],
     "routes": [
