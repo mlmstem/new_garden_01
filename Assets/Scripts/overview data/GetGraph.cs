@@ -18,8 +18,8 @@ public class GetGraph : MonoBehaviour
 
     private IEnumerator GetGraphImg()
     {
-        //UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getGraph");
-        UnityWebRequest request = UnityWebRequest.Get("/account/getGraph");
+        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:13756/account/getGraph");
+        // UnityWebRequest request = UnityWebRequest.Get("/account/getGraph");
         //request.SetRequestHeader("Content-Type", "application/json");
         string requestBody = JsonUtility.ToJson(imgID);
         byte[] requestRaw = System.Text.Encoding.UTF8.GetBytes(requestBody);

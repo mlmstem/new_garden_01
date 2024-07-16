@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2022.3/release' branch; Version is '2022.3.5f1 (9674261d40ee) revision 9860134'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 15713 MB
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'en' Physical Memory: 15713 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -15,7 +15,7 @@ C:/Users/Chris/Unity Garden app/My project (1)
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-59499
+63981
 Successfully changed project path to: C:/Users/Chris/Unity Garden app/My project (1)
 C:/Users/Chris/Unity Garden app/My project (1)
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,11 +49,11 @@ C:/Users/Chris/Unity Garden app/My project (1)
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [25236] Host "[IP] 192.168.0.23 [Port] 0 [Flags] 2 [Guid] 1622665259 [EditorId] 1622665259 [Version] 1048832 [Id] WindowsEditor(7,D_Device_001) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [43764] Host "[IP] 192.168.0.23 [Port] 0 [Flags] 2 [Guid] 2155733359 [EditorId] 2155733359 [Version] 1048832 [Id] WindowsEditor(7,D_Device_001) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [25236] Host "[IP] 192.168.0.23 [Port] 0 [Flags] 2 [Guid] 1622665259 [EditorId] 1622665259 [Version] 1048832 [Id] WindowsEditor(7,D_Device_001) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [43764] Host "[IP] 192.168.0.23 [Port] 0 [Flags] 2 [Guid] 2155733359 [EditorId] 2155733359 [Version] 1048832 [Id] WindowsEditor(7,D_Device_001) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 29.16 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 35.08 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.5f1 (9674261d40ee)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -63,52 +63,52 @@ Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
     Renderer: NVIDIA GeForce RTX 3050 Ti Laptop GPU (ID=0x25a0)
     Vendor:   NVIDIA
-    VRAM:     3976 MB
-    Driver:   31.0.15.3713
+    VRAM:     3977 MB
+    Driver:   31.0.15.4680
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56368
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56772
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010538 seconds.
-- Loaded All Assemblies, in  0.353 seconds
+Registered in 0.013414 seconds.
+- Loaded All Assemblies, in  0.429 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.240 seconds
-Domain Reload Profiling: 591ms
-	BeginReloadAssembly (132ms)
+- Finished resetting the current domain, in  0.261 seconds
+Domain Reload Profiling: 687ms
+	BeginReloadAssembly (167ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (30ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (59ms)
-	LoadAllAssembliesAndSetupDomain (121ms)
-		LoadAssemblies (127ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (78ms)
+	LoadAllAssembliesAndSetupDomain (137ms)
+		LoadAssemblies (160ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (113ms)
-			TypeCache.Refresh (113ms)
-				TypeCache.ScanAssembly (103ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (240ms)
+		AnalyzeDomain (129ms)
+			TypeCache.Refresh (128ms)
+				TypeCache.ScanAssembly (116ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (261ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (191ms)
+		SetupLoadedEditorAssemblies (200ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (10ms)
+			InitializePlatformSupportModulesInManaged (14ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (130ms)
-			ProcessInitializeOnLoadMethodAttributes (44ms)
+			ProcessInitializeOnLoadAttributes (132ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -118,52 +118,52 @@ Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\Chris\Unity Garden app\My project (1)\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\Chris\Unity Garden app\My project (1)\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-- Loaded All Assemblies, in  0.812 seconds
-Refreshing native plugins compatible for Editor in 5.03 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.920 seconds
+Refreshing native plugins compatible for Editor in 4.34 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.477 seconds
-Domain Reload Profiling: 1286ms
-	BeginReloadAssembly (122ms)
+- Finished resetting the current domain, in  0.529 seconds
+Domain Reload Profiling: 1443ms
+	BeginReloadAssembly (135ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (20ms)
-	RebuildCommonClasses (27ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (41ms)
-	LoadAllAssembliesAndSetupDomain (610ms)
-		LoadAssemblies (406ms)
+		CreateAndSetChildDomain (23ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (688ms)
+		LoadAssemblies (456ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (260ms)
-			TypeCache.Refresh (243ms)
-				TypeCache.ScanAssembly (232ms)
-			ScanForSourceGeneratedMonoScriptInfo (14ms)
+		AnalyzeDomain (295ms)
+			TypeCache.Refresh (276ms)
+				TypeCache.ScanAssembly (263ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
 			ResolveRequiredComponents (4ms)
-	FinalizeReload (477ms)
+	FinalizeReload (529ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (352ms)
+		SetupLoadedEditorAssemblies (388ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (7ms)
+			InitializePlatformSupportModulesInManaged (9ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (58ms)
-			ProcessInitializeOnLoadAttributes (261ms)
-			ProcessInitializeOnLoadMethodAttributes (16ms)
-			AfterProcessingInitializeOnLoad (8ms)
+			BeforeProcessingInitializeOnLoad (62ms)
+			ProcessInitializeOnLoadAttributes (281ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (12ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 4.36 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 5.32 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3567 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (158.8 KB). Loaded Objects now: 4064.
+Unloading 40 unused Assets / (158.9 KB). Loaded Objects now: 4064.
 Memory consumption went from 160.4 MB to 160.3 MB.
-Total: 3.586300 ms (FindLiveObjects: 0.281500 ms CreateObjectMapping: 0.218500 ms MarkObjects: 2.907500 ms  DeleteObjects: 0.177700 ms)
+Total: 4.098400 ms (FindLiveObjects: 0.494400 ms CreateObjectMapping: 0.155100 ms MarkObjects: 3.255400 ms  DeleteObjects: 0.189900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -180,280 +180,17 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 650828.110792 seconds.
-  path: Assets/Prefabs
-  artifactKey: Guid(9dcc891aa53c5d14aa10d5311ea3038e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs using Guid(9dcc891aa53c5d14aa10d5311ea3038e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfc533f80cef913c57b6aabcbde87410') in 0.002864 seconds
+  Time since last request: 397316.658545 seconds.
+  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
+  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '233143a1a58e058959b5ec6bbce520b6') in 0.293469 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 624
 ========================================================================
 Received Import Request.
-  Time since last request: 12.197668 seconds.
+  Time since last request: 0.000029 seconds.
   path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
   artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fb27b3681e9bf64af68b6a0a82c59b6') in 0.179962 seconds
+Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c726025229872a18710f303b9868bc0') in 0.050023 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.194347 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b952f5a548f62748fc255539013bd7c') in 0.043114 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.160363 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd66088bb9d486ca690eff5e3b8487bc') in 0.039667 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.151994 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b2e28425c546c93b1105c1a9f1d72f8') in 0.039373 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.174851 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ce6daec50c13940a9a0c965bcd04c44') in 0.039536 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.180996 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2bff7a83e50462750a3de2936fefd00') in 0.040968 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.175773 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af8b2a6738e1d9f190796be5422691f5') in 0.041808 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.182332 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6972b56719fcea92a0b185280f8a89b') in 0.041788 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.148404 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b56dee7669f8096a81beb83306b36cd') in 0.042465 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 0.186621 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Chilli.prefab
-  artifactKey: Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Chilli.prefab using Guid(a7bfba14e47e28646a8d9d46054cb45a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71f01095c27613129d3517ecddff8892') in 0.037966 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 384
-========================================================================
-Received Import Request.
-  Time since last request: 43.869921 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '460ec1950fee25dbd65adbfad1fdf7c2') in 0.051046 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Import Request.
-  Time since last request: 19.335240 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d8e38c288bd58d6def0aeb91eef663a') in 0.056447 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.328709 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac475aa27129df8668493082ab5e3a05') in 0.051944 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.154569 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41f7f7d6eab61ea8474427f33ff691e3') in 0.051638 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.146672 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7036223728249c431cf59873dece71a') in 0.053098 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.145776 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6742bacecd7d9abdf6f54becad2e9a7d') in 0.051068 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.162170 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e357c00ed2d39b5bdfa09997cc97d761') in 0.050070 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.143201 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96dfac11982475ecff3b967af420b473') in 0.048692 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 41.188398 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af25a72ca2c436cff86aaf73723fd78d') in 0.044908 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.358208 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48ba5ce41cb1dd04135c6fb3a98d681f') in 0.046173 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.162439 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e12e8f8be543efb820d583dca5991b3') in 0.052888 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.146126 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7b69d437debb718269f6226ded6ffc5') in 0.045771 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.163866 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fa08bf099c2810cdfe7cf4d478ec30c') in 0.047148 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.150608 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fffac715b3296a4fdff0e31a2da067e') in 0.046751 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 0.150637 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/eggplant.prefab
-  artifactKey: Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/eggplant.prefab using Guid(8a2960397387e69409d2f85200b0c2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a159f37785ff15f2c941edf2b8e92fa') in 0.052311 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 624
-========================================================================
-Received Import Request.
-  Time since last request: 14.459770 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a00e6ce7e4830487c4c9f983581940aa') in 0.040232 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Import Request.
-  Time since last request: 0.341032 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10e77418337f77c660fc354ac3fc73b1') in 0.045172 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Import Request.
-  Time since last request: 0.151276 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29d88497340f2f73f197ebb8c1af5fe7') in 0.046866 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Import Request.
-  Time since last request: 0.159918 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3f03784a3a16a63027eb500f9e2f6ca') in 0.047405 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Import Request.
-  Time since last request: 0.145694 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc4bf2668593141ba753a6b338d3b2d5') in 0.042119 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Import Request.
-  Time since last request: 0.156579 seconds.
-  path: Assets/LowPolyFarmLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFarmLite/Prefabs/Tomato.prefab using Guid(197cc2bc9b5c847b79afcd554abdafdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58f44590fefe4f4aea44560d56520c89') in 0.041722 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 398
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 4.03 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 16 unused Assets / (118.6 KB). Loaded Objects now: 4074.
-Memory consumption went from 102.0 MB to 101.9 MB.
-Total: 3.556000 ms (FindLiveObjects: 0.291600 ms CreateObjectMapping: 0.114000 ms MarkObjects: 2.943500 ms  DeleteObjects: 0.206100 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

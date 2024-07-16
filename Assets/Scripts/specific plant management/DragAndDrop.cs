@@ -8,10 +8,13 @@ using UnityEngine.UI;
 public class DragAndDrop : MonoBehaviour
 {
     
-    //[SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
+    [SerializeField] private string plantServer = "http://127.0.0.1:13756/account/add-plant";
 
-    [SerializeField] private string plantServer = "/account/add-plant";
-    [SerializeField] private string plantServer1 = "/account/removePlant";
+    // [SerializeField] private string plantServer = "/account/add-plant";
+    // [SerializeField] private string plantServer1 = "/account/removePlant";
+    [SerializeField] private string plantServer1 = "http://127.0.0.1:13756/account/removePlant";
+
+
     [SerializeField] private GameObject inputPopUp;
     [SerializeField] private GameObject removalPopUp;
 

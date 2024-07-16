@@ -67,8 +67,8 @@ public class PlantStatus : MonoBehaviour
         data.rowIndex = colIndex;
         data.colIndex = rowIndex;
 
-         //string url = $"http://127.0.0.1:13756/account/getPlantData?username={username}&colIndex={rowIndex}&rowIndex={colIndex}";
-         string url = $"/account/getPlantData?username={username}&colIndex={rowIndex}&rowIndex={colIndex}";
+         string url = $"http://127.0.0.1:13756/account/getPlantData?username={username}&colIndex={rowIndex}&rowIndex={colIndex}";
+        //  string url = $"/account/getPlantData?username={username}&colIndex={rowIndex}&rowIndex={colIndex}";
          UnityWebRequest request = UnityWebRequest.Get(url);
 
         // request.SetRequestHeader("Content-Type", "application/json");
