@@ -8,6 +8,8 @@ const cors = require('cors');
 app.use(cors());
 
 
+app.use(express.static('public'));
+
 app.use(express.static('Backend'));
 
 app.use('/Version4', express.static(path.join(__dirname, 'Version4')));
